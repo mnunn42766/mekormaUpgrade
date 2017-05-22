@@ -1,0 +1,333 @@
+﻿This License Agreement is a legal agreement between you (either an individual or a single entity), hereinafter “the Licensee”, and the manufacturer
+
+Kentico Software CZ s.r.o.
+with its registered office in Brno, Nové sady 996/25, Post Code 602 00, Czech Republic
+Company Identification Number 039 02 803
+a Company incorporated in the Companies Register kept by the Regional Court in Brno, Section C, Insert 46072 (hereinafter “the Licensor”).
+
+By installing and using the software, you agree to be bound by the terms of this license agreement. If you do not agree to the terms of this license agreement, do not install or use the software.
+
+The Licensor and the Licensee entered into this
+
+LICENCE AGREEMENT
+According to the Act No. 89/2012 Coll., Civil Code, as amended (‘Civil Code’) and according to the Act No. 121/2000 Coll., On the Rights of an Author, Rights Related to the Rights of an Author and the Amendment of Certain Act (Copyright Act), as amended (‘Copyright Act’).
+
+1. INTRODUCTORY PROVISIONS
+1.1. The Licensor is the executor of proprietary copyright rights to the computer program Kentico CMS (Content Management System) used for creation of web presentations (pages) and alteration of website content (website administration). The technical specification and description of the functionality of the computer program Kentico CMS according to the previous sentence is contained in the documentation relating to this computer program. This documentation is contained in Schedule no. 1 to this Agreement, which is accessible from the Internet address http://devnet.kentico.com/Documentation.aspx and which forms an inseparable part of this Agreement (‘Software’) and the contractual parties declare that they have become acquainted with the documentation prior to the conclusion of this Agreement.
+1.2. The Licensor offers the Software in the following editions: “Kentico Enterprise Marketing Solution (EMS)“, “Base“, “Ultimate“, and “Small Business“ (‘Software Editions’). The Licensor also allows free use of the Software whereby the functionality of the Software is limited for these purposes (‘Free Version of the Software’); special provisions relating to the Free Version of the Software are contained in Clause 6 of this Agreement. The Licensor also allows temporary free use of the Software in order to enable the Licensee to try the Software (‘Trial Version of the Software’); special provisions relating to the Trial Version of the Software are contained in Clause 7 of this Agreement.
+1.3. The Software, including its functionality, may change while this Agreement is effective by means of hotfixes, updates or upgrades. Individual development versions of the Software are labelled with Arabic numbers in the format x.y.z (e.g. version 1.2.1). When the Software is upgraded, the first figure changes. When the Software is updated, the second figure changes. When the Software is hotfixed, the third number changes. The Licensor reserves the right to make decisions concerning provision of Software hotfixes or updates entirely at his discretion and only for a period of time he considers to be appropriate. Upgrades of the Software may be offered to the Licensee under the conditions laid down by Clause 4 of this Agreement. The Licensee acknowledges that the development of the Software functionality as specified in this clause 1.3 may result in a change of the Software functionality and/or the Software documentation. The contractual parties agreed that if the aforesaid changes occur and the Licensee according to his consideration implements those changes, it will be considered as an acceptance of the changes of the specification and/or the documentation by the Licensee.
+1.4. This Agreement regulates the legal relationships between the Licensor and the Licensee relating to the use of the Software by the Licensee, as well as legal relationships arising between the contractual parties in relation to the provision of support services in respect of the use of the Software by the Licensee (Clause 4).
+
+2. SUBJECT MATTER OF THE AGREEMENT
+2.1. The Licensor hereby provides to the Licensee entitlement to exercise the right to use the Software (licence) by the means and to the extent specified by Clause 3 of this Agreement.
+2.2. In return for the grant of the licence according to Clause 2.1 of this Agreement, the Licensee hereby undertakes to pay to the Licensor remuneration in accordance with Clause 5.1 of this Agreement.
+2.3. The Licensor hereby undertakes to provide to the Licensee support services relating to the grant of the licence according to Clause 2.1 of this Agreement under the conditions and to the extent specified in Clause 4 of this Agreement.
+2.4. In return for the provision of support services according to Clause 2.3 of this Agreement, the Licensee hereby undertakes to pay to the Licensor remuneration under the conditions specified in Clause 5.2 of this Agreement.
+
+3. MEANS AND EXTENT OF EXERCISING THE RIGHT TO USE THE SOFTWARE (LICENCE)
+3.1. The Licensor grants the Software licence to the Licensee as a non-exclusive licence.
+3.2. The Licensee acquires the licence once the total of the Licensor’s licence remuneration has been paid (Clause 5.1) and once a so-called Software licence key has been provided (Clause 10.2). The licence is provided for a period of seventy (70) years from the acquisition of the licence according to the previous sentence. In the case of the “Rented” variant of the Software the licence is provided for the time hereof or for the period of time, for which a valid licence key is provided, depending on which is shorter; that does not affect the eventuality of a licence renewal and a new licence key issue.
+3.3. The Licensee may use the Software only for a purpose implied by this Agreement and in accordance with the function of the Software.
+3.4. The Licensee is entitled to use the Software by making a copy (installations) and by making the Software accessible to the public via the Internet (without territorial limitation). The Licensee is entitled to make a copy of the Software which is necessary for uploading and saving a web presentation in a computer – server memory, as well as for displaying, running and transmitting on the Internet, and for the purpose of making a web presentation accessible to the public; the extent of this use by the Licensee is dependent on the variant of the Software under the conditions specified below.
+3.4.1. The “Web Site” variant of the Software allows the Licensee to use the Software to run one (1) web presentation on one (1) server.
+3.4.2. The “Server License for 10 Sites” variant of the Software allows the Licensee to use the Software to run ten (10) web presentations on one (1) server.
+3.4.3. The “Server Small Business License for 50 Sites” variant of the Software allows the Licensee to use the Software to run fifty (50) web presentations on one (1) server.
+3.4.4. The “Server License for Unlimited Sites” variant of the Software allows the Licensee to use the Software to run an unlimited number of web presentations on one (1) server.
+3.4.5. For the purposes of this Agreement, a web presentation is a web presentation with a defined purpose run on one domain of one level (without so-called sub-domains) and listed within the Software in a list of websites as one item. In the event that there are more alternative domain names (aliases) for a domain address directed to the same web presentation, the Licensee can request that the Licensor extends the authorisation to these other domain names.
+3.4.6. For the purposes of this Agreement, one server means one physical server (one piece of hardware) or in the event that a copy of the Software is run in an environment known as the “cloud”, one virtual server.
+3.4.7. In case that the Licensee ceases to use the Software for the purposes of running of any of the listed web presentations, there shall exist no right of the Licensee to use the Software to run a different web presentation instead of the terminated one. Thereby the total number of web presentations that are allowed to be run by the Software (according to the variant selected and purchased by the Licensee) shall be decreased permanently by number of once run and then terminated web presentations. An actual web presentation is considered terminated (and a new one is considered to be set up and run) also in case when the Licensee changes the defined purpose of the actual presentation in a material way, i.e. by more than 40 % during a period of 12 months. In case of doubts the Licensee is obliged to approach the Licensor to discuss the idea of partial or total change of the web presentation’s defined purpose. Opinion of the Licensor regarding the scope of the intended change shall be decisive. Potential Licensee’s disagreement with the opinion of the Licensor shall not affect the Licensee’s obligations arising from this Contract until this matter is finally settled by the respective body.
+3.5. In each instance when a variant of the Software called “Additional Servers in a Web Farm“ is provided, the Licensee is entitled to use the Software on an additional one (1) server (Clause 3.4.6) providing that the Licensor makes accessible via this server a web presentation identical to the one made accessible via the original server.
+3.6. For the purposes of development or testing of a web presentation or for the purposes of a so-called staging server (i.e. up to the moment when a web presentation containing the Software is communicated to the public) the Licensee may install the Software on more than one computer. The limitations set out in Clause 3.4 are not applicable in this case.
+3.7. The Licensee may not disseminate copies of the Software made in accordance with Clauses 3.4 and 3.6 of this Agreement. Clause 9 of this Agreement is not hereby affected.
+3.8. The Licensee is not obliged to use the licence; the Licensee’s obligation to pay licence remuneration is not hereby affected.
+3.9. The Licensee may not provide rights forming part of the licence, whether wholly or partially, to a third party without a prior written consent of the Licensor (grant sub-licences).
+3.10. The Licensee is entitled to use the Software for administration of web presentations of third parties in which the client owns at least 50% of assets (‘Subsidiary’). Clause 3.11 of this Agreement is not hereby affected.
+3.11. In the case of the “Server Small Business License for 50 Sites” variant of the Software, the Licensee is entitled to use the Software for development and administration of web presentations of third parties providing that the Licensee secures the development and administration of such a web presentation for such a third party.
+3.12. The Licensee may make backup copies of the Software if this is necessary in order to use the Software properly. The Licensee shall with due care protect such copies against misuse.
+3.13. If the Licensor provides the source code of the Software to the Licensee,
+3.13.1. The Licensee shall be entitled to modify the Software;
+3.13.2. The Licensee shall with due care protect the source code against misuse;
+3.13.3. In the event that rights and obligations arising from this Agreement are assigned to a third party according to Clause 8 of this Agreement, the Licensee shall delete or destroy all copies of the source code of the Software which are available to the Licensee. The Licensee’s right to use the Software in a compiled form for their personal needs under the conditions laid down by Clause 3.15 of this Agreement is not hereby affected.
+3.14. If the Licensee is not provided with the source code of the Software according to Clause 3.13 of this Agreement, the Licensee shall not by any means translate, process, alter or otherwise modify the Software, with the exception of those parts of the Software code which are provided to the Licensee in the form of a source code and are marked as such by the Licensor.
+3.15. If the Licensee assigns rights and obligations arising from this Agreement to a third party according to Clause 9 of this Agreement, the Licensee shall be entitled to continue to use the Software exclusively for its own use. In such an event, the Licensee shall thus not be entitled to use the Software by communicating it to the public via the Internet (in particular to run web presentations).
+3.16. If the Licensor hotfixes or updates the Software and in case that upgrades of the Software are provided to the Licensee a licence is provided to this modified Software too.
+3.17. The use of the source code is bound to the use of the License and the source code cannot be sold or transferred independently without the license for which it was purchased.
+3.18. Licensee hereby confirms that Licensor provided him with licence conditions of open-source solutions used within the Software and that the Licensee acquainted himself with those licence conditions and agrees with their content. The open-source solutions to which this Licensee’s declaration relates are licensed under the following licences:
+3.18.1. Apache License, Version 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0);
+3.18.2. MIT License (MIT) (available at http://opensource.org/licenses/mit-license.html);
+3.18.3. BSD 2-Clause License (available at http://opensource.org/licenses/bsd-license.php);
+3.19. If hotfixes, updates or upgrades od the Software are provided under different licence conditions than those specified in the clause 3.18 or those formerly agreed upon, the Lincensor shall inform the Licensee. By the acceptance of the change as set forth in the clause 1.3 even conditions not formerly agreed upon are considered to be agreed upon by the Licensee.
+
+4. LICENSOR’S SUPPORT SERVICES - TECHNICAL SUPPORT
+4.1. In connection with the provision of the Software licence according to Clause 2.1 of this Agreement, the Licensee may use support services provided by the Licensor. The Licensor’s support services consist of solving functional and user problems of the Software including providing technical support through means of distant communication (telephone, e-mail, web form). The e-mail address of support services is support@kentico.com and the support services web form address is located at www.kentico.com/Support/Submit-support-question.
+4.2. The Licensor provides support services in periods of one year (‘Service Period’). The first Service Period shall start to run from the moment when the so-called Software licence keys are handed over to the Licensee and shall end one (1) year thereafter. Each following Service Period shall last one year from the expiration of the preceding Service Period. Remuneration for the provision of support services during the first Service Period after the handover of Software licence keys, i.e. one year after the handover of Service licence keys, is included in the licence remuneration. In all following Service Periods are the support services provided only if the Licensee ordered provision of the support services and paid the remuneration for the provision of support services according to Clause 5.2 of this Agreement for the pending Service Period, as well as for all preceding Service Periods (except for the first Service Period). For the avoidance of doubt this means that in case when the Licensee requests provision of support, but has not paid remuneration for the provision of support services in the pending Service Period and/or remuneration for the provision of support services in any of the preceding Service Periods, the Licensor starts to handle such request only after the Licensee pays remuneration for the provision of support services for both the pending Service Period and all the preceding Service Periods for which the Licensee has not paid the remuneration, including the increase of the remuneration pursuant to Clause 5.2 of this Agreement.
+4.3. Support services according to this Agreement include provision of Software upgrades carried out by the Licensor to the Licensee. Except for the first Service Period, such Software upgrades are provided also only if the Licensee ordered provision of the support services and paid the remuneration for the provision of support services according to Clause 5.2 of this Agreement for the pending Service Period, as well as for all preceding Service Periods.
+4.4. Further rights and obligations relating to the provision of support services to the Licensee may be set out in a separate agreement of the parties.
+
+5. LICENSOR’S REMUNERATION
+5.1. In return for the provision of the licence according to Clause 2.1 of this Agreement, the Licensee hereby undertakes to:
+5.1.1. Pay to the Licensor a one-off licence remuneration in an amount specified in the Licensor’s price list effective on the day when this Agreement is concluded; the amount of remuneration is set according to the Software edition and the Software variant (according to the contracted extent of use of the Software) provided to the Licensee. The Licensor’s price list is contained in Schedule no. 2, which is located at the Internet addresses www.kentico.com/Purchase/Price-List/Kentico-CMS, www.kentico.com/Purchase/Price-List/Kentico-EMS and www.kentico.com/Purchase/Price-List/Maintenance. The Licensor’s price list forms an inseparable part of this Agreement (‘Licensor’s Price List’) and the contractual parties declare that they have acquainted themselves with the Price List prior to the conclusion of this Agreement. The one-off licence remuneration is payable within seven (7) days from the conclusion of this Agreement or
+5.1.2. In the case of the “Rented” variant of the Software, to pay a regular monthly licence remuneration to the Licensor for each commenced calendar month when this Agreement is effective; the amount is specified in the Licensor’s Price List effective on the day when this Agreement is concluded; the amount is set according to the Software edition and the Software variant (according to the contracted extent of use of the Software) provided to the Licensee. Monthly licence remunerations (including remuneration for the initial use of the Software) are payable cumulatively on the first day of each calendar quarter following calendar months in which this Agreement is effective; remuneration for the last calendar month when this Agreement is effective is included in the monthly remuneration for the preceding calendar month.
+5.1.3. Licence remuneration cannot be paid by combining the one-off and monthly remuneration according to Clauses 5.1.1 and 5.1.2 of this Agreement.
+5.2. For each one (1) year of the provision of support services according to Clause 4 of this Agreement, the Licensor is entitled to remuneration in the amount specified in the Licensor’s Price List effective on the day when the Licensee placed an order for support services; the Licensor’s remuneration for the first Service Period after the handover of Software licence keys (see Clause 4.2 of this Agreement) is included in the Licensor’s remuneration for the provision of the Software licence (Clause 5.1). The Licensor’s remuneration for the provision of support services is payable within seven (7) days from the day when the Licensee placed an order for support services. If the Licensee places an order for support services later than 30 days after the beginning of the Service Period in which the support services are to be provided, and/or has not paid remuneration for the provision of the support services in any of the preceding Service Periods, the Licensor’s remuneration for the provision of support services in the relevant Service Period according to the first sentence of this Clause 5.2 shall be increased by 50%. If the Licensee additionally pays to the Licensor remuneration for the provision of support services in the preceding Service Periods (see Clause 4.2 of this Agreement), the Licensee pays the remuneration in the amount which the Licensee would be obliged to pay should he order the support services on the first day of the relevant Service Periods, increased by 50%. The Licensor shall not be obliged to provide the support services to the Licensee until the Licensee pays all amounts specified in this Clause 5.2.
+5.3. The Licensee agrees that the Licensor’s Price list may change while this Agreement is effective.
+5.4. Licence remuneration and remuneration for the provision of support services is payable either by:
+5.4.1. Bank transfer to the Licensor’s account with Raiffeisenbank a.s. , account no. 1598618001/5500, IBAN: CZ6655000000001598618001, SWIFT: RZBCCZPP (‘Licensor’s Bank Account’) or to an account belonging to the Licensor’s partners (Clause 5.5);
+5.4.2. By a credit or debit card or by cheque.
+5.5. For the purposes of Clause 5.4.1 , the following entities are the Licensor’s partners: the company Kentico Software, LLC, with registered office at 5 Commerce Park North, Suite 202, Bedford, NH 03110, USA, the company Kentico Software Ltd, with registered office at 68 Lombard Street, London, England, EC3V 9LJ, UK, the company Kentico Software Pty Ltd, with registered office at Level 4 83 Mount St, North Sydney, New South Wales 2060, Australia, the company Digital River GmbH, with registered office at Vogelsanger Str. 78, D-50823, Federal Republic of Germany, the company Chongqing Huidu Technology Co.,Ltd, with registered office at No. 2-24-3, Fenghuayuan (D), Keyuan 2nd Road, High-Technology development zone, Shiqiaopu, Chongqing, People’s Republic of China.
+5.6. If it is customary to do so in commercial relations, the Licensor shall issue a proper receipt of tax-deductible expenditure – invoice to the Licensee in respect of payments made on the basis of this Agreement. The Licensor is Value Added Tax (‘VAT’) taxpayer and all amounts quoted in this Areement are quoted exclusive of VAT; VAT shall be calculated in accordance with generally binding legislation.
+5.7. In the event of a default with the payment of any Cumulative Remuneration or its part, the Licensor shall be entitled to suspend or limit the Licensee’s use of the Software (including suspension of the operation of a website administered with the use of the Software); the Licensee consents to this. Any limitation of the ability to use the Software according to the previous sentence does not affect the Licensor’s right to receive licence remuneration or remuneration for the provision of support services according to this Agreement.
+5.8. In the event that the Licensee is overdue with the payment of licence remuneration, the Licensor shall be entitled to interest on late payment amounting to 0.03% of the sum owed for each day of default.
+
+6. FREE VERSION OF THE SOFTWARE
+6.1. Clauses 2.2 to 2.4., 3.2., 3.5., 3.6, 3.12., 4., 5., 9., 10., 11.2, 11.4. and 12.7. of this Agreement do not apply to the Free Version of the Software.
+6.2. If using the Free Version of the Software:
+6.2.1. The Software licence is granted to the Licensee free of charge;
+6.2.2. On each web presentation (each page of the presentation) which is running on Kentico CMS Free Edition, the Licensee shall display:
+6.2.2.1. Text stating "Powered by Kentico CMS" and containing a text hyperlink to the Licensor’s website (located at http://www.kentico.com) in the format commonly known as a "no-follow" hyperlink must appear at the bottom of every page running on this free edition. This text and hyperlink may not be removed under any circumstances.
+6.2.3. The Licensee shall not remove any logos or other marks of the Licensor from the Software;
+6.2.4. The Licensor is entitled to use the business or another name of the Licensee for marketing purposes as references in all types of promotional materials (irrespective of the form of these promotional materials or the form by which they are communicated) without any limitation.
+6.3. The contractual parties agreed according to the Sec. 2898 of the Civil Code that the obligation of the Licensor to compensate any damage including the loss of profits which results from breaching of an obligation arising from this Agreement by the Licensor or as a consequence of the software defect concerning Free Version of the Software shall not exceed the amount of USD 1,- (one American dollar) during the term thereof. The Licensor is not obliged to compensate any loss exceeding the limit specified in the previous sentence. Provisions of this clause 6.3 do not apply to the damage caused by the Licensor to man on his natural rights or caused intentionally or through gross negligence.
+
+7. TRIAL VERSION OF THE SOFTWARE
+7.1. Clauses 2.2 to 2.4. and the last sentences of Clauses 3.2, 3.5., 3.12., 4., 5., 9., 10., 11.2 and 12.7. of this Agreement do not apply to the Trial Version of the Software.
+7.2. If using the Trial Version of the Software:
+7.2.1. The Software licence is granted to the Licensee free of charge;
+7.2.2. The Licence is provided for fourteen (14) days from the moment of the first installation of a copy of the Software, unless the Licensor expressly stipulates a longer period.
+7.3. The contractual parties agreed according to the Sec. 2898 of the Civil Code that the obligation of the Licensor to compensate any damage including the loss of profits which results from breaching of an obligation arising from this Agreement by the Licensor or as a consequence of the software defect concerning Trial Version of the Software shall not exceed the amount of USD 1,- (one American dollar) during the term thereof. The Licensor is not obliged to compensate any loss exceeding the limit specified in the previous sentence. Provisions of this clause 7.3 do not apply to the damage caused by the Licensor to man on his natural rights or caused intentionally or through gross negligence.
+7.4. The provisions of this Agreement relating to the Trial version of the Software cease to have effect at the end of the period specified in Clause 7.2.2 of this Agreement or, if licence remuneration has been paid according to Clause 5.1 of this Agreement, once the so-called licence key necessary in order to use the Software has been entered.
+
+8. WITHDRAWAL FROM THIS AGREEMENT
+8.1. The Licensee is entitled to withdraw from this Agreement without giving a reason within thirty (30) days from its conclusion. A withdrawal from this Agreement becomes effective once notified to the Licensor.
+8.2. A withdrawal from this Agreement according to Clause 8.1 of this Agreement shall result in the expiry of the Licensee’s entitlement to exercise the right to use the Software according to this Agreement. In this case, the Licensor shall return to the Licensee the amount paid on the basis of this Agreement. The Licensee shall delete or remove all copies of the Software in all its forms available to them (Clause 15.3).
+8.3. The Licensee is not entitled to withdraw from this Agreement according to Clause 8.1 when using the following variants of the Software: Server License for 10 Sites, Server License for Unlimited Sites, Server Small Business License for 50 Sites, when using the Software edition “Enterprise Marketing Solution (EMS)“ or the “Rented” variant of the Software, or if the source code of the Software has been provided to the Licensee.
+8.4. Either the Licensor or the Licensee may withdraw from this Agreement if the other party is in breach of this Agreement and fails to cure such breach within ten (10) days after written notice of the breach is delivered to her. In addition to the withdrawal, the Licensor may suspend Licensee’s use of the Software and/or the performance of Licensor’s obligations under this Agreement, if the Licensee fails to make a payment to the Licensor or otherwise fails to comply with the terms of this Agreement or other terms relating to the use of Software, related services or other associated materials. The Licensor may also withdraw from this Agreement if the Licensee becomes subject to bankruptcy proceedings or goes bankrupt. This Agreement will terminate automatically without further notice or action by the Licensor if the Licensee goes into liquidation. Suspension of the use of Software shall include suspension of the operation of a website administered with the use of the Software. Withdrawal from this Agreement according to this Article 8.4 or any other limitation of the ability to use the Software due to the provisions of this Article 8.4 does not affect the Licensor’s right to receive licence remuneration or remuneration for the provision of support services according to this Agreement to which the claim has already arisen.  The Licensee acknowledges and agrees that the Licensor may assign or sub-contract any of its rights or obligations under this Agreement.
+
+9. ASSIGNMENT OF RIGHTS BY THE LICENSEE
+9.1. The Licensee may assign rights and obligations arising from this Agreement to a third party upon condition that the third party acknowledges and agrees in writing to the duties under this Agreement.
+9.2. The Licensee shall inform the Licensor in advance and in writing of any assignment of rights and obligations arising from this Agreement according to Clause 9.1 of this Agreement. Together with the notification of assignment, the Licensee shall provide to the Licensor identification details of the subject, including the name, address, and contact numbers, to whom rights and obligations arising from this Agreement have been assigned.
+9.3. If the Licensee has been provided with the source code of the Software, the Licensee shall be entitled, when assigning rights and obligations arising from this Agreement according to Clause 9.1 of this Agreement, to provide the source code of the Software to the assignee, including a source code of the Software modified according to Clause 3.13.1 of this Agreement.
+
+10. HANDOVER AND ACCEPTANCE OF THE SOFTWARE
+10.1. A copy of the Software shall be provided to the Licensee once licence remuneration has been paid according to Clause 5.1 of this Agreement by uploading this copy to the Licensor’s server. The Licensee shall be able to make a copy of the Software from this server of the Licensor.
+10.2. Once licence remuneration has been paid in full according to Clause 5.1 of this Agreement, the Licensee shall receive, together with a copy of the Software, a so-called licence key necessary in order to use the Software. If the Software is used in development or testing of a web presentation or for the purposes of a so-called staging server in accordance with Clause 3.6 of this Agreement, the Licensee shall be provided with more licence keys as needed. When using the “Rented” variant of the Software, the licence key shall be sent to the Licensee regularly and automatically for as long as the Licensee is not overdue with the payment of licence remuneration.
+
+11. OTHER RIGHTS AND OBLIGATIONS OF THE CONTRACTUAL PARTIES
+11.1. The contractual parties shall inform the other contractual party of all facts which are or may be important for the proper performance of this Agreement.
+11.2. The Licensor is entitled to use the business or another name of the Licensee for marketing purposes as references in all types of promotional materials (irrespective of the form of these promotional materials or the form by which they are communicated) providing that the Licensee does not notify the Licensor that they do not consent to such use.
+11.3. Modifications of the Software resulting from carrying out hotfixes or updates of the Software by the Licensor shall be provided to the Licensee.
+11.4. If needed, the Licensee may remove logos or other marks of the Licensor from the Software and use their own logo and design on the Software.
+
+12. LIABILITY FOR DEFECTS, LIABILITY FOR LOSS
+12.1. The Licensee acknowledges that the Software is not suitable for use in operations where significant or serious damage may occur. The Licensee acknowledges that the Licensor shall not be liable for the results of activities that the Software is used for. The Licensee acknowledges that the Software may have faults and errors may occur when being used.
+12.2. The Licensee further acknowledges that the non-existence of a functional feature of the Software which is not expressly listed in the Software documentation shall not be considered to be a fault. The Licensee is entitled to use only those Software functions described in the documentation to the Software. The Licensor has no responsibility for the use of other functions, if they exist.
+12.3. The Licensee shall check the functionality of the Software and conformity of the Software with the Software documentation without undue delay after the handover of the Software according to Clause 10 of this Agreement.
+12.4. The contractual parties undertake to act in such manner as to prevent any unwarranted damage from occurring. The obligation of the contractual parties according to the previous sentence shall be performed, in particular, by the Licensee testing the Software thoroughly and comprehensively before the Software is released into common use within the Licensee’s business or a business of third other persons (including testing of interoperability of the Software with other computer programs or other components).
+12.5. The Licensee acknowledges that the Licensor shall not be liable for defects of the Software resulting from unlawful interferences with the Software or from the Licensee or third parties using the Software contrary to the Software documentation.
+12.6. The Licensee further acknowledges that the Licensor shall not be responsible for the functionality of the Licensee’s data network, functionality of a public data network, functionality of the Licensee’s hardware, backing-up of data by the Licensee, for the state of other programs used by the Licensee or for any potential interference by third parties with other programs used by the Licensee.
+12.7. The contractual parties agreed according to the Sec. 2898 of the Civil Code that the obligation of the Licensor to compensate any damage including the loss of profits which results from breaching of an obligation arising from this Agreement by the Licensor or as a consequence of the software defect shall not exceed the amount of USD 100,- (one hundred American dollars) during the term thereof. The Licensor is not obliged to compensate any loss exceeding the limit specified in the previous sentence. Provisions of this clause 12.7 do not apply to the damage caused by the Licensor to man on his natural rights or caused intentionally or through gross negligence. The provisions of clause 6.3 and clause 7.3 of this Agreement shall not be affected.
+
+13. THIRD PARTY COPYRIGHT
+13.1. The Licensee acknowledges that the Software contains objects protected by copyright and that the bearers of copyright rights to these objects are also third parties. These objects are, in particular, computer programs and graphic works in electronic form listed in Schedule no. 3 to this Agreement.
+13.2. Inclusion of objects protected by copyright in the Software according to Clause 13.1 of this Agreement is in accordance with their licence terms.
+13.3. The Licensee acknowledges that the use of objects protected by copyright according to Clause 13.1 of this Agreement is governed by licence arrangements with third parties (with bearers of rights to these objects).
+13.4.	The Licensee acknowledges that the use of each object protected by copyright according to Section 13.1 of this Agreement is governed by license arrangements with third parties. Licensee will indemnify licensor for any costs, including attorneys fees, arising from any claims against licensor due to actions of the licensee which allegedly violate the terms of such license agreements.
+13.5.	Licensor shall indemnify, defend and hold licensee and its officers, members, directors, employees and agents harmless from any claims and shall pay all damages, costs, fees and expenses (including attorneys' fees and expenses) relating to any claim, action, suit or other proceeding (a "Claim"): (a) alleging facts that, if true, would cause licensor to be in breach of any of its representations, warranties, agreements or covenants under this agreement; or (b) relating to any act or failure to act by licensor, its subcontractors, or their respective employees while on the premises of or remotely accessing the computers of licensee.  licensee shall give licensor prompt notice of any such claim and shall provide licensor with reasonable assistance, at licensor's expense, that licensor may request in connection with the defence of such a claim.  the defence of such claim shall be conducted jointly by licensor and licensee with counsel selected by licensor and approved by licensee (such approval not to be unreasonably withheld), provided that licensee shall have the right to jointly conduct such defence through separate counsel of its own choosing retained at licensees expense.  No settlement that imposes any liability or obligation on licensee or that prevents licensee from continuing to use the software as provided herein shall be made without the prior written consent of the licensee.  If the software becomes, or in licensor’s opinion is likely to become, the subject of an infringement or misappropriation cliam, licensor shall, at licensor's option, (i) promptly procure a license for licensee, at no cost to licensee, to allow licensee to continue using the software or (ii) modify the software without diminishing its functional capabilities to make it non-infringing.  If neither of the foregoing is feasible or otherwise commercially reasonable, licensor shall refund to licensee all amounts paid by licensee hereunder, which refund shall not be withheld or delayed.  Licensor’s refund shall not constitute an election of remedies by licensee or otherwise limit the rights and remedies available to licensee under this agreement or otherwise.  It is understood that any software provided to licensee pursuant to this paragraph shall be deemed part of the software and covered by all of licensor's covenants, warranties, representations and indemnities as for the software initially provided hereunder, including coverage under the auxiliary services.  notwithstanding the foregoing, licensor shall have no obligation to the licensee with respect to any infringement claim if the software is being used not in accordance with this agreement, if the software has been modified by the licensee or any third party, or if such infringement claim is based upon the combination, operation, or use of the software with any other software, product, device, or equipment, if licensee’s liability for such infringement claim would have been avoided in the absence of such modification, combination, use, or operation.
+
+14. PROTECTION OF INFORMATION
+14.1. Unless expressly agreed otherwise by the contractual parties in writing, all information which forms or could form part of the Licensor’s trade secret shall implicitly be deemed confidential, in particular principles, methods and processes that the Software is based on (including the source code of the Software) or other technical know-how of the Licensor. So-called licence keys according to Clause 10.2 of this Agreement are confidential information according to this Agreement. Confidential information shall further include information that the Licensee obtains when using the Licensor’s support services (Clause 4).
+14.2. The Licensee undertakes not to disclose confidential information. Without a written consent of the Licensor, the Licensee shall not use confidential information for themselves or third parties if this would be contrary to the Licensor’s interests. The Licensee undertakes to ensure that obligations laid down in this Clause are also observed by their employees, representatives, statutory bodies, members of statutory bodies, members of the supervisory board, members or other persons to whom the Licensee has granted access to the administration part of the Software.
+14.3. The contractual parties undertake to treat as confidential other information the communication of which to third parties could in any way affect the business interests or the goodwill of the other contractual party or their business partners and clients. The contractual parties undertake to ensure that this information is treated as confidential also by their employees, representatives, statutory bodies, members of statutory bodies, and members of the supervisory board.
+14.4. Information which has become known to the public without any fault on the part of the receiving party shall not be considered to be confidential information according to this Clause.
+14.5. Licensor is entitled to collect data related to use of the Software by the Licensee for the purpose of a long-term improvement of the product and verification of compliance of the use of the Software with licence terms. These data shall contain information regarding the frequency of use of individual parts of the product and error logs. The collected data shall not contain any particular data created by the Licensee, personal data, sensitive data or data on the activities of particular users. Method of collection and a detailed specification of the collected data are contained in the Software’s documentation. Licensor is entitled to change the scope and method of collection of the data unilaterally provided the conditions set forth above in this Clause 14.5 hereof are fulfilled. The change shall be noted in the Software’s documentation.
+
+15. EFFECT OF THE AGREEMENT
+15.1. This Agreement enters into effect immediately after its conclusion.
+15.2. The following applies to the “Rented” variant of the Software:
+15.2.1. This Agreement is concluded for a period of one (1) year. If a written request of a contractual party to terminate this Agreement is not delivered to the other contractual party at least one (1) month before this Agreement ceases to have effect, this Agreement shall not be discharged after one (1) year and the period of effect of this Agreement shall be extended; the period of effect of this Agreement shall be contracted as indefinite from this point in time. If the term of this Agreement is changed to indefinite, the notice period shall be one (1) month. A revocation of this Agreement shall be effective from the moment when the revocation notice period elapses. The revocation notice period shall run from the first (1) day following the day when the written notice of revocation is delivered to the other contractual party. Clause 5.1.2 of this Agreement is not hereby affected.
+15.2.2. In the event that the Licensee breaches any of their obligations arising from this Agreement or any of their obligations arising from generally binding legislation related to this Agreement, the Licensor may repudiate this Agreement. Repudiation of this Agreement according to the previous sentence becomes effective once it has been served on the other contractual party. Unless agreed otherwise, repudiation period according to this Clause is three (3) days and it shall run from the first (1) day following the day on which the repudiation became effective.
+15.3. Upon termination of this Agreement by withdrawal, revocation or for due to any other reason, the Licensee’s entitlement to exercise the right to use the Software (licence) will terminate.  Upon termination of the right to use the Software, the Licensee must cease all use of Software and other Licensor’s materials to which such right to use (licence) applies and Licensee shall delete or destroy all reproductions of the Software available to it, regardless of their form. The Licensor reserves the right to require the Licensee to show satisfactory proof that all copies of the Software have been uninstalled and, if so requested by the Licensor, destroyed or returned to Licensor at its option.
+
+16. FINAL PROVISIONS
+16.1. This Agreement, as well as rights and obligations arising from or in connection with it, shall be governed by Czech law, in particular by the Copyright Act and the Civil Code..
+16.2. A court in Brno shall be the court with jurisdiction to decide disputes regarding the rights and obligations arising from this Agreement or in connection with it: if the subject matter jurisdiction falls under a district court in first instance, the Municipal Court in Brno shall have jurisdiction, and if the subject matter jurisdiction falls under a regional court in first instance, the Regional Court in Brno shall have jurisdiction.
+16.3. Any divergent provisions contained in a separate agreement concluded with the Licensor in writing shall supersede provisions of this Agreement.
+16.4. If the reason for invalidity affects only a certain provision of this Agreement, only this provision shall be invalid, unless its character, content or the circumstances in which it was agreed on imply that it cannot be severed from the rest of the Contract.
+16.5. This Agreement represents a complete agreement of the contractual parties with regards to the subject matter of this Agreement and it supersedes any prior agreements of the contractual parties with regards to the subject matter of this Agreement (including previous licence agreements between the Licensor and the Licensee). This Agreement supersedes all information provided by the Licensor to the Licensee before the conclusion of this Agreement, including all information contained on the Licensor’s website (excluding schedules to this Agreement).
+16.6. The following form an inseparable part of this Agreement:
+16.6.1. Schedule no. 1 – Software documentation located at the Internet address http://devnet.kentico.com/Documentation.aspx
+16.6.2. Schedule no. 2 – The Licensor’s Price List(located at the Internet addresses http://www.kentico.com/Purchase/Price-List/Kentico-CMS, http://www.kentico.com/Purchase/Price-List/Kentico-EMS and http://www.kentico.com/Purchase/Price-List/Maintenance);
+16.6.3. Schedule no.3 – List of third party computer programs and graphic works in electronic form which form part of the Software.
+16.7. If the Licensor cease to have public law authorisation to carry on business, this shall have no effect on the licence granted according to this Agreement.
+
+
+
+Schedule no. 3 of the Licence Agreement – List of third party computer programs and graphic works in electronic form which form part of the Software
+
+1.	Microsoft Open XML SDK 2.0 for Microsoft Office (http://www.microsoft.com/download/en/details.aspx?id=5124)
+
+2.	Internet Information Services (IIS) 8.0 Express (http://www.microsoft.com/en-us/download/details.aspx?id=34679)
+
+3.	SQL Server 2012 Express LocalDB (http://www.microsoft.com/en-us/download/details.aspx?id=29062)
+
+4.	Microsoft SQL Server 2012 Native Client (http://www.microsoft.com/en-us/download/details.aspx?id=29065)
+
+5.	Microsoft Web Services Enhancements (WSE) 3.0 for Microsoft .NET (http://www.microsoft.com/download/en/details.aspx?id=14089)
+
+6.	Microsoft ASP.NET and Windows Forms Chart Controls for .NET Framework 3.5 SP1 (http://www.microsoft.com/download/en/details.aspx?id=14422)
+
+7.	Microsoft .NET Framework 4.5 (http://www.microsoft.com/en-us/download/details.aspx?id=30653)
+
+8.	Microsoft .NET Framework 4.5 Language Pack (http://www.microsoft.com/en-us/download/details.aspx?id=30667)
+
+9.	Microsoft .NET Framework 4.6 (http://msdn.microsoft.com/en-us/library/5a4x27ek.aspx)
+
+10.	Microsoft .NET Framework 4.6 Language Pack (http://www.microsoft.com/en-us/download/details.aspx?id=48135)
+
+11.	Lucene.NET library (http://incubator.apache.org/lucene.net/)
+
+12.	OpenPop.NET (http://hpop.sourceforge.net/)
+
+13.	DotNetOpenAuth (http://www.dotnetopenauth.net/)
+
+14.	Google APIs Client Library for .NET (http://code.google.com/p/google-api-dotnet-client/)
+
+15.	Amazon web services SDK for .NET (http://aws.amazon.com/sdkfornet/)
+
+16.	Storage client from Windows Azure SDK (http://nuget.org/packages/WindowsAzure.Storage)
+
+17.	jQuery JavaScript Library (http://jquery.com/)
+
+18.	jQuery Equal Heights plugin by Rob Glazebrook (http://www.cssnewbie.com/equalheights-jquery-plugin/)
+
+19.	jQuery Cookie plugin by Klaus Hartl (https://github.com/carhartl/jquery-cookie)
+
+20.	jQuery CloudCarousel plugin by Christophe Beyls (http://www.professorcloud.com/mainsite/carousel.htm)
+
+21.	jQuery UI Layout Plug-in (http://layout.jquery-dev.net/)
+
+22.	jQuery Mobile (http://jquerymobile.com/)
+
+23.	JsPlumb (http://jsplumb.org/jquery/demo.html)
+
+24.	Command Line Parser Library (https://commandline.codeplex.com)
+
+25.	NetSpell software, the author of which is Paul Welter (http://www.loresoft.com/Applications/NetSpell/Download/default.aspx)
+
+26.	SharpZipLib software, the author of which is Ben Lowery (http://www.icsharpcode.net/OpenSource/SharpZipLib/Download.aspx)
+
+27.	LightBox software, the author of which is Lokesh Dhakar (http://www.huddletogether.com/projects/lightbox2/#support)
+
+28.	Tooltips DHTML Library software, the author of which is Walter Zorn (http://www.walterzorn.com/tooltip/tooltip_e.htm)
+
+29.	CKEditor (http://ckeditor.com)
+
+30.	CodeMirror by Marijn Haverbeke (http://codemirror.net/)
+
+31.	Microsoft Ajax Minifier (http://ajaxmin.codeplex.com/)
+
+32.	The software uses the IT Hit WebDAV Server library by IT Hit (http://www.webdavsystem.com/). The Licensee shall use this library only in connection with the software and not for other independent applications.
+
+33.	MaxMind GeoIP C# API (http://www.maxmind.com/app/csharp)
+
+34.	Open Source QRCode Library (http://www.codeproject.com/Articles/20574/Open-Source-QRCode-Library)
+
+35.	BX Slider by Steven Wanderski (http://bxslider.com/), MIT License
+
+36.	PT Sans webfont by Paratype (http://www.paratype.ru/public/)
+
+37.	html5shiv - HTML5 IE enabling script (http://code.google.com/p/html5shiv/)
+
+38.	ReCaptcha (http://code.google.com/p/recaptcha/
+
+39.	UDE -  C# port of Mozilla Universal Charset Detector (http://code.google.com/p/ude/)
+
+40.	NSubstitute (http://nsubstitute.github.com/)
+
+41.	Data.com connector (http://www.data.com/export/sites/data/common/assets/pdf/DS_Datadotcom_ConnectTOU.pdf) Modifying or extending the default functionality without using your own Data.com token is a violation of the licensing terms.
+
+42.	PDF Clown (http://www.stefanochizzolini.it/en/projects/clown/index.html) The modified source code of version 0.1.2 can be found at http://download.kentico.com/PDFClown.zip. Modified blocks of code are marked by /* CMS */ and /* CMS End */ comments.
+
+43.	Closed XML (http://closedxml.codeplex.com/)
+
+44.	HTML Agility pack (http://htmlagilitypack.codeplex.com/)
+
+45.	SoundManager 2 (http://www.schillmania.com/projects/soundmanager2/)
+
+46.	Graphic works in electronic form from INCORS GmbH – "IconExperience" icons (http://www.iconexperience.com). The Licensee acknowledges that graphic works in electronic form hereunder must not be used outside the software.
+
+47.	Photos from http://www.istockphoto.com and http://www.shutterstock.com. These photos are only provided as sample content and in no case may they be used for public web sites unless the Licensee purchases the appropriate photo license.
+
+48.	LinkedIn developer toolkit (http://linkedintoolkit.codeplex.com/)
+
+49.	Facebook SDK for .NET (http://facebooksdk.net/)
+
+50.	Twitter text - official twitter text linkification (http://github.com/twitter/twitter-text-js)
+
+51.	LINQ to Twitter (http://linqtotwitter.codeplex.com/)
+
+52. Bootstrap (http://getbootstrap.com/)
+
+53. normalize.css (http://git.io/normalize)
+
+54. RequireJS (http://requirejs.org/)
+
+55. Underscore (http://underscorejs.org/)
+
+56. FancySelect (http://code.octopuscreative.com/fancyselect/)
+
+57. NUnit (http://nunit.org/index.php?p=license&r=2.6.4)
+
+58. Windows Identity Foundation SDK 4.0 (http://www.microsoft.com/en-us/download/confirmation.aspx?id=4451)
+
+59.	51Degrees (http://51degrees.codeplex.com/)
+
+60.	Web API (http://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm)
+
+61.	Photos from http://www.flickr.com. These photos are only provided as sample content and in no case may they be used for public web sites unless the Licensee complies the appropriate photo license.
+    a.	Dennis Tang, CC BY-SA 2.0
+    b.	Matthew Roth, CC BY-SA 2.0
+    c.	Yara Tucek, CC BY 2.0
+    d.	Nathan Forget, CC BY 2.0
+    e.	Jean-Pierre Dalbéra, CC BY 2.0
+    f.	CIAT, CC BY-SA 2.0
+    g.  najarich, CC BY-ND 2.0
+    h.  McKay Savage, CC BY 2.0
+
+62.	Google Fonts https://www.google.com/fonts/specimen/PT+Serif and https://www.google.com/fonts/specimen/Source+Sans+Pro, OFL license
+
+63. CSV-JS (https://github.com/gkindel/CSV-JS)
+
+64. domReady (http://github.com/requirejs/domReady)
+
+65.	LoDash (https://lodash.com/)
+
+66. Microsoft SharePoint Client Components (http://www.microsoft.com/en-pk/download/details.aspx?id=35585)
+
+67. Nuget.Core (https://www.nuget.org/packages/Nuget.Core)
+
+68.	JSTest (https://www.npmjs.com/package/jstest)
+
+69.	Mono.Cecil (http://www.mono-project.com/docs/tools+libraries/libraries/Mono.Cecil)
+
+70.	Font Awesome (http://fontawesome.io/)
+
+71.	Ajax Control Toolkit (http://ajaxcontroltoolkit.codeplex.com/)
+
+72.	Jcrop (http://deepliquid.com/content/Jcrop.html)
+
+73.	Json.NET (http://james.newtonking.com/json)
+
+74.	XMLUnit.NET (https://github.com/xmlunit/xmlunit.net/blob/master/LICENSE)
+
+75. Magnific-Popup (http://dimsemenov.com/plugins/magnific-popup/)
+
+76. AngularJS (https://angularjs.org/)
+
+77. AngularUI (http://angular-ui.github.io/)
+
+78. Selenium (http://www.seleniumhq.org/about/license.jsp)
+
+79. angular-ellipsis (https://github.com/dibari/angular-ellipsis)
+
+80. amCharts JavaScript CHARTS (http://www.amcharts.com/javascript-charts/)

@@ -1,0 +1,640 @@
+﻿@media (max-width: 767px) {
+
+    .container, .timeline-container {
+        width: 100%;
+        max-width:100%;
+    }
+
+    .device-spacing {
+        overflow: hidden;
+        padding: 0 5.45%;
+    }
+
+    .hidden-desktop {
+        display: block;
+    }
+
+    .hidden-tablet {
+        display: block;
+    }
+
+    .hidden-mobile {
+        display: none !important;
+    }
+
+    .visible-desktop {
+        display: none;
+    }
+
+    .visible-tablet {
+        display: none;
+    }
+
+    .visible-mobile {
+        display: block;
+    }
+
+    .half,
+    .third,
+    .quarter {
+        width: 100%;
+        padding: 0;
+    }
+
+    .no-pad-desktop {
+        padding: initial !important;
+        margin: initial !important;
+    }
+
+    .logo {
+        padding: 0 0 34px 0;
+        width: 100%;
+    }
+
+        .logo img {
+            width: 173px;
+        }
+
+    .menu-collapse {
+        top: 27px;
+        display: block;
+        padding-right:5.45%;
+    }
+
+    #navmenu {
+        display: none;
+    }
+
+
+    #main-nav {
+        border: none;
+    }
+
+
+    #primary-nav {
+        display: none;
+    }
+
+        #primary-nav a {
+            width: 100%;
+            font-size: 22px;
+            line-height: 33px;
+        }
+
+
+    .navlinks {
+        width: 102%;
+        margin-left: -1px;
+    }
+
+        .navlinks > ul {
+            padding: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+    #searchbox-div {
+        padding: 8px 5.45%;
+        width: 89%;
+        height: auto;
+    }
+
+    .mobileHeroBorder
+    {
+          border-top: solid 1px #000 !important;
+    }
+
+    .searchbox {
+        width: 89%;
+        height: 33px;
+        padding: 0;
+    }
+
+    .searchsubmit {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 0;
+        margin-right: 0;
+        float: right;
+        margin-top: 2px;
+    }
+
+
+    .navlinks li.parent-link {
+        width: 100%;
+        max-width: 100%;
+        border:solid 1px #000;
+        background-repeat: no-repeat;
+        text-align: left;
+        height: auto;
+    }
+        .navlinks li.parent-link ul {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+
+        .navlinks li.parent-link a {
+            padding-left: 5.45%;
+            font-size: 22px;
+            line-height: 33px;
+        }
+
+
+        .navlinks li.parent-link ul li.child-link a {
+            font-size: 15px;
+            line-height: 33px;
+            color: #fff;
+            width:100%;
+        }
+
+        .navlinks li.parent-link ul li.child-link a:hover {
+            color: #329946;
+        }
+
+        .navlinks li.parent-link:hover{
+            color: #fff;
+            cursor: pointer;
+        }
+
+
+    .menuHighlightMobile, .menuHighlightMobile ul, .menuHighlightMobile li {
+        background-color: #329946 ;
+        color:#fff;
+    }
+        .menuHighlightMobile a {
+            color:white !important;
+        }
+
+    .navlinks li.haschildren > a::after {
+        margin-top: 14px;
+    }
+
+    ul li.child-link {
+        background-color: #329946;
+        padding: 4px 0 0 14px;
+    }
+
+        ul li.child-link:hover {
+            background-color: #fff;
+        }
+
+
+
+    .navlinks li.haschildren > div {
+        background-position:initial !important;
+        background-image:none !important;
+    }
+
+     .navlinks li.haschildren:hover > div {
+            background-image: none;
+        }
+
+
+     .navSelect, .haschildren.pageSelected > div {
+    background-image: none;
+}
+    li.item {
+        width:100%;
+        font-size:28px;
+    }
+
+        li.item a {
+            padding:17px 0px;
+        }
+
+    /***********KENTICO CONTENT SLIDER*************/
+
+    .slider-button {
+        padding: 0px 0px 3px 0;
+        width: 120px;
+        margin-top: 10px;
+    }
+
+        .slider-button a {
+            font-size: 14px;
+            line-height: 33px;
+            letter-spacing: 2px;
+        }
+
+    .Slider .Content, .Slider .ContentPage {
+        height: 236px !important;
+    }
+
+    .Slider .slide {
+        height: 235px;
+        background-size: 1100px 235px;
+    }
+
+        .Slider .slide .html {
+            width: 53%;
+            top: 48px;
+        }
+
+            .Slider .slide .html h3 {
+                font-size: 17px;
+                line-height: 22px;
+            }
+
+        .Slider .slide.left-orientation {
+            background-position: 30% center;
+        }
+
+            .Slider .slide.left-orientation .html {
+                left: 27%;
+            }
+
+        .Slider .slide.right-orientation {
+            background-position: 80% center;
+        }
+
+            .Slider .slide.right-orientation .html {
+                right: 23%;
+            }
+
+    .RewewSlider-html {
+        left: 27% !important;
+        width: 53% !important;
+    }
+
+    .DLSlider-bg {
+        background-position: 35% center !important;
+    }
+
+    .DLSlider-html {
+        top: 34px !important;
+        left: 28% !important;
+        width: 55% !important;
+    }
+
+    .AnswerSlider-bg {
+        background-position: 33% center !important;
+    }
+
+    .AnswerSlider-html {
+        left: 30% !important;
+    }
+
+    /***********END KENTICO CONTENT SLIDER*************/
+
+
+
+    h1{
+        font-size: 28px;
+        line-height: 33px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 33px;
+        line-height: 31px;
+    }
+
+    #yellow-section{
+        padding: 35px 0 28px;
+    }
+
+    .white-page-section {
+        padding: 35px 0 50px;
+    }
+
+    .highlight-quote-text {
+        font-size: 23px;
+        line-height: normal;
+    }
+
+    .highlight-quote-name {
+        font-size: 13px;
+        line-height: 15px;
+    }
+
+    .highlight-quote-position {
+        font-size: 13px;
+        line-height: 15px;
+    }
+
+    .sponsor-section {
+        padding: 27px 0 32px;
+    }
+
+        .sponsor-section .left img {
+            width: 245px;
+        }
+
+        .sponsor-section .right img {
+            width: 132px;
+            float: left;
+            padding-top: 27px;
+        }
+
+    #footer {
+        padding: 65px 0 60px;
+    }
+
+        #footer #emailDiv input[type="text"] {
+            width: 81%;
+            margin-right: 2%;
+            margin-bottom: 22px;
+        }
+
+        #footer #socialDiv .footerphone {
+            padding-top: 8px;
+            font-size: 11px;
+        }
+
+        #footer #links {
+            width: 100%;
+            padding-top: 18px;
+        }
+
+            #footer #links #div-1 {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #footer #links #div-2 {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            #footer .link-col {
+                width: 37.8%;
+                margin-right: 12%;
+            }
+
+                 #footer #links p.parent-made-sub-link {
+                    font-family: LatoRegular;
+                    font-weight: bold;
+                }
+
+        #footer #stay-connected {
+            width: 100%;
+        }
+
+            #footer #stay-connected .highlight-text {
+                margin-bottom: 20px;
+            }
+
+    #copyright-section ul {
+        padding: 58px 0 0 0;
+    }
+
+    #copyright-section li,
+    #copyright-section a,
+    #copyright-section a:visited {
+        width: 100%;
+        margin-right: auto;
+        font-size: 11px;
+    }
+
+
+    .partner-slider {
+        width: 64%;
+        padding-top:0;
+    }
+
+        .partner-slider .logo-box {
+            height: 148px;
+            width:206px;
+        }
+
+            .partner-slider .logo-box img {
+                width: auto;
+                max-width: 100%;
+            }
+
+     
+    .rotator-prev, .rotator-next {
+        width: 16px;
+        height: 30px;
+    }           
+
+    .rotator-prev {
+        left: 2%;
+    }
+
+    .rotator-next {
+        right: 2%;
+    }
+
+
+    
+    #timeline-prev, #timeline-next{
+        margin-top: 20px;
+    }
+
+    #partner-prev, #partner-next {
+        margin-top: 60px;
+    }
+
+    #testimonial_rotator {
+        margin-left:20px;
+    }
+
+    #timeline_rotator .owl-controls {
+        display:none !important;
+    }
+
+    #timeline_rotator .owl-stage-outer {
+        margin-top:0;
+    }
+
+    #micr-reasons .reason {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .micr-step-img {
+        width: 139px;
+    }
+
+    img.micr-checks, img.micr-signature, img.micr-passwords {
+        width: auto;
+        margin: auto;
+    }
+
+    .micr-step-circle {
+        max-width: 284px;
+    }
+
+
+    #micr-page-content {
+        width:auto;
+    }
+
+    .link-buttons .button {
+        padding: 16px 0px 8px 0;
+        width: 46%;
+        margin-bottom: 24px;
+        margin-right: 0;
+        height: 25px;
+    }
+
+        .link-buttons .button a {
+            font-size: 14px;
+            line-height: 15px;
+            letter-spacing: 1px;
+        }
+
+        .link-buttons .button:nth-child(2n) {
+            float: right;
+        }
+
+
+    .lady-doctor-image {
+        width: 165px;
+        margin-right: -70px;
+        display: inline-block;
+        top:0;
+    }
+
+    .header {
+        height: 235px;
+        max-width: 100%;
+        background-size: 362px 235px;
+    }
+
+    .micr-header {
+    background-image: url('/Images/header_micr_mobile.aspx');
+}
+
+.mpp-header {
+    background-image: url('/Images/header_multi_batch_mobile.aspx');
+}
+
+
+
+    .mem-header, 
+	.winthrop-header {
+        background-position: 37% center;
+        background-size: 767px 235px;
+        height: 235px;
+    }
+        .mem-header h2,
+		.winthrop-header h2{
+            margin-left: 55%;
+            padding-top: 10px;
+            font-size: 21px;
+            line-height: normal;
+        }
+        .mem-header p, 
+		.winthrop-header p{
+            margin-left: 55%;
+            font-size: 13px;
+            line-height: 22px;
+        }
+
+.check-header {
+    background-image: url('/Images/header_checks_mobile.aspx');
+}
+
+    .micr-header h2 {
+        padding-top: 28px;
+        font-size: 21px;
+        line-height: normal;
+        color: #404041;
+        max-width: 57%;
+        margin-bottom: 18px;
+    }
+
+
+    
+    .check-header h2 {
+          padding-top: 20px;
+    }
+    .check-header p {
+        width: 50%;
+    }
+
+
+    .mpp-header h2,
+    .check-header h2,
+    .download-header h2 {
+        padding-top: 21px;
+        font-size: 27px;
+        line-height: 31px;
+        color: #404041;
+        max-width: 57%;
+        margin-bottom: 18px;
+    }
+
+
+    .micr-header p,
+    .mpp-header p,
+    .check-header p,
+    .download-header p {
+        font-family: LatoRegular;
+        font-size: 16px;
+        line-height: 22px;
+        color: #404041;
+        max-width: 57%;
+    }
+
+    .mk-forms .ccdetailspanel {
+        position: absolute;
+        margin-top: 30px;
+    }
+
+    .mk-forms textarea {
+        width: 98%;
+    }
+
+    .mk-forms .payment-radio {
+        clear: both;
+    }
+
+        .mk-forms .payment-radio input[type="radio"] {
+            margin-bottom: 70px;
+        }
+
+    .mk-forms .form-container {
+        margin-left: 0px;
+    }
+
+    .mk-forms .form-field {
+        width: 100%;
+        margin-right: 0px;
+    }
+        
+    .navigation-tab .ajax__tab_outer {
+        width: 100%;
+    }
+
+    .navigation-tab span.ajax__tab_inner,
+    .navigation-tab .ajax__tab_active span.ajax__tab_inner {
+        min-width: 217px;
+    }
+
+        .navigation-tab span.ajax__tab_inner a span {
+            font-size: 27px;
+        }
+
+        
+
+    .InfoLabel, .ErrorLabel {
+        line-height: 33px;
+        font-size: 28px !important;
+    }
+
+.video-container {
+    width:100%;
+    height:100%;
+    margin:0px;
+    margin-bottom:10px;
+}
+
+    #support-search-container {
+        height:135px;
+    }
+
+    .support-searchbox {
+        width:90%;
+        margin-bottom:20px;
+    }
+
+}

@@ -1,0 +1,1946 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Installer</name>
+    </assembly>
+    <members>
+        <member name="T:Installer.DiagnosticsInstaller">
+            <summary>
+            Handles (un)installation of performance counters, event log sources etc.
+            </summary>
+        </member>
+        <member name="M:Installer.DiagnosticsInstaller.#ctor(WinAppFoundation.IMessageLog)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="log"></param>
+        </member>
+        <member name="M:Installer.DiagnosticsInstaller.HandleEventLogSources(System.Boolean,System.String)">
+            <summary>
+            Installs or uninstalls Windows event log sources
+            </summary>
+            <param name="install">Whether to install or uninstall</param>
+            <param name="webConfigFilePath">Path to web.config file</param>
+        </member>
+        <member name="M:Installer.DiagnosticsInstaller.HandleHealthMonitoring(System.Boolean,System.String)">
+            <summary>
+            Installs or uninstalls performance counters for Health Monitoring.
+            SystemContext.WebApplicationPhysicalPath has to be initialized.
+            </summary>
+            <param name="install">Whether to install or uninstall</param>
+            <param name="webConfigFilePath">Path to web.config file</param>
+        </member>
+        <member name="P:Installer.DiagnosticsInstaller.MessageLog">
+            <summary>
+            Logger for logging events.
+            </summary>
+        </member>
+        <member name="T:Installer.ErrorStatus">
+            <summary>
+            Error status enumeration.
+            </summary>
+        </member>
+        <member name="F:Installer.ErrorStatus.Success">
+            <summary>
+            Success.
+            </summary>
+        </member>
+        <member name="F:Installer.ErrorStatus.Error">
+            <summary>
+            Standard error (can be ignored)
+            </summary>
+        </member>
+        <member name="F:Installer.ErrorStatus.CriticalError">
+            <summary>
+            Critical error
+            </summary>
+        </member>
+        <member name="T:Installer.CmdLine">
+            <summary>
+            Command line installation.
+            </summary>
+        </member>
+        <member name="M:Installer.CmdLine.#ctor(Installer.InstallationManager,WinAppFoundation.IMessageLog)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="installer">Installation engine</param>
+            <param name="messageLog">Provides message logging</param>
+        </member>
+        <member name="M:Installer.CmdLine.Run(System.String[])">
+            <summary>
+            Deserializes the installation profile according to parameters and runs the installation according to it.
+            </summary>
+            <param name="args">Parameters from command line to initialize profile from</param>
+        </member>
+        <member name="M:Installer.CmdLine.Run">
+            <summary>
+            Runs the installation according to installation profile.
+            </summary>
+        </member>
+        <member name="M:Installer.CmdLine.Parse(System.String[])">
+            <summary>
+            Parsing command line parameters. Returns false, if parsing failed.
+            </summary>
+            <param name="args">Parameters from command line</param>
+            <returns>TRUE if succeeded</returns>
+        </member>
+        <member name="M:Installer.CmdLine.PrintHelp">
+            <summary>
+            Prints help.
+            </summary>
+        </member>
+        <member name="M:Installer.CmdLine.LoadXML(System.String)">
+            <summary>
+            Loads XML and initializes installer.
+            </summary>
+            <param name="xmlPath">Path to XML file</param>
+            <returns>TRUE when succeeded</returns>
+        </member>
+        <member name="M:Installer.CmdLine.Install">
+            <summary>
+            Performs preliminary checks and then the installation.
+            </summary>
+            <returns>TRUE if succeeded</returns>
+        </member>
+        <member name="M:Installer.CmdLine.ValidateRunningInstallations">
+            <summary>
+            Checks whether there are no other installations running at the moment.
+            </summary>
+            <returns>Error message if error occurs, otherwise null.</returns>
+        </member>
+        <member name="M:Installer.CmdLine.ValidateIIS">
+            <summary>
+            Checks whether target path for IIS is set.
+            </summary>
+            <returns>Error message if error occurs, otherwise null.</returns>
+        </member>
+        <member name="M:Installer.CmdLine.GetAzureProjectLocationValidationResult">
+            <summary>
+            Checks if Azure project is compatible with given location.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Installer.CmdLine.ValidateSQL">
+            <summary>
+            Checks whether database settings are valid.
+            </summary>
+            <returns>Error message if error occurs, otherwise null.</returns>
+        </member>
+        <member name="P:Installer.CmdLine.Installer">
+            <summary>
+            Installation engine.
+            </summary>
+        </member>
+        <member name="P:Installer.CmdLine.Profile">
+            <summary>
+            Configuration object for installer.
+            </summary>
+        </member>
+        <member name="P:Installer.CmdLine.MessageLog">
+            <summary>
+            Gets object for logging events.
+            </summary>
+        </member>
+        <member name="T:Installer.WinServiceInstallTypeEnum">
+            <summary>
+            Defines various operations that can be done with windows services.
+            </summary>
+        </member>
+        <member name="F:Installer.WinServiceInstallTypeEnum.Uninstall">
+            <summary>
+            Uninstalls windows service.
+            </summary>
+        </member>
+        <member name="F:Installer.WinServiceInstallTypeEnum.Install">
+            <summary>
+            Installs windows service.
+            </summary>
+        </member>
+        <member name="F:Installer.WinServiceInstallTypeEnum.InstallAndRun">
+            <summary>
+            Installs windows service and runs it.
+            </summary>
+        </member>
+        <member name="T:Installer.WebProjectConverter">
+            <summary>
+            Provides methods to convert web application to web site.
+            </summary>
+        </member>
+        <member name="F:Installer.WebProjectConverter.APP_PROJ">
+            <summary>
+            CMS project file name.
+            </summary>
+        </member>
+        <member name="F:Installer.WebProjectConverter.APP_CODE_DIR">
+            <summary>
+            Name of web site code directory.
+            </summary>
+        </member>
+        <member name="F:Installer.WebProjectConverter.OLD_APP_CODE_DIR">
+            <summary>
+            Name of application code directory previously used on web site project.
+            </summary>
+        </member>
+        <member name="M:Installer.WebProjectConverter.#ctor(WinAppFoundation.IMessageLog)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="messageLog">Component for the message logging.</param>
+        </member>
+        <member name="M:Installer.WebProjectConverter.ConvertToWebSite(System.String,System.String)">
+            <summary>
+            Converts web application to web site.
+            </summary>
+            <param name="basePath">Path to web project root</param>
+            <param name="webProjectPath">Path to web project files (i.e. CMS folder)</param>
+        </member>
+        <member name="M:Installer.WebProjectConverter.ConvertToWebApplication(System.String,System.String)">
+            <summary>
+            Converts web site to web application.
+            </summary>
+            <param name="basePath">Path to web project root</param>
+            <param name="webProjectPath">Path to web project files (i.e. CMS folder)</param>
+        </member>
+        <member name="M:Installer.WebProjectConverter.ConvertDesignerFiles(System.String)">
+            <summary>
+            Converts HtmlGenericControl type to HtmlIframe type in designer files for .NET 4.5.
+            </summary>
+            <param name="webProjectPath">Path to web project files (i.e. CMS folder)</param>
+        </member>
+        <member name="M:Installer.WebProjectConverter.ConvertDesignerFile(System.String)">
+            <summary>
+            Processes the file
+            </summary>
+            <param name="file">File to modify</param>
+        </member>
+        <member name="M:Installer.WebProjectConverter.MoveFileToAppCode(System.String,System.String,System.String)">
+            <summary>
+            Moves code behind to App_Code folder or updates codefile/codebehind attribute in markup file.
+            </summary>
+            <param name="basePath">Base installation path</param>
+            <param name="pathToFile">Path to aspx, ascx, asmx or cs file.</param>
+            <param name="attribute">Attribute name to change (e.g. "codebehind")</param>
+        </member>
+        <member name="M:Installer.WebProjectConverter.MoveFileDir(System.String,System.String)">
+            <summary>
+            Moves file or directory from old destination to new destination. Rewrites old destination.
+            </summary>
+            <param name="pathFrom">Old destination</param>
+            <param name="pathTo">New destination</param>
+        </member>
+        <member name="M:Installer.WebProjectConverter.DeleteFile(System.String)">
+            <summary>
+            Deletes file.
+            </summary>
+            <param name="file">File to delete</param>
+        </member>
+        <member name="P:Installer.WebProjectConverter.MessageLog">
+            <summary>
+            Component for the message logging.
+            </summary>
+        </member>
+        <member name="T:Installer.WebProjectRemover">
+            <summary>
+            Class for deleting instances from IIS 7.
+            </summary>
+        </member>
+        <member name="M:Installer.WebProjectRemover.#ctor(WinAppFoundation.IMessageLog)">
+            <summary>
+            Constructor for Web project remover that logs event with <see cref="T:WinAppFoundation.IMessageLog"/>.
+            </summary>
+            <param name="log"><see cref="T:WinAppFoundation.IMessageLog"/> implementation instance that should be used to log events.</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.RunAsync(System.Collections.Generic.List{InstallationHelper.WebProjectItem})">
+            <summary>
+            Starts deleting asynchronously.
+            </summary>
+            <param name="projectsToRemove">Projects to be deleted</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.RunSync(System.Collections.Generic.List{InstallationHelper.WebProjectItem})">
+            <summary>
+            Starts deleting synchronously.
+            </summary>
+            <param name="projectsToRemove">Projects to be deleted</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.Cancel">
+            <summary>
+            Halts execution of thread.
+            </summary>
+        </member>
+        <member name="M:Installer.WebProjectRemover.DeletePool(System.String)">
+            <summary>
+            Removes app pool. Returns true if pool was found.
+            </summary>
+            <param name="name">App pool name</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.LogEvent(System.String,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs message to log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.LogError(System.String,System.Exception,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs error message to log.
+            </summary>
+            <param name="message">Message (must contain placeholder for error message)</param>
+            <param name="ex">Exception</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.Run">
+            <summary>
+            Performs deletion.
+            </summary>
+        </member>
+        <member name="M:Installer.WebProjectRemover.DeleteDB(System.String,System.String)">
+            <summary>
+            Deletes specified DB.
+            </summary>
+            <param name="connectionString">Connection string to server.</param>
+            <param name="dbName">Database name</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.DeletePath(System.String)">
+            <summary>
+            Remove files from given path.
+            </summary>
+            <param name="path">Path</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.DeletePhysicalPath(System.String)">
+            <summary>
+            Deletes all files from given path.
+            </summary>
+            <param name="physicalPath">Path to delete</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.UninstallAndKillServices(System.String)">
+            <summary>
+            Uninstalls and kills installed services.
+            </summary>
+            <param name="webAppPath">Path to web app</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.SearchApplication(System.String,Microsoft.Web.Administration.Site@,Microsoft.Web.Administration.Application@)">
+            <summary>
+            Returns site index and application index in server manager according physical path of virtual directory.
+            </summary>
+            <param name="physicalPath">Physical path to virtual directory</param>
+            <param name="site">Returns corresponding site</param>
+            <param name="application">Returns corresponding application</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.RemoveStartMenuLinks(InstallationHelper.WebProjectItem)">
+            <summary>
+            Removes shortcuts to given web project in startup and Kentico sites directories.
+            </summary>
+            <param name="project">Deleted project</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.RemoveStartMenuLinks(InstallationHelper.WebProjectItem,System.String)">
+            <summary>
+            Removes shortcuts to given web project in given directory.
+            </summary>
+            <param name="project">Deleted project.</param>
+            <param name="path">Directory path</param>
+        </member>
+        <member name="M:Installer.WebProjectRemover.ClearProperties">
+            <summary>
+            Clears desired properties. Usually performed before uninstall process.
+            </summary>
+        </member>
+        <member name="E:Installer.WebProjectRemover.OnWebProjectItemProcessed">
+            <summary>
+            Fired when web project item is processed.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.ServerManager">
+            <summary>
+            Gets IIS manager.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.IISManager">
+            <summary>
+            Gets IIS manager.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.ProcessHelper">
+            <summary>
+            Gets helper for starting/stopping processes.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.DiagnosticsInstaller">
+            <summary>
+            Provides installation of diagnostic tools.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.ProjectsToRemove">
+            <summary>
+            List of projects to delete.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.CancellationPending">
+            <summary>
+            Flag indicates whether thread has been stopped.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.MessageLog">
+            <summary>
+            Logger for logging events.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.IsRunning">
+            <summary>
+            Uninstall process is running in some thread.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.ProcessedItems">
+            <summary>
+            Number of already processed items.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.RemovedProjects">
+            <summary>
+            List of deleted projects.
+            </summary>
+        </member>
+        <member name="P:Installer.WebProjectRemover.FailedProjects">
+            <summary>
+            List of failed projects.
+            </summary>
+        </member>
+        <member name="T:Installer.WebProjectRemover.OnWebProjectItemProcessedEvent">
+            <summary>
+            Delegate representing function invoked when web project item is processed.
+            </summary>
+            <param name="sender">Sender object.</param>
+            <param name="args">Process percentage member of this attribute represents processed items percentage.</param>
+        </member>
+        <member name="T:Installer.InstallationManager">
+            <summary>
+            Installer class.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.REGISTRY_KEY_LICENSE">
+            <summary>
+            Key for trial license.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.TRIAL_LICENSE_DURATION_IN_DAYS">
+            <summary>
+            Trial license duration.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.APP_PROJ">
+            <summary>
+            CMS project file name.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.APP_CODE_PROJ">
+            <summary>
+            CMS AppCode project file name.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.APP_SETTINGS_TRIAL_KEY">
+            <summary>
+            Trial license web.config key.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.INSTALL_UTIL_EXE">
+            <summary>
+            Name of the .NET utility to install/uninstall win services.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.SOLUTION_PATH_MACRO">
+            <summary>
+            Macro in .sln files to be replaced by correct path to instance
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.SYMLINK_EXTENSION">
+            <summary>
+            Extension of symlink file
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.IISEXPRESS_RUNSITE_SCRIPT_FILE_NAME">
+            <summary>
+            Name of the "run site" script file.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.IISEXPRESS_RUNSITE_SCRIPT_RESOURCE_NAME">
+            <summary>
+            Name of embedded resource with "run site" script.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.SQLLOCALDB_PATH_MACRO">
+            <summary>
+            Macro in RunSite.vbs script to be replaced with full path to SqlLocalDb.exe utility.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.DEFAULT_ASPX">
+            <summary>
+            Default web page file.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.ADMIN_SITE">
+            <summary>
+            Admin interface URL.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.SALT">
+            <summary>
+            Salt for trial license key
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.importSiteFailed">
+            <summary>
+            Flag - indicates whether site import failed or not.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.runningSite">
+            <summary>
+            Successfully imported and running site.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.importHandlersInitialized">
+            <summary>
+            Determines whether import handlers has been initialized.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.progressTotal">
+            <summary>
+            Total progress points
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.progressCurrent">
+            <summary>
+            Current progress points
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.mInstallWorker">
+            <summary>
+            Asynchronous worker for install.
+            </summary>
+        </member>
+        <member name="F:Installer.InstallationManager.mUninstallWorker">
+            <summary>
+            Asynchronous worker for uninstall.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.#ctor(InstallationHelper.InstallationProfile,WinAppFoundation.IMessageLog,InstallationHelper.IProgress)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="profile">Installation settings.</param>
+            <param name="messageLog">Object ensuring logging messages.</param>
+            <param name="progress">Object ensuring progress logging</param>
+        </member>
+        <member name="M:Installer.InstallationManager.PerformActionsAsync">
+            <summary>
+            Performs actions based on InstallationProfile. Runs asynchronously.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.PerformActionsSync">
+            <summary>
+            Performs actions based on InstallationProfile. Runs synchronously.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.Cancel">
+            <summary>
+            Aborts the current step operation.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.PerformUninstallAsync(System.Collections.Generic.IEnumerable{InstallationHelper.WebProjectItem},System.Boolean)">
+            <summary>
+            Removes all selected instances and (optionally) program files.
+            </summary>
+            <param name="instances">Instances to be removed</param>
+            <param name="removeProgramFiles">Indicates whether program files should be uninstalled</param>
+        </member>
+        <member name="M:Installer.InstallationManager.OnProgramFilesProgress(System.Int32)">
+            <summary>
+            Occurs when program files installation progress changed.
+            </summary>
+            <param name="progressPercentage">Overall program files progress percentage</param>
+        </member>
+        <member name="M:Installer.InstallationManager.Install(System.ComponentModel.BackgroundWorker,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Runs the installation.
+            </summary>
+            <param name="e">Provides data for the System.ComponentModel.BackgroundWorker.DoWork event handler.</param>
+            <param name="backgroundWorker">Worker object</param>
+        </member>
+        <member name="M:Installer.InstallationManager.Modify(System.ComponentModel.BackgroundWorker,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Runs the installation.
+            </summary>
+            <param name="backgroundWorker">Worker object</param>
+            <param name="e">Provides data for the System.ComponentModel.BackgroundWorker.DoWork event handler.</param>
+        </member>
+        <member name="M:Installer.InstallationManager.TouchSites(System.String[])">
+            <summary>
+            Makes an asynchronous GET request to given URLs.
+            </summary>
+            <param name="sites">URLs to request</param>
+        </member>
+        <member name="M:Installer.InstallationManager.Log(System.String,CMS.DataEngine.MessageTypeEnum)">
+            <summary>
+            Logs messages from import process.
+            </summary>
+            <param name="message">Message</param>
+            <param name="type">Type of message ('</param>
+        </member>
+        <member name="M:Installer.InstallationManager.LogResult(Installer.ErrorStatus,System.String)">
+            <summary>
+            Ensures status being logged to output.
+            </summary>
+            <param name="status">Status to log</param>
+            <param name="resourcePrefix">Prefix determining type of installation</param>
+        </member>
+        <member name="M:Installer.InstallationManager.IsDatabaseValid">
+            <summary>
+            Determines whether the database is suitable for installation.
+            </summary>
+            <returns>TRUE if valid</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.EnsureCorrectSessionState">
+            <summary>
+            Ensures correct session state is set in web.config.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.SaveApplicationName(System.String)">
+            <summary>
+            Saves application name to web.config file.
+            </summary>
+            <param name="filePath">Web.config file path</param>
+        </member>
+        <member name="M:Installer.InstallationManager.HandleCMSServices">
+            <summary>
+            Installs and starts health monitoring and win services when needed.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.HandleWinServices(Installer.WinServiceInstallTypeEnum)">
+            <summary>
+            Handles Windows services.
+            </summary>
+            <returns>TRUE if operation succeeded</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.ShutdownRunningServices(System.String)">
+            <summary>
+            Stops running services.
+            </summary>
+            <param name="webSitePath">Path to web application</param>
+            <returns>List of running processes/services</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.StartStoppedServices(System.Collections.Generic.List{WinAppFoundation.ProcessEntry})">
+            <summary>
+            Starts previously stopped services.
+            </summary>
+            <param name="stoppedProcesses">List of stopped processes</param>
+        </member>
+        <member name="M:Installer.InstallationManager.InstallUninstallWinServices(Installer.WinServiceInstallTypeEnum)">
+            <summary>
+            Installs or uninstalls web services.
+            </summary>
+            <param name="installType">TRUE for install, FALSE for uninstall</param>
+            <returns>TRUE if operation succeeded.</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.StartWindowsService(System.String)">
+            <summary>
+            Starts windows service.
+            </summary>
+            <param name="serviceName">Name of service to start</param>
+        </member>
+        <member name="M:Installer.InstallationManager.RegisterToKIM(System.String,System.String,WinAppFoundation.NETVersionEnum)">
+            <summary>
+            Registers current installation to KIM project file.
+            </summary>
+            <param name="targetPath">Target path to project</param>
+            <param name="url">URL to project</param>
+            <param name="netVersion">.NET version</param>
+        </member>
+        <member name="M:Installer.InstallationManager.UnregisterFromKIM">
+            <summary>
+            Unregisters current installation from KIM project file.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.PrepareLibraries(System.String,System.String)">
+            <summary>
+            Copies libraries (from all subfolders if any) to web project binary folder.
+            </summary>
+            <param name="librariesPath">Path to libraries</param>
+            <param name="binariesPath">Path to web project binary folder</param>
+        </member>
+        <member name="M:Installer.InstallationManager.CopySourceDirectories(InstallationHelper.ComponentSet,System.Boolean,System.ComponentModel.BackgroundWorker,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Copy source directories and replace all necessary macros.
+            </summary>
+            <param name="copiedComponents">Copied components</param>
+            <param name="isWebSite">Website (not application)</param>
+            <param name="backgroundWorker">Worker object</param>
+            <param name="e">Provides data for the System.ComponentModel.BackgroundWorker.DoWork event handler.</param>
+        </member>
+        <member name="M:Installer.InstallationManager.CreateStartupScript">
+            <summary>
+            Creates additional script for starting site running on IIS Express and/or LocalDB.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.DeleteDir(System.String)">
+            <summary>
+            Deletes directory tree.
+            </summary>
+            <param name="directory">Directory or file to delete</param>
+            <returns>Error, which occurred during deletion.</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.DeleteDirectories(System.Collections.Generic.HashSet{System.String},System.ComponentModel.BackgroundWorker)">
+            <summary>
+            Deletes given directories.
+            </summary>
+            <param name="dirs">Directories to delete</param>
+            <param name="backgroundWorker">Background worker</param>
+            <returns>Possible TRUE if succeeded otherwise returns FALSE</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.AddProgress(System.Int32)">
+            <summary>
+            Adds the progress points to the current progress.
+            </summary>
+            <param name="addPoints">Points count to add</param>
+            <returns>Returns current progress percentage</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.AddToTotalProgress(System.Collections.Generic.List{System.String})">
+            <summary>
+            Adds sum of all subpaths to total progress value.
+            </summary>
+            <param name="paths">Paths to files or directories</param>
+        </member>
+        <member name="M:Installer.InstallationManager.ResolveSymlink(System.String,System.String)">
+            <summary>
+            If file stored under given source path has .SYMLINK extension loads its contents (which is relative path) and combines it with given base path.
+            </summary>
+            <param name="source">Path to resolve</param>
+            <param name="basePath">Path to combine possible SYMLINK's relative path with</param>
+            <returns>Resolved path</returns>
+        </member>
+        <member name="M:Installer.InstallationManager.CopyFile(System.String,System.String,System.String)">
+            <summary>
+            Copies file from source to destination. If a file is a symlink,
+            that symlink will be replaced by its real content.
+            </summary>
+            <param name="src">Source file (or *.symlink)</param>
+            <param name="dst">Destination file</param>
+            <param name="basePath">Path to webinstaller folder</param>
+        </member>
+        <member name="M:Installer.InstallationManager.CopyDirectoryLocal(System.String,System.String,System.String,System.ComponentModel.BackgroundWorker,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Performs the local copy directory action, returns true, if successful.
+            </summary>
+            <param name="sourceDirectory">Source directory or file</param>
+            <param name="targetDirectory">Target directory</param>
+            <param name="pathToData">Path to source files</param>
+            <param name="backgroundWorker">Worker object</param>
+            <param name="e">Provides data for the System.ComponentModel.BackgroundWorker.DoWork event handler.</param>
+        </member>
+        <member name="M:Installer.InstallationManager.GetDLLsVersions(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Returns DLLs versions within specified directory.
+            </summary>
+            <param name="dirs">List of directories</param>
+            <param name="basePath">Base path to source dir</param>
+        </member>
+        <member name="M:Installer.InstallationManager.ReplaceInFile(System.String,System.String,System.String)">
+            <summary>
+            Replaces macro string with specified string.
+            </summary>
+            <param name="filePath">Path to the file</param>
+            <param name="what">Macro string to be replaced</param>
+            <param name="replaceWith">String for replacement</param>
+        </member>
+        <member name="M:Installer.InstallationManager.ReadAndVerifyTrialType(System.String)">
+            <summary>
+            Gets trial type from XML file.
+            </summary>
+            <param name="path">Path to XML file</param>
+        </member>
+        <member name="M:Installer.InstallationManager.GenerateTrialTypeKey(System.String)">
+            <summary>
+            Generates type key
+            </summary>
+            <param name="type">Trial type (U - CMS; X - EMS)</param>
+        </member>
+        <member name="M:Installer.InstallationManager.GenerateTrialKey(System.DateTime)">
+            <summary>
+            Generate Trial license key.
+            </summary>
+            <param name="expirationDate">Expiration date</param>
+        </member>
+        <member name="M:Installer.InstallationManager.WaitForProcess(System.Diagnostics.Process)">
+            <summary>
+            Waits for process (120s).
+            </summary>
+            <param name="process">Process</param>
+        </member>
+        <member name="M:Installer.InstallationManager.GetStartSiteCommand(System.String,System.String,System.String)">
+            <summary>
+            Creates arguments for windows shortcut to a script starting site depending on installation type.
+            </summary>
+            <param name="localDBInstanceName">Name of LocalDB instance to start</param>
+            <param name="iisExpressWebSite">Name of IISExpress web site to start</param>
+            <param name="browserUrl">URL to open in browser</param>
+        </member>
+        <member name="M:Installer.InstallationManager.AddLinkToStartMenu(System.String)">
+            <summary>
+            Add link to Start menu/Programs/Kentico x.x/Sites/link
+            </summary>
+            <param name="urlToSite">URL to site</param>
+        </member>
+        <member name="M:Installer.InstallationManager.SetupInfrastructureAutoStart">
+            <summary>
+            Ensures LocalDB and/or IIS Express are started after Windows startup.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.OpenBrowser">
+            <summary>
+            Opens installed website and tutorial page in the browser.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.ChangeDomainInURL(System.String)">
+            <summary>
+            Change domain in given URL according to currently running site.
+            </summary>
+            <param name="url">URL to change domain within</param>
+        </member>
+        <member name="M:Installer.InstallationManager.EnsureCorrectProjectFormat">
+            <summary>
+            Performs conversion of project's files according to preferred choice (web application or web site).
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.GetServerConnectionString">
+            <summary>
+            Creates connection string to SQL server.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.GetDatabaseConnectionString(System.Boolean)">
+            <summary>
+            Creates connection string to database in SQL server.
+            </summary>
+            <param name="useNamedPipe">
+            Indicates whether connection string should be build using named pipes.
+            Named pipes are required when using LocalDB and .NET update 4.0.2 is being installed as a prerequisite. On the other hand named pipes don't work on a shared LocalDB instance used by the web application.
+            </param>
+        </member>
+        <member name="M:Installer.InstallationManager.GetConnectionString(System.Boolean,System.Boolean)">
+            <summary>
+            Creates connection string to SQL server or its database.
+            </summary>
+            <param name="withDatabase">Whether to create connection string to database</param>
+            <param name="useNamedPipe">
+            Indicates whether connection string should be build using named pipes.
+            Named pipes are required when using LocalDB and .NET update 4.0.2 is being installed as a prerequisite. On the other hand named pipes don't work on a shared LocalDB instance used by the web application.
+            </param>
+        </member>
+        <member name="M:Installer.InstallationManager.InstallDatabase">
+            <summary>
+            Creates database (including tables, views and procedures...) according to Installation profile configuration.
+            </summary>
+        </member>
+        <member name="M:Installer.InstallationManager.LicensesImport(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Import all license keys or creates trial key if none is given.
+            </summary>
+            <param name="licenses">List of licenses</param>
+            <param name="connectionStringDB">Connection string to DB</param>
+            <param name="trialLicenseKey">Trial key license</param>
+        </member>
+        <member name="M:Installer.InstallationManager.CheckWebTemplateAvailability(System.Collections.Generic.List{InstallationHelper.WebSiteSetupItem})">
+            <summary>
+            Checks if all requested templates is available.
+            </summary>
+            <param name="sites">Sites to import</param>
+        </member>
+        <member name="M:Installer.InstallationManager.InstallWebSites(System.Collections.Generic.List{InstallationHelper.WebSiteSetupItem},System.String,System.String,System.ComponentModel.BackgroundWorker,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Installs given web sites.
+            </summary>
+            <param name="sites">List of sites to import (templatename, codename, displayname, domain...)</param>
+            <param name="connectionStringDB">Connection string to DB</param>
+            <param name="targetWebProjectDirectory">Physical path to web root</param>
+            <param name="backgroundWorker">Worker object</param>
+            <param name="e">Provides data for the <see cref="E:System.ComponentModel.BackgroundWorker.DoWork"/> event handler.</param>
+        </member>
+        <member name="M:Installer.InstallationManager.ImportWebSite(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Imports specified site. Returns false if site already exists.
+            </summary>
+            <param name="websitePath">Path to website (root)</param>
+            <param name="siteName">Site code name</param>
+            <param name="siteDisplayName">Site display name</param>
+            <param name="siteDomain">Domain</param>
+            <param name="sourcePathToSite">Path to source files (*.export)</param>
+        </member>
+        <member name="M:Installer.InstallationManager.IsInternetConnectionNeeded">
+            <summary>
+            Checks if the Internet connection is needed.
+            </summary>
+        </member>
+        <member name="E:Installer.InstallationManager.OnInstallToProgramFiles">
+            <summary>
+            Fired when installation to Program Files (or any other selected folder) is required.
+            </summary>
+        </member>
+        <member name="E:Installer.InstallationManager.OnUninstallProgramFiles">
+            <summary>
+            Fired when uninstall program files is required.
+            </summary>
+        </member>
+        <member name="E:Installer.InstallationManager.ActionComplete">
+            <summary>
+            Fired when installation is complete.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.Profile">
+            <summary>
+            Installation configuration class.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.MessageLog">
+            <summary>
+            Component for the message logging.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.Progress">
+            <summary>
+            Component for progress logging
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.IsBusy">
+            <summary>
+            Determines whether some action is in progress.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.ProgramFilesUpToDate">
+            <summary>
+            Indicates whether program files are installed in the current version.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.InstallProgramFiles">
+            <summary>
+            Indicates whether program files will be installed in the current installation.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.ComponentProvider">
+            <summary>
+            Component provider.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.WebProjectRemover">
+            <summary>
+            Performs web project uninstallation.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.DiagnosticsInstaller">
+            <summary>
+            Provides installation of diagnostic tools.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.ProcessHelper">
+            <summary>
+            Gets helper for starting/stopping processes
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.PrerequisiteInstaller">
+            <summary>
+            Performs prerequisite installation.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.LocalDB">
+            <summary>
+            LocalDB instance.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.UsesLocalDB">
+            <summary>
+            Determines whether installation uses LocalDB instance or not.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.LicenseCode">
+            <summary>
+            Trial license key.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.VirtualDirectoryName">
+            <summary>
+            Target virtual directory name.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.IgnoreMinorErrors">
+            <summary>
+            Whether to ignore minor errors.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.OverwriteInstallation">
+            <summary>
+            Whether to overwrite existing files.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.ModifyExistingDatabase">
+            <summary>
+            Gets whether the installation is to existing or new database.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.IsWebApplication">
+            <summary>
+            Determines whether currently processed project is web application.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.WebConfigPath">
+            <summary>
+            Web configuration path.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.InstallWorker">
+            <summary>
+            Asynchronous worker for installation.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.UninstallWorker">
+            <summary>
+            Asynchronous worker for uninstall.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.ProgramFilesProgress">
+            <summary>
+            Stored program files installation progress for overall progress calculation.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.ProgressPhases">
+            <summary>
+            Number of full 100% cycles performed by current installation.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.TotalPrerequisiteSize">
+            <summary>
+            Total size of all prerequisites that need to be installed.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.FinishedPrerequisitesSize">
+            <summary>
+            Size of finished prerequisites.
+            </summary>
+        </member>
+        <member name="P:Installer.InstallationManager.WebAppConverter">
+            <summary>
+            Web app to web site converter.
+            </summary>
+        </member>
+        <member name="T:Installer.ResHelper">
+            <summary>
+            Resource manager class.
+            </summary>
+        </member>
+        <member name="M:Installer.ResHelper.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Installer.ResHelper.GetString(System.String,System.Object[])">
+            <summary>
+            Gets localized string from resource file.
+            </summary>
+            <param name="stringName">Codename of string</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+            <returns>Localized text</returns>
+        </member>
+        <member name="P:Installer.ResHelper.CurrentResHelper">
+            <summary>
+            Current resource helper object.
+            </summary>
+        </member>
+        <member name="T:Installer.Resources.Localization">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.database_failedtoconnecttodb">
+            <summary>
+              Looks up a localized string similar to Failed to connect to database &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.database_failedtoremovedb">
+            <summary>
+              Looks up a localized string similar to Failed to remove database &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.database_faileduseraccess">
+            <summary>
+              Looks up a localized string similar to Failed manipulating UserAccess for database &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_anotherinstallationrunning">
+            <summary>
+              Looks up a localized string similar to Another installation is in progress. You must complete that installation before starting this one..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_creatingvirtdirfailed">
+            <summary>
+              Looks up a localized string similar to Creating of virtual directory &quot;{0}&quot; failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_deletingpreviousvirtdirfailed">
+            <summary>
+              Looks up a localized string similar to Deleting previous virtual directory failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_deletingpreviousvirtdirsetdelete">
+            <summary>
+              Looks up a localized string similar to Virtual directory &apos;{0}&apos; already exist and can&apos;t be deleted.  If you want to remove this virtual directory add attribute DeleteExisting=&quot;true&quot; in IIS element in XML file or remove virtual directory manually..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_incompatiblelocationwithazureproject">
+            <summary>
+              Looks up a localized string similar to This location is not compatible with an Azure project..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_removingfilesfromtargetdir">
+            <summary>
+              Looks up a localized string similar to Removing all files from website target directory &apos;{0}&apos;....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_targetdircantbedeleted">
+            <summary>
+              Looks up a localized string similar to Web site target directory &apos;{0}&apos; contains files and can&apos;t be deleted.  If you want to remove previous web site add attribute DeleteExisting=&quot;true&quot; in IIS element in XML file or remove web site target directory manually..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_targetdirectorycreatefailed">
+            <summary>
+              Looks up a localized string similar to Failed to create web site target directory..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_testdbconnectionfailed">
+            <summary>
+              Looks up a localized string similar to Connection to DB &quot;{0}&quot; failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_testdbexistsetdelete">
+            <summary>
+              Looks up a localized string similar to Database &apos;{0}&apos; already exist and can&apos;t be deleted.  If you want to remove this database add attribute DeleteExisting=&quot;true&quot; in SQL element in XML file or remove database manually..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_testdbserverconnectionfailed">
+            <summary>
+              Looks up a localized string similar to Connection to DB server failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_unabledtomodifynonexistingdb">
+            <summary>
+              Looks up a localized string similar to Unable to modify nonexisting database &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_unabletodeletefolderstoprunningprocesses">
+             <summary>
+               Looks up a localized string similar to Unable to delete files due to running processes. Please stop following processes:
+            {0}.
+             </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_unsupporteddbserver">
+            <summary>
+              Looks up a localized string similar to This version of DB server is not supported anymore..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.install_virtdircreated">
+            <summary>
+              Looks up a localized string similar to Virtual directory &quot;{0}&quot; has been created..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_cancelled">
+            <summary>
+              Looks up a localized string similar to Cancelled.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_cantmodifywithoutprogramfiles">
+            <summary>
+              Looks up a localized string similar to Modify can&apos;t be performed without Kentico program files installed. Please install Kentico program files first..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_configforasp2">
+            <summary>
+              Looks up a localized string similar to Configuring application for ASP.NET....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_conversionfinished">
+            <summary>
+              Looks up a localized string similar to Conversion finished..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_convertingtowebproject">
+            <summary>
+              Looks up a localized string similar to Converting to web project....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_copyingfiles">
+            <summary>
+              Looks up a localized string similar to Copying files to {0}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_copyingfilesdone">
+            <summary>
+              Looks up a localized string similar to Copying files finished..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_copyingfilesfailed">
+            <summary>
+              Looks up a localized string similar to Copying files failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_copyingfilesfinished">
+            <summary>
+              Looks up a localized string similar to Copying files was finished successfully..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_createdatabasefailed">
+            <summary>
+              Looks up a localized string similar to Failed to create database..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_createvirtualdir">
+            <summary>
+              Looks up a localized string similar to Creating virtual directory &quot;{0}&quot;....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_creatingdb">
+            <summary>
+              Looks up a localized string similar to Creating DB &quot;{0}&quot;....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_creatingdbobjects">
+            <summary>
+              Looks up a localized string similar to Creating DB objects....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_creatinglinkinstartmenufailed">
+            <summary>
+              Looks up a localized string similar to Creating a link in start menu failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_datacreationfailed">
+            <summary>
+              Looks up a localized string similar to Data creation failed.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_dbalreadyexist">
+            <summary>
+              Looks up a localized string similar to Database with given name &quot;{0}&quot; already exists..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_dbcreated">
+            <summary>
+              Looks up a localized string similar to Database &quot;{0}&quot; created..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_dbdeleted">
+            <summary>
+              Looks up a localized string similar to Database &apos;{0}&apos; was successfully deleted..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_dbobjectscreated">
+            <summary>
+              Looks up a localized string similar to DB objects created..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_dbobjectscreationfailed">
+            <summary>
+              Looks up a localized string similar to DB objects creation failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_dbobjectsfailedduringcreation">
+            <summary>
+              Looks up a localized string similar to Creation of DB objects failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_deletingunselectedmodules">
+            <summary>
+              Looks up a localized string similar to Deleting unselected modules..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_deletingunselectedmodulesfinished">
+            <summary>
+              Looks up a localized string similar to Unselected modules have been deleted..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_deletionfailed">
+            <summary>
+              Looks up a localized string similar to Deletion of &apos;{0}&apos; failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_dllversionsdidnotmatch">
+            <summary>
+              Looks up a localized string similar to DLLs versions of source files (installer) and target files (site) do not match. Therefore adding new module(s) is not allowed. Please download latest hotfix with setup files..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_done">
+            <summary>
+              Looks up a localized string similar to Done..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_doneminorerrors">
+            <summary>
+              Looks up a localized string similar to Installation finished with minor errors..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_donesuccessfully">
+            <summary>
+              Looks up a localized string similar to Installation finished successfully..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorassignvirtualdir">
+            <summary>
+              Looks up a localized string similar to The installer was unable to configure the application for ASP.NET. Please  set up the application manually in the IIS console..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorassignvirtualdircaption">
+            <summary>
+              Looks up a localized string similar to Error set up application.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorconnectionreconnect">
+            <summary>
+              Looks up a localized string similar to Connection to the ftp server was lost. Reconnect?.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorconnectionreconnectcaption">
+            <summary>
+              Looks up a localized string similar to Connection lost..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorcreatingdir">
+            <summary>
+              Looks up a localized string similar to The folder couldn&apos;t be created. Original error: .
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errordeletingdir">
+            <summary>
+              Looks up a localized string similar to The folder couldn&apos;t be deleted. Original error: .
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errornotsupportedftptype">
+            <summary>
+              Looks up a localized string similar to This ftp server type is not supported..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorreadingdir">
+            <summary>
+              Looks up a localized string similar to Error reading directory. Original error: .
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorregisteraspnet">
+            <summary>
+              Looks up a localized string similar to The installer was unable to add the web service extension for ASP.NET. Please  add the web service extension for ASP.NET manually..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorregisteraspnetcaption">
+            <summary>
+              Looks up a localized string similar to Error adding web service extension..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_errorregisteringchatservice">
+            <summary>
+              Looks up a localized string similar to Error (un)registering chat service..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_eventlogregistered">
+            <summary>
+              Looks up a localized string similar to Windows event log sources have been registered..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_eventlogunregistered">
+            <summary>
+              Looks up a localized string similar to Windows event log sources have been unregistered..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_failed">
+            <summary>
+              Looks up a localized string similar to Installation failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_failedinstallservices">
+            <summary>
+              Looks up a localized string similar to Failed to install Windows services..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_failedregisterappname">
+            <summary>
+              Looks up a localized string similar to Failed to write application name to the config file..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_failedregisterhealthmonitoring">
+            <summary>
+              Looks up a localized string similar to Failed to register performance counters of Health Monitoring..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_failedtodeletedb">
+            <summary>
+              Looks up a localized string similar to Failed to delete database &quot;{0}&quot;. Original error: {1}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_failedtoloadconnstring">
+            <summary>
+              Looks up a localized string similar to Loading connection string of modified instance failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_faileduninstallservices">
+            <summary>
+              Looks up a localized string similar to Failed to uninstall Windows services..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_failedunregisterhealthmonitoring">
+            <summary>
+              Looks up a localized string similar to Failed to unregister performance counters of Health Monitoring..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_generalerror">
+            <summary>
+              Looks up a localized string similar to Error occurred:.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_importingsite">
+            <summary>
+              Looks up a localized string similar to Importing site &apos;{0}&apos;....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_importingsitefinished">
+            <summary>
+              Looks up a localized string similar to Importing site finished..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_installdatabasefailed">
+            <summary>
+              Looks up a localized string similar to Failed to install database..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_installingprogramfiles">
+            <summary>
+              Looks up a localized string similar to Kentico program files are being installed....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_installingwinservices">
+            <summary>
+              Looks up a localized string similar to Installing Windows services....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_installservicefailed">
+            <summary>
+              Looks up a localized string similar to Service &apos;{0}&apos; cannot be installed. Original error: {1}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_installutilmissing">
+            <summary>
+              Looks up a localized string similar to Services cannot be installed because .NET framework utility &apos;InstallUtil.exe&apos; was not found..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_installwinservices">
+            <summary>
+              Looks up a localized string similar to Windows services have been installed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_licenseexists">
+            <summary>
+              Looks up a localized string similar to License for domain &apos;{0}&apos; already exists..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_licenseexpired">
+            <summary>
+              Looks up a localized string similar to License for domain &apos;{0}&apos; is expired..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_licenseimported">
+            <summary>
+              Looks up a localized string similar to License for domain &apos;{0}&apos; was imported..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_licenseimportfailed">
+            <summary>
+              Looks up a localized string similar to License import failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_licenseimportfailedinit">
+            <summary>
+              Looks up a localized string similar to License import failed during initialization..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_licenseinvalid">
+            <summary>
+              Looks up a localized string similar to License for domain &apos;{0}&apos; is invalid..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_licensenotavailable">
+            <summary>
+              Looks up a localized string similar to License for domain &apos;{0}&apos; is not available..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_listofextensionlog">
+            <summary>
+              Looks up a localized string similar to Getting list of web extensions....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_logerrorcopyfileftp">
+            <summary>
+              Looks up a localized string similar to Failed to upload the file {0} to {1}..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_logfilesystempath">
+            <summary>
+              Looks up a localized string similar to     {0}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_modifyingappcodeproject">
+            <summary>
+              Looks up a localized string similar to Modifying AppCode project....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_modifyingappcodeprojectfinished">
+            <summary>
+              Looks up a localized string similar to Modifying AppCode project file finished..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_modifyingmainproject">
+            <summary>
+              Looks up a localized string similar to Modifying main project file (CMSApp.csproj)....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_modifyingmainprojectfinished">
+            <summary>
+              Looks up a localized string similar to Modifying main project file finished..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_nowebsite">
+            <summary>
+              Looks up a localized string similar to IIS web site is missing. Please make sure there is at least one web site in your IIS..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_preloading">
+            <summary>
+              Looks up a localized string similar to Preparing Kentico for the first use....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_preloadingfailed">
+            <summary>
+              Looks up a localized string similar to Preparing Kentico for the first use failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_preloadingfailedwithstatus">
+            <summary>
+              Looks up a localized string similar to Preparing Kentico for the first use failed with status &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_preparing">
+            <summary>
+              Looks up a localized string similar to Preparing web project installation....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_programfilesfailed">
+            <summary>
+              Looks up a localized string similar to Kentico program files installation failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_programfilesinstalled">
+            <summary>
+              Looks up a localized string similar to Kentico program files have been successfully installed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registerappname">
+            <summary>
+              Looks up a localized string similar to Application name has been written..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeraspextension">
+            <summary>
+              Looks up a localized string similar to Your computer is not configured to allow running ASP.NET which may lead to &quot;Page not found&quot; errors. Would you like the setup to enable ASP.NET on your computer?.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeraspextensioncaption">
+            <summary>
+              Looks up a localized string similar to Enable ASP.NET web service extension?.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeraspextensionlog">
+            <summary>
+              Looks up a localized string similar to Registering ASP.NET web service extension....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeraspnet">
+            <summary>
+              Looks up a localized string similar to Adding web service extension for ASP.NET....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registerhealthmonitoring">
+            <summary>
+              Looks up a localized string similar to Performance counters have been registered..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeringappname">
+            <summary>
+              Looks up a localized string similar to Writing application name to the config file....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeringeventlog">
+            <summary>
+              Looks up a localized string similar to Registering Windows event log sources....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeringhealthmonitoring">
+            <summary>
+              Looks up a localized string similar to Registering performance counters for Health Monitoring....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeringtokim">
+            <summary>
+              Looks up a localized string similar to Registering web project to Kentico Installation Manager....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeringtokimfailed">
+            <summary>
+              Looks up a localized string similar to Error occurred during registering web project to Kentico Installation Manager (it needs to be done manually): {0}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_registeringtokimfinished">
+            <summary>
+              Looks up a localized string similar to Registering web project to Kentico Installation Manager finished successfully..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_removingfiles">
+            <summary>
+              Looks up a localized string similar to Removing files....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_restartrequired">
+            <summary>
+              Looks up a localized string similar to Restart is required in order to succesfully complete installation..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_sitealreadyexists">
+            <summary>
+              Looks up a localized string similar to Site &apos;{0}&apos; already exists..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_sourcedirdoesnotexist">
+            <summary>
+              Looks up a localized string similar to Source directory or file {0} does not exist..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_sourcedirnotexist">
+            <summary>
+              Looks up a localized string similar to Source directory {0} does not exist..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_startservicefailed">
+            <summary>
+              Looks up a localized string similar to Service &apos;{0}&apos; cannot be started. Please start the service manually. Original error: {1}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_unexpectederrorduringdbinstallation">
+            <summary>
+              Looks up a localized string similar to An unexpected error occurred during DB installation..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_unhandledexceptionoccurred">
+            <summary>
+              Looks up a localized string similar to Unhandled exception occurred during site import..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_uninstallingwinservices">
+            <summary>
+              Looks up a localized string similar to Uninstalling Windows services....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_uninstallwinservices">
+            <summary>
+              Looks up a localized string similar to Windows services have been uninstalled..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_unregisterhealthmonitoring">
+            <summary>
+              Looks up a localized string similar to Performance counters have been unregistered..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_unregisteringeventlog">
+            <summary>
+              Looks up a localized string similar to Unregistering Windows event log sources....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_unregisteringhealthmonitoring">
+            <summary>
+              Looks up a localized string similar to Unregistering performance counters for Health Monitoring....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_urltosite">
+            <summary>
+              Looks up a localized string similar to URL to the created website: {0}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_warningassignvirtualdircaption">
+            <summary>
+              Looks up a localized string similar to Error set up application.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_webtemplatenotfound">
+            <summary>
+              Looks up a localized string similar to Web template &quot;{0}&quot; not found..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_writingconnectionstringtowebconfig">
+            <summary>
+              Looks up a localized string similar to Writing connection string to web.config....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.installer_writingconnectionstringtowebconfigfailed">
+            <summary>
+              Looks up a localized string similar to Writing connection string to web.config failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.main_emptydatabasename">
+            <summary>
+              Looks up a localized string similar to Database name is empty..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.main_emptysqlloginname">
+            <summary>
+              Looks up a localized string similar to SQL login name is empty..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.main_errormessage">
+            <summary>
+              Looks up a localized string similar to Error message: {0}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.main_malformedxml">
+            <summary>
+              Looks up a localized string similar to Error loading configuration file (maybe caused by malformed XML)..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.main_targetinstallationdirectorynotfound">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve target IIS path (web site not found)..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.main_unabletocreatedb">
+            <summary>
+              Looks up a localized string similar to Unable to create new database..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.main_xmlfilemissing">
+            <summary>
+              Looks up a localized string similar to XML file is missing (use /h for more info)..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_apppoolstopped">
+            <summary>
+              Looks up a localized string similar to Application pool &quot;{0}&quot; stopped..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_cancelled">
+            <summary>
+              Looks up a localized string similar to Cancelled.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_completed">
+            <summary>
+              Looks up a localized string similar to All selected components have been succesfuly uninstalled..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_dbdeleted">
+            <summary>
+              Looks up a localized string similar to DB &quot;{0}&quot; deleted..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_deletingphysicalpath">
+            <summary>
+              Looks up a localized string similar to Deleting physical path &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_deletingphysicalpathfinished">
+            <summary>
+              Looks up a localized string similar to Physical path &quot;{0}&quot; deleted..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_directoryremovalwarning">
+            <summary>
+              Looks up a localized string similar to Unable to remove directory &quot;{0}&quot;. This may be caused by another process using the given location..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_doneminorerrors">
+            <summary>
+              Looks up a localized string similar to Uninstallation has finished with minor errors..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_donesuccessfully">
+            <summary>
+              Looks up a localized string similar to Uninstallation has finished successfully..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_erroroccurred">
+            <summary>
+              Looks up a localized string similar to An error occurred during web project removal..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failed">
+            <summary>
+              Looks up a localized string similar to Uninstallation has failed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtoremoveapp">
+            <summary>
+              Looks up a localized string similar to Failed to remove application from IIS..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtoremoveapppool">
+            <summary>
+              Looks up a localized string similar to Failed to remove application pool..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtoremovedb">
+            <summary>
+              Looks up a localized string similar to Failed to remove database &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtoremovephysicalpath">
+            <summary>
+              Looks up a localized string similar to Failed to remove physical path: {0}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtostopapppool">
+            <summary>
+              Looks up a localized string similar to Failed to stop application pool..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtostopwindowsservices">
+            <summary>
+              Looks up a localized string similar to Failed to stop Windows services..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtouninstallservice">
+            <summary>
+              Looks up a localized string similar to Failed to uninstall Windows service &apos;{0}&apos; (original error: {1})..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_failedtoverifyiisexpress">
+            <summary>
+              Looks up a localized string similar to Exception occurred when trying to find web project with path &quot;{0}&quot; in IIS Express config..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_fileremovalfailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when removing file &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_instanceuninstalled">
+            <summary>
+              Looks up a localized string similar to Web project &apos;{0}&apos; has been uninstalled..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_keepingapppool">
+            <summary>
+              Looks up a localized string similar to Aplication pool &apos;{0}&apos; won&apos;t be removed since there are other applications using it..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_killingrunningprocesses">
+            <summary>
+              Looks up a localized string similar to Terminating running utilities....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_killingrunningprocessesfinished">
+            <summary>
+              Looks up a localized string similar to Running utilities have been terminated..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_physicalpathdoesnotexist">
+            <summary>
+              Looks up a localized string similar to Physical path to the application does not exist &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_programfilesremoved">
+            <summary>
+              Looks up a localized string similar to Kentico program files have been succesfully removed..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_removedfromxml">
+            <summary>
+              Looks up a localized string similar to Web projects have been unregistered..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_removingdb">
+            <summary>
+              Looks up a localized string similar to Removing DB &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_removingfromxmlfailed">
+            <summary>
+              Looks up a localized string similar to Error occurred during unregistering web projects. Original error : {0}.
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_removinginstance">
+            <summary>
+              Looks up a localized string similar to Removing &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_removinginstances">
+            <summary>
+              Looks up a localized string similar to Removing web projects....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_removingprogramfiles">
+            <summary>
+              Looks up a localized string similar to Removing Kentico program files....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_skipping">
+            <summary>
+              Looks up a localized string similar to Skipping &apos;{0}&apos; (&apos;{1}&apos;).
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_started">
+            <summary>
+              Looks up a localized string similar to Uninstallation has started..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_stoppingapppool">
+            <summary>
+              Looks up a localized string similar to Stopping application pool &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_unabletofindapp">
+            <summary>
+              Looks up a localized string similar to Unable to find application in IIS for &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_uninstallinginstance">
+            <summary>
+              Looks up a localized string similar to Uninstalling web project &apos;{0}&apos;....
+            </summary>
+        </member>
+        <member name="P:Installer.Resources.Localization.uninstall_uninstallingservices">
+            <summary>
+              Looks up a localized string similar to Uninstalling services in progress....
+            </summary>
+        </member>
+        <member name="T:Installer.UninstallConfiguration">
+            <summary>
+            Configuration object for uninstall procedure.
+            </summary>
+        </member>
+        <member name="P:Installer.UninstallConfiguration.Instances">
+            <summary>
+            Enumeration of instances that should be removed.
+            </summary>
+        </member>
+        <member name="P:Installer.UninstallConfiguration.RemoveProgramFiles">
+            <summary>
+            Indicates whether program files should be removed.
+            </summary>
+        </member>
+    </members>
+</doc>

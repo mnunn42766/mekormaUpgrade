@@ -1,0 +1,26 @@
+
+----------------------------------------
+Track origin
+----------------------------------------
+Thread ID: 74
+Track started: 7/30/2015 12:57:56 PM
+Reason: Transaction (Process ID 63) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+Stack trace: 
+
+TrackedSection.TrackOpenSections
+DataConnection.HandleDbError
+AbstractDataConnection.HandleError
+AbstractDataConnection.ExecuteQuery
+DataQueryBase`1.GetDataFromDB
+DataQueryBase`1.GetData
+DataQueryBase`1.get_Result
+TreeProvider.ExecuteQuery
+TreeProvider.GetDocumentTypeData
+TreeProvider.SelectNodes
+TreeNodeCollection.GetData
+ObjectCollection`1.GetItem
+ObjectCollection`1.get_InternalCount
+<GetEnumeratorInternal>d__a.MoveNext
+CMSWebParts_mekorma_custom_navmenu.Page_Load
+AbstractUserControl.OnLoad
+CMSAbstractWebPart.OnLoad

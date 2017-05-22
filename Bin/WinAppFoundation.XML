@@ -1,0 +1,3077 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WinAppFoundation</name>
+    </assembly>
+    <members>
+        <member name="T:WinAppFoundation.DataSetHelper">
+            <summary>
+            Provides helper methods related to DataSet.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DataSetHelper.EscapeLikeValue(System.String)">
+            <summary>
+            Makes search phrase valid.
+            </summary>
+            <param name="toSearch">Value to search</param>
+            <returns>Valid search pattern</returns>
+        </member>
+        <member name="T:WinAppFoundation.IISComponent">
+            <summary>
+            IIS component definition used by IISHelper.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISComponent.Name">
+            <summary>
+            Gets or sets IIS component name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISComponent.From">
+            <summary>
+            Gets or sets lowest IIS version for which is this component available.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISComponent.To">
+            <summary>
+            Gets or sets highest IIS version for which is this component available.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISComponent.FromVersion">
+            <summary>
+            Gets lowest IIS version for which is this component available.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISComponent.ToVersion">
+            <summary>
+            Gets highest IIS version for which is this component available.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IISManager">
+            <summary>
+            Manager for IIS manipulation.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISManager.DEFAULT_WEB_SITE_NAME">
+            <summary>
+            Name of the "Default Web Site" node
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.#ctor(WinAppFoundation.IMessageLog)">
+            <summary>
+            Initializes message log.
+            </summary>
+            <param name="log">Message log to be used.</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.VirtualDirectoryExists(System.String,System.String)">
+            <summary>
+            Finds out whether given site contains given virtual directory.
+            </summary>
+            <param name="dirName">Directory to check</param>
+            <param name="siteName">Site to examine</param>
+            <returns>TRUE if given IIS site contains given virtual directory</returns>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetUniqueVirtualDirectoryName(System.String,System.String)">
+            <summary>
+            Returns unique name of virtual directory.
+            </summary>
+            <param name="dirName">Virtual directory name</param>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.CreateVirtualDirectory(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates a virtual directory for IIS7.
+            </summary>
+            <param name="siteName">Site name</param>
+            <param name="diskPath">Directory disk path</param>
+            <param name="virtualDirectoryName">Virtual directory name</param>
+            <param name="appPoolName">Name of application pool to use</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.DeleteVirtualDirectory(System.String,System.String)">
+            <summary>
+            Creates a virtual directory for IIS7.
+            </summary>
+            <param name="siteName">Site name</param>
+            <param name="virtualDirectoryName">Virtual directory name</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.UpdateVirtualDirectory(System.String,System.String)">
+            <summary>
+            Updates the virtual directory to the new file system path.
+            </summary>
+            <param name="oldProjectPath">Old project path</param>
+            <param name="newProjectPath">New project path</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.CreateApplicationPool(Microsoft.Web.Administration.ManagedPipelineMode,WinAppFoundation.CLRVersionEnum,System.String,System.String,System.Boolean)">
+            <summary>
+            Creates application pool in IIS.
+            </summary>
+            <param name="appPoolPrefix">Prefix used for naming application pool</param>
+            <param name="clrVersion">Version of .NET CLR</param>
+            <param name="virtualDirectoryName">Virtual directory name</param>
+            <param name="setLoadUserProfile">Indicates whether user profile loading should be allowed. This is required when using localDB. By default it is disabled.</param>
+            <param name="appPoolMode">Integrated or classic mode</param>
+            <exception cref="T:System.ArgumentException">Throws when a valid application pool name can't be derived from <paramref name="virtualDirectoryName"/></exception>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.CreateApplicationPool(Microsoft.Web.Administration.ServerManager,System.String,Microsoft.Web.Administration.ManagedPipelineMode,WinAppFoundation.CLRVersionEnum,System.Boolean)">
+            <summary>
+            Creates application pool.
+            </summary>
+            <param name="name">Pool name</param>
+            <param name="appPoolMode">Integrated or classic mode</param>
+            <param name="serverManager">Instance of server manager</param>
+            <param name="clrVersion">Version of CLR</param>
+            <param name="setLoadUserProfile">Indicates whether user profile loading should be allowed. This is required when using localDB. By default it is disabled.</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetUniqueApplicationPoolName(System.String)">
+            <summary>
+            Gets unique application pool name by adding a suffix.
+            </summary>
+            <param name="appPoolName">App pool name to convert</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetWebSiteRootAppPoolMode(System.String,Microsoft.Web.Administration.ManagedPipelineMode)">
+            <summary>
+            Gets web site's root application's pool pipeline mode.
+            </summary>
+            <param name="webSite">Web site name</param>
+            <param name="defaultMode">Default value</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.StopPool(System.String)">
+            <summary>
+            Halts given app pool. Returns true if pool was found.
+            </summary>
+            <param name="name">App pool name</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetWebSiteRootAppPoolName(System.String)">
+            <summary>
+            Gets web site's root application's pool name.
+            </summary>
+            <param name="webSite">Web site name</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.ValidateWebSiteAndApplication(System.String,System.String)">
+            <summary>
+            Validates website's existence and website's application existence.
+            </summary>
+            <param name="appPath">Path to website's application. Default value is path to root application.</param>
+            <param name="webSite">Web site name</param>
+            <exception cref="T:WinAppFoundation.IISSiteNotFoundException">Invalid website name</exception>
+            <exception cref="T:WinAppFoundation.IISApplicationNotFoundException">Invalid application path</exception>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetWebSiteRootPath(System.String)">
+            <summary>
+            Gets physical path to site root directory.
+            </summary>
+            <param name="siteName">Web site name</param>
+            <returns>Absolute path to root directory</returns>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.RecycleApplicationPoolsOnPath(System.String)">
+            <summary>
+            Gets application pool that are running over specified path.
+            </summary>
+            <param name="path">Path of website</param>
+            <returns>False if no application pool runs on <paramref name="path"/>, True otherwise.</returns>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetApplication(System.String,System.String)">
+            <summary>
+            Gets website's application.
+            </summary>
+            <param name="webSite">Name of website</param>
+            <param name="appPath">Path to websites application, by default "/" - path to root application</param>
+            <returns></returns>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetApplicationPool(System.String)">
+            <summary>
+            Gets website's application pool.
+            </summary>
+            <param name="webSite">Name of website</param>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.GetServerManagerInstance">
+            <summary>
+            Gets Server Manager instance. 
+            Server manager is class for manipulation with IIS, so it uses internal COM objects on background, which are not thread safe. 
+            In other words, it is not recommended to use Server manager in Multi-Threaded Apartment.
+            If you create an instance in one thread and use it in another, it is not guaranteed that this instance is thread safe.
+            To avoid this, use always new instance of server manager generated by this method.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.CommitIISServerChanges(Microsoft.Web.Administration.ServerManager)">
+            <summary>
+            Commits server manager changes and waits for changes to apply.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISManager.LogEvent(System.String,System.Exception)">
+            <summary>
+            Logs message to log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="ex">Possible exception to get message from</param>
+        </member>
+        <member name="P:WinAppFoundation.IISManager.DefaultWebSite">
+            <summary>
+            Gets name of the "Default Web Site" item.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISManager.SiteBindings">
+            <summary>
+            Provides bindings (host, port) for all sites. Collection is indexed by site name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISManager.IISDirectory">
+            <summary>
+            Get IIS directory.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISManager.Sites">
+            <summary>
+            Gets Sites collection image (not for modifying), which is NULL if any error occurs.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISManager.ApplicationPools">
+            <summary>
+            Gets Application pools collection image (not for modifying), which is NULL if any error occurs.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IISSiteNotFoundException">
+            <summary>
+            Thrown when IIS site was not found.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.SimpleBinding">
+            <summary>
+            Class representing IIS site binding.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.SimpleBinding.#ctor(System.String,System.Net.IPAddress,System.Int32)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="host">Host name of a site</param>
+            <param name="ipAddress">IP address</param>
+            <param name="port">Port of a site</param>
+        </member>
+        <member name="M:WinAppFoundation.SimpleBinding.GetHostAddress">
+            <summary>
+            Gets address to be used e.g. in web browser.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SimpleBinding.Host">
+            <summary>
+            Host name of a site.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SimpleBinding.IPAddress">
+            <summary>
+            IP address of a site.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SimpleBinding.Port">
+            <summary>
+            Port of a site.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.WebSite">
+            <summary>
+            Container for IIS web site information.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.WebSite.#ctor(Microsoft.Web.Administration.Site)">
+            <summary>
+            Initializes the instance from given <see cref="T:Microsoft.Web.Administration.Site"/>.
+            </summary>
+            <param name="site">IIS web site</param>
+        </member>
+        <member name="M:WinAppFoundation.WebSite.GetPhysicalPath(Microsoft.Web.Administration.Site)">
+            <summary>
+            Returns the physical directory of the first virtual directory in the first application on given site.
+            </summary>
+            <param name="site">IIS web site</param>
+        </member>
+        <member name="P:WinAppFoundation.WebSite.Name">
+            <summary>
+            Gets the site name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.WebSite.IISPath">
+            <summary>
+            Gets the site IIS path (identifier).
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.WebSite.PhysicalPath">
+            <summary>
+            Site physical path
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.WebSite.Applications">
+            <summary>
+            Gets a collection of site's applications.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.WebSite.Bindings">
+            <summary>
+            Gets a collection of site's bindings.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ResHelper">
+            <summary>
+            Resource manager class.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.AbstractResHelper">
+            <summary>
+            Class providing resource translations.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IResHelper">
+            <summary>
+            Interface providing resource translations.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IResHelper.GetString(System.String,System.Object[])">
+            <summary>
+            Gets localized string from resource file.
+            </summary>
+            <param name="stringName">Codename of string</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+            <returns>Localized text</returns>
+        </member>
+        <member name="M:WinAppFoundation.IResHelper.ChangeLanguage(System.String)">
+            <summary>
+            Changes language of supplied translations.
+            </summary>
+            <param name="cultureCode">Desired culture</param>
+        </member>
+        <member name="M:WinAppFoundation.IResHelper.AddLocalization(WinAppFoundation.ILocalizableItem)">
+            <summary>
+            Adds an element to a collection of localized elements.
+            </summary>
+            <param name="localization">Localized element</param>
+        </member>
+        <member name="F:WinAppFoundation.AbstractResHelper.LINE_BREAK">
+            <summary>
+            Line end.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractResHelper.#ctor(System.Reflection.Assembly,System.String,System.Boolean)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="assembly">Assembly to use</param>
+            <param name="resourceFullClassName">Full name (Namespace.ClassName) of class with resources (should be findable in supplied assembly)</param>
+            <param name="ignoreCase">Whether resource keys are case sensitive.</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractResHelper.#ctor(System.Type,System.Boolean)">
+            <summary>
+            Constructor utilizing type of localization file (resource file).
+            </summary>
+            <param name="localizationType">Type of resource file</param>
+            <param name="ignoreCase">Whether resource keys are case sensitive.</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractResHelper.GetString(System.String,System.Object[])">
+            <summary>
+            Gets localized string from resource file.
+            </summary>
+            <param name="stringName">Codename of string</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+            <returns>Localized text</returns>
+        </member>
+        <member name="M:WinAppFoundation.AbstractResHelper.ChangeLanguage(System.String)">
+            <summary>
+            Changes language of supplied translations.
+            </summary>
+            <param name="cultureCode">Desired culture</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractResHelper.AddLocalization(WinAppFoundation.ILocalizableItem)">
+            <summary>
+            Not implemented.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractResHelper.GetStringInternal(System.String,System.Object[])">
+            <summary>
+            Gets localized string from resource file.
+            </summary>
+            <param name="stringName">Codename of string</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+            <returns>Localized text if localized resource exists, stringName otherwise</returns>
+        </member>
+        <member name="M:WinAppFoundation.AbstractResHelper.UpdateLocalizations">
+            <summary>
+            Updates localizations.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractResHelper.AssemblyName">
+            <summary>
+            Name of assembly containing resource file.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractResHelper.Assembly">
+            <summary>
+            Gets the assembly containing translation resources.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractResHelper.IgnoreCase">
+            <summary>
+            Determines whether resource keys are case sensitive.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractResHelper.ResourceFullClassName">
+            <summary>
+            Gets or sets name of class containing translation resources.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractResHelper.CultureCode">
+            <summary>
+            Gets selected UI culture from application settings (english by default).
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractResHelper.Culture">
+            <summary>
+            Gets object with culture.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractResHelper.ResourceManager">
+            <summary>
+            Gets object for managing resources.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ResHelper.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ResHelper.GetString(System.String,System.Object[])">
+            <summary>
+            Gets localized string from resource file.
+            </summary>
+            <param name="stringName">Codename of string</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+            <returns>Localized text</returns>
+        </member>
+        <member name="P:WinAppFoundation.ResHelper.CurrentResHelper">
+            <summary>
+            Current resource helper object.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.AbstractMessageLog">
+            <summary>
+            Base class for logging providers.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IMessageLog">
+            <summary>
+            Interface for the progress logging component.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IMessageLog.LogEvent(System.String,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs the event to the event log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.IMessageLog.LogError(System.String,System.Exception,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs message to log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="ex">Possible exception to get message from</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.IMessageLog.IndicateActivity(System.String)">
+            <summary>
+            Logs event indicating that progress still continues.
+            </summary>
+            <param name="indicator">Indicator (e.g ".")</param>
+        </member>
+        <member name="P:WinAppFoundation.IMessageLog.LogMessages">
+            <summary>
+            Gets collection of logging messages.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractMessageLog.#ctor(WinAppFoundation.IMessageLog)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="messageLog">Logging provider</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractMessageLog.LogEvent(System.String,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs the event to the event log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractMessageLog.IndicateActivity(System.String)">
+            <summary>
+            Logs event indicating that progress still continues.
+            </summary>
+            <param name="indicator">Indicator (e.g ".")</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractMessageLog.LogError(System.String,System.Exception,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs message to log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="ex">Possible exception to get message from</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="P:WinAppFoundation.AbstractMessageLog.MessageLog">
+            <summary>
+            Logging provider.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractMessageLog.LogMessages">
+            <summary>
+            Gets collection of logging messages.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.BaseMessageLog">
+            <summary>
+            Provides basic logging.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.BaseMessageLog.#ctor(System.Windows.Threading.Dispatcher)">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.BaseMessageLog.LogEvent(System.String,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs the event to the event log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.BaseMessageLog.LogError(System.String,System.Exception,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs message to log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="ex">Possible exception to get message from</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.BaseMessageLog.IndicateActivity(System.String)">
+            <summary>
+            Logs event indicating that progress still continues.
+            </summary>
+            <param name="indicator">Indicator (e.g ".")</param>
+        </member>
+        <member name="P:WinAppFoundation.BaseMessageLog.LogMessages">
+            <summary>
+            Gets collection of logging messages.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.BaseMessageLog.SilentMessages">
+            <summary>
+            Gets collection of silent messages.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.EventTypeEnum">
+            <summary>
+            Event type enumeration.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.EventTypeEnum.Data">
+            <summary>
+            Common event data.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.EventTypeEnum.ActionStart">
+            <summary>
+            Event notifying an action has started.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.EventTypeEnum.Error">
+            <summary>
+            Error event.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.EventTypeEnum.Silent">
+            <summary>
+            Silent message (does not appear in UI).
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.LogHelper">
+            <summary>
+            Provides helper methods for logging events.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LogHelper.GetExceptionLogMessage(System.Exception)">
+            <summary>
+            Gets complete log for exception with message and deep stack trace.
+            Gets logs for all inner exceptions when an AggregateException is passed.
+            </summary>
+            <param name="ex">Exception to log</param>
+        </member>
+        <member name="T:WinAppFoundation.FileMessageLog">
+            <summary>
+            Provides file logging functionality.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.FileMessageLog.#ctor(WinAppFoundation.IMessageLog,System.String,System.String)">
+            <summary>
+            Parametric constructor.
+            </summary>
+            <param name="messageLog">Logging object</param>
+            <param name="logFileFolder">Folder for storing log</param>
+            <param name="logFileName">Name of log file</param>
+        </member>
+        <member name="M:WinAppFoundation.FileMessageLog.Finalize">
+            <summary>
+            Closes the output file.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.FileMessageLog.LogEvent(System.String,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs information message.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.FileMessageLog.LogError(System.String,System.Exception,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs error message.
+            </summary>
+            <param name="message">Message to log (exception message and stack trace will be included)</param>
+            <param name="ex">Exception</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.FileMessageLog.LogToFile(System.String,WinAppFoundation.EventTypeEnum,System.Exception)">
+            <summary>
+            Logs message to log file
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="type">Type of message</param>
+            <param name="ex">Exception to include to the logged message</param>
+        </member>
+        <member name="P:WinAppFoundation.FileMessageLog.LogFullPath">
+            <summary>
+            Full log file path.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.FileMessageLog.AddTimeStamp">
+            <summary>
+            Whether to add timestamp to messages.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.FileMessageLog.AddType">
+            <summary>
+            Whether to add event type to messages.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.CommandLineMessageLog">
+            <summary>
+            Class for logging messages to console or file.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.CommandLineMessageLog.#ctor(System.Boolean)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="loggingEnabled">Indicates whether the logging is enabled</param>
+        </member>
+        <member name="M:WinAppFoundation.CommandLineMessageLog.LogEvent(System.String,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs the event to the eventlog.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.CommandLineMessageLog.IndicateActivity(System.String)">
+            <summary>
+            Logs activity indicator or message (notifies user she needs to wait).
+            </summary>
+            <param name="indicator">Indicator (e.g ".")</param>
+        </member>
+        <member name="M:WinAppFoundation.CommandLineMessageLog.LogError(System.String,System.Exception,WinAppFoundation.EventTypeEnum)">
+            <summary>
+            Logs message to log.
+            </summary>
+            <param name="message">Message to log</param>
+            <param name="ex">Possible exception to get message from</param>
+            <param name="eventType">Type of the event</param>
+        </member>
+        <member name="M:WinAppFoundation.CommandLineMessageLog.WriteToLog(System.String)">
+            <summary>
+            Logs message to console.
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="P:WinAppFoundation.CommandLineMessageLog.LoggingEnabled">
+            <summary>
+            Indicates if logging to console is enabled.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.CommandLineMessageLog.LogMessages">
+            <summary>
+            Gets collection of logging messages.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.LogItem">
+            <summary>
+            Represents one record in log.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LogItem.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LogItem.#ctor(WinAppFoundation.LogItem)">
+            <summary>
+            Clones item.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LogItem.EventType">
+            <summary>
+            Type of event.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LogItem.Message">
+            <summary>
+            Event message.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LogItem.Time">
+            <summary>
+            Time of event
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.Resources.Localization">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_deploy">
+            <summary>
+              Looks up a localized string similar to Deploying site &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_deploymentfaild">
+            <summary>
+              Looks up a localized string similar to Error occurred when deploying site &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_deploymentsucceeded">
+            <summary>
+              Looks up a localized string similar to Site &apos;{0}&apos; was successfully deployed..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_errorremovingfromconfig">
+            <summary>
+              Looks up a localized string similar to Exception occurred when removing web project &quot;{0}&quot; from applicationhost.config..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_physicalpathnull">
+            <summary>
+              Looks up a localized string similar to Physical path of web project &quot;{0}&quot; is null..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_removedfromconfig">
+            <summary>
+              Looks up a localized string similar to Web project &quot;{0}&quot; has been removed from applicationhost.config..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_removingfromconfig">
+            <summary>
+              Looks up a localized string similar to Web project &quot;{0}&quot; is being removed from applicationhost.config..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_stoppingsite">
+            <summary>
+              Looks up a localized string similar to Attempting to stop site at &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_stoppingsitefailed">
+            <summary>
+              Looks up a localized string similar to Error occurred when stopping site &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_stoppingsitesucceeded">
+            <summary>
+              Looks up a localized string similar to Site at &apos;{0}&apos; was successfully stopped..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iisexpress_stoppingstopped">
+            <summary>
+              Looks up a localized string similar to Site at &apos;{0}&apos; has already been stopped..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iismanager_failedtogetpools">
+            <summary>
+              Looks up a localized string similar to Failed to retrive application pools from IIS configuration..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iismanager_failedtogetsites">
+            <summary>
+              Looks up a localized string similar to Failed to retrieve sites from IIS configuration..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iismanager_iisdirectoryfailed">
+            <summary>
+              Looks up a localized string similar to Failed to retrieve IIS directory..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iismanager_servermanagerfailed">
+            <summary>
+              Looks up a localized string similar to Could not create server manager for IIS manipulation..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.iismanager_websitevalidationfailed">
+            <summary>
+              Looks up a localized string similar to Website &apos;{0}&apos; ({1}) is not valid..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_assignsysadmintouser">
+            <summary>
+              Looks up a localized string similar to Assigning SYSADMIN role to user &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_autostopdisablefailed">
+            <summary>
+              Looks up a localized string similar to Failed to reconfigure LocalDB instance. After a while being idle it will stop..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_autostopdisablesuccess">
+            <summary>
+              Looks up a localized string similar to LocalDB instance successfully reconfigured so it does not stop when idle..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_autostopdisabling">
+            <summary>
+              Looks up a localized string similar to Ensuring LocalDB instance does not stop when idle..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_closingconnection">
+            <summary>
+              Looks up a localized string similar to Closing connection to LocalDB server instance..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_closingconnectionfailed">
+            <summary>
+              Looks up a localized string similar to Closing connection to LocalDB server instance failed..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_connectionclosed">
+            <summary>
+              Looks up a localized string similar to Connection to LocalDB server instance closed..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_created">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{0}&quot; has been created..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_createfailed">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{0}&quot; was not created. Executable produced an empty output or instance was not detected. Output : {1}.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_createfailedexception">
+            <summary>
+              Looks up a localized string similar to Error occurred when creating LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_creating">
+            <summary>
+              Looks up a localized string similar to Creating LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_creatinguser">
+            <summary>
+              Looks up a localized string similar to Creating user &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_creatinguserfailed">
+            <summary>
+              Looks up a localized string similar to Error occurred when creating user &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_getinginfofailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when getting info about instances..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_notrunningafterstart">
+            <summary>
+              Looks up a localized string similar to Starting LocalDB instance &quot;{0}&quot; failed. Instance is not running after start finished. Output : {1}.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_presentafterremoval">
+            <summary>
+              Looks up a localized string similar to Removal of LocalDB instance &quot;{0}&quot; failed. Instance is present after removal. Output : {1}.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_removalfailed">
+            <summary>
+              Looks up a localized string similar to Error occurred when removing LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_removed">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{0}&quot; has been removed..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_removing">
+            <summary>
+              Looks up a localized string similar to Removing LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_runningafterstop">
+            <summary>
+              Looks up a localized string similar to Stopping LocalDB instance &quot;{0}&quot; failed. Instance is running after stop finished. Output : {1}.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_shared">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{0}&quot; has been shared. Shared name is &quot;{1}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_sharing">
+            <summary>
+              Looks up a localized string similar to Sharing LocalDB instance &quot;{0}&quot;. Shared name will be &quot;{1}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_sharingfailed">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{0}&quot; was not shared. Shared instance &quot;{1}&quot; was not detected. Output : {2}.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_sharingfailedexception">
+            <summary>
+              Looks up a localized string similar to Error occurred when sharing LocalDB instance &quot;{0}&quot; with &quot;{1}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_started">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{0}&quot; has been started..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_starting">
+            <summary>
+              Looks up a localized string similar to Starting LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_startingfailed">
+            <summary>
+              Looks up a localized string similar to Error occurred when starting LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_stopingbeforeremoval">
+            <summary>
+              Looks up a localized string similar to Stopping LocalDB instance &quot;{0}&quot; before removal..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_stopped">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{0}&quot; has been stopped..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_stopping">
+            <summary>
+              Looks up a localized string similar to Stopping LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_stoppingfailed">
+            <summary>
+              Looks up a localized string similar to Error occurred when stopping LocalDB instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_unshared">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{1}&quot; has been unshared from &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_unsharing">
+            <summary>
+              Looks up a localized string similar to Unsharing LocalDB instance &quot;{1}&quot; from &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_unsharingfailed">
+            <summary>
+              Looks up a localized string similar to LocalDB instance &quot;{1}&quot; was not unshared from &quot;{0}&quot;. Shared instance &quot;{1}&quot; is still being detected. Output : {2}.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.localdb_unsharingfailedexception">
+            <summary>
+              Looks up a localized string similar to Error occurred when unsharing LocalDB instance &quot;{1}&quot; from instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_containsinvalidchars">
+            <summary>
+              Looks up a localized string similar to Path contains invalid characters..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_deniedaccess">
+            <summary>
+              Looks up a localized string similar to Access to selected folder has been denied..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_directorynotempty">
+            <summary>
+              Looks up a localized string similar to Selected folder is not empty..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_invalidcolon">
+            <summary>
+              Looks up a localized string similar to Colon in the path must be part of volume identifier..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_isnotvalid">
+            <summary>
+              Looks up a localized string similar to Path &apos;{0}&apos; is not valid. ({1}).
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_istoolong">
+            <summary>
+              Looks up a localized string similar to Path is too long..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_mustnotbeempty">
+            <summary>
+              Looks up a localized string similar to Path must not be empty..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_pathdoesnotexist">
+            <summary>
+              Looks up a localized string similar to Path does not exist..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.path_pathisrelativepath">
+            <summary>
+              Looks up a localized string similar to Relative path is not allowed..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_colsingmainwindowsfailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when closing main window of process with ID &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_gettingmainmodulefailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when getting main module of process &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_started">
+            <summary>
+              Looks up a localized string similar to Process with ID &quot;{0}&quot; has been started..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_starting">
+            <summary>
+              Looks up a localized string similar to Process with ID &quot;{0}&quot; is being started..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_startingfailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when starting process with ID &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_stopped">
+            <summary>
+              Looks up a localized string similar to Process with ID &quot;{0}&quot; has been stopped..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_stopping">
+            <summary>
+              Looks up a localized string similar to Process with ID &quot;{0}&quot; is being stopped..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.process_stoppingfailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when stopping process with ID &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_started">
+            <summary>
+              Looks up a localized string similar to Service &quot;{0}&quot; has been started..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_starting">
+            <summary>
+              Looks up a localized string similar to Service &quot;{0}&quot; is being started..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_startingfailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when starting service &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_stopped">
+            <summary>
+              Looks up a localized string similar to Service &quot;{0}&quot; has been stopped..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_stopping">
+            <summary>
+              Looks up a localized string similar to Service &quot;{0}&quot; is being stopped..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_stoppingfailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when stopping service &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_stoppingreturnedwrongexitcode">
+            <summary>
+              Looks up a localized string similar to Service control returned exit code &quot;{1}&quot; when stopping service &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_uninstalled">
+            <summary>
+              Looks up a localized string similar to Service &quot;{0}&quot; has been uninstalled..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_uninstalling">
+            <summary>
+              Looks up a localized string similar to Service &quot;{0}&quot; is being uninstalled..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_uninstallingfailed">
+            <summary>
+              Looks up a localized string similar to Exception occurred when uninstalling service &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.Resources.Localization.service_uninstallreturnedwrongexitcode">
+            <summary>
+              Looks up a localized string similar to Service control returned exit code &quot;{1}&quot; when uninstalling service &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.SQLVersionInfo">
+            <summary>
+            Contains version info for SQL server.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.SQLVersionInfo.ProductVersion">
+            <summary>
+            The product version (for example, "10.0.1600.22").
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.SQLVersionInfo.ProductLevel">
+            <summary>
+            The product level (for example, "RTM")
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.SQLVersionInfo.Edition">
+            <summary>
+            The edition (for example, "Express Edition (64-bit)")
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ArchitectureEnum">
+            <summary>
+            Enumeration for CPU architectures.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ArchitectureEnum.Unknown">
+            <summary>
+            Unknown architecture
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ArchitectureEnum.x86">
+            <summary>
+            32-bit architecture
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ArchitectureEnum.x64">
+            <summary>
+            64-bit architecture
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ArchitectureEnum.x86_x64">
+            <summary>
+            Both 32-bit and 64-bit architectures
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.CollectionExtensions">
+            <summary>
+            Provides extensions for collections such as IEnumerable.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.CollectionExtensions.DisposeAll(System.Collections.IEnumerable)">
+            <summary>
+            Disposes all objects in collection.
+            </summary>
+            <param name="set">Set whose members will be disposed.</param>
+        </member>
+        <member name="M:WinAppFoundation.CollectionExtensions.DisposeAll(System.Collections.IDictionary)">
+            <summary>
+            Disposes all objects in collection.
+            </summary>
+            <param name="set">Set whose members will be disposed.</param>
+        </member>
+        <member name="T:WinAppFoundation.ConsoleHelper">
+            <summary>
+            Console helper methods.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ConsoleHelper.AttachConsole(System.Int32)">
+            <summary>
+            Attaches the calling process to the console of the specified process.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ConsoleHelper.AllocConsole">
+            <summary>
+            Allocates a new console for the calling process.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WinAppFoundation.ConsoleHelper.FreeConsole">
+            <summary>
+            Detaches the calling process from its console.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ConsoleHelper.AttachToConsole(System.Int32)">
+            <summary>
+            Ensures console for given process.
+            </summary>
+            <param name="processId">ID of process</param>
+        </member>
+        <member name="T:WinAppFoundation.DispatcherHelper">
+            <summary>
+            Encapsulates operations upon dispatcher.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DispatcherHelper.DoEvents">
+            <summary>
+            Releases windows messages pump (Processes all Windows messages currently in the message queue.)
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.FileSystemHelper">
+            <summary>
+            Provides basic operations upon file system.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.EnsurePathExistence(System.String)">
+            <summary>
+            Creates the given directory if does not exist.
+            </summary>
+            <param name="path">Path</param>
+            <returns>Returns TRUE if directory already exists.</returns>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.GetUniqueDirectoryName(System.String,System.Func{System.IO.FileSystemInfo,System.Boolean})">
+            <summary>
+            Returns unique name of directory.
+            </summary>
+            <param name="path">Full path to directory</param>
+            <param name="ignoredEntries">Determines what can be in a directory to be considered empty.</param>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.IncrementPathSuffix(System.String)">
+            <summary>
+            Increments number (separated by "_") at the end of string.
+            </summary>
+            <param name="path">Path </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when removal of old suffix failed.</exception>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.IsEmptyDirectory(System.String,System.Func{System.IO.FileSystemInfo,System.Boolean})">
+            <summary>
+            Finds out whether directory of a given path is empty.
+            </summary>
+            <param name="path">Path of input directory (absolute)</param>
+            <param name="ignoredEntries">Determines what can be in a directory to be considered empty.</param>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.CanonicalizeDacl(System.Security.AccessControl.NativeObjectSecurity)">
+            <summary>
+            Sorts access control entries according to the following order:
+              1. Access-denied on the object
+              2. Access-denied on a child or property
+              3. Access-allowed on the object
+              4. Access-allowed on a child or property
+              5. All inherited ACEs 
+            </summary>
+            <param name="objectSecurity">Security object to sort out</param>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.IsDiskSpaceAvailable(System.String,System.Int32)">
+            <summary>
+            Finds out whether directory on given path offers enough free disk space.
+            </summary>
+            <param name="path">File system path.</param>
+            <param name="required">Required amount of disk space in megabytes.</param>
+            <exception cref="T:System.ComponentModel.Win32Exception">An error occurred during the free space retrieval.</exception>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.DeleteFiles(System.Collections.Generic.List{System.String},System.IO.ErrorEventHandler)">
+            <summary>
+            Delete given files. Raise error event when exception is thrown.
+            </summary>
+            <param name="files">Files to delete</param>
+            <param name="errorEvent">Event handler for handling errors during deletion</param>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.ValidatePath(System.String)">
+            <summary>
+            Validates given path and returns error message.
+            </summary>
+            <param name="path">Path to validate</param>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.ValidateDirectoryPath(System.String,System.Boolean,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Validates given directory path. Returns error message when validation fails.
+            </summary>
+            <param name="path">Directory path.</param>
+            <param name="checkExistence">Indicates whether directory existence should be checked.</param>
+            <param name="checkPermissions">
+            Indicates whether directory write permissions should be checked.
+            If existence of selected directory is not required, permission to create directories on existing parent is checked instead.
+            </param>
+            <param name="checkEmptiness">Indicates whether directory emptiness should be checked.
+            Check only if directory exists.
+            If permissions check of selected directory is not required, list-content permissions are checked instead.
+            </param>
+            <param name="ignoreFilesWithExtension">Files with this extension will not be taken into consideration when checking emptiness is performed (e.g. ".log").</param>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.CheckPermissions(System.String,System.Security.AccessControl.FileSystemRights)">
+            <summary>
+            Checks required permissions to target folder.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.FileSystemHelper.GetDiskFreeSpaceEx(System.String,System.UInt64@,System.UInt64@,System.UInt64@)">
+            <summary>
+            Retrieves information about the amount of space that is available on a disk volume,
+            which is the total amount of space, the total amount of free space, and the total
+            amount of free space available to the user that is associated with the calling thread.
+            </summary>
+            <param name="directoryName">A directory on the disk.</param>
+            <param name="freeBytesAvailable">Total number of free bytes on a disk that are available to the user who is associated with the calling thread.</param>
+            <param name="totalNumberOfBytes">Total number of bytes on a disk that are available to the user who is associated with the calling thread.</param>
+            <param name="totalNumberOfFreeBytes">Total number of free bytes on a disk.</param>
+        </member>
+        <member name="T:WinAppFoundation.NetworkHelper">
+            <summary>
+            Provides basic networking operations.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.NetworkHelper.IsPortAvailable(System.Int32)">
+            <summary>
+            Determines whether given port number is free.
+            </summary>
+            <param name="port">Port to examine</param>
+            <returns>TRUE if port is available for further usage</returns>
+        </member>
+        <member name="M:WinAppFoundation.NetworkHelper.GetFreeTCPPort(System.Int32)">
+            <summary>
+            Gets free TCP port.
+            </summary>
+            <param name="minPort">Minimal port (note that administrator user rights are required for usage of ports 1024 or less)</param>
+            <returns></returns>
+        </member>
+        <member name="M:WinAppFoundation.NetworkHelper.InternetGetConnectedState(System.Int32@,System.Int32)">
+            <summary>
+            Retrieves the connected state of the local system. Returns TRUE if there is an active modem
+            or a LAN Internet connection, or FALSE if there is no Internet connection, or if all possible
+            Internet connections are not currently active.
+            </summary>
+            <param name="lpdwFlags">Pointer to a variable that receives the connection description. This parameter
+            may return a valid flag even when the function returns FALSE.</param>
+            <param name="dwReserved">This parameter is reserved and must be 0.</param>
+        </member>
+        <member name="M:WinAppFoundation.NetworkHelper.IsInternetAvailable">
+            <summary>
+            Checks if internet connection is available.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.OperatingSystemHelper">
+            <summary>
+            Class providing information about operation system and its components.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.GetManifestResourceName(System.Type,System.String)">
+            <summary>
+            Returns full manifest resource name (including assembly name).
+            </summary>
+            <param name="type">The type whose namespace is used to scope the manifest resource name.</param>
+            <param name="resourceName">The case-sensitive name of the manifest resource being requested</param>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.GetStartMenuGroup(System.String)">
+            <summary>
+            Returns path to given start menu group.
+            </summary>
+            <param name="groupName">Start menu group name</param>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.GetAbsolutePath(System.String)">
+            <summary>
+            Searches for the file specified in the operating system.
+            The search is performed in this order : current process directory, system directory, windows directory and PATH variable.
+            </summary>
+            <param name="file">Relative path to a file.</param>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.OpenInDefaultBrowser(System.String)">
+            <summary>
+            Launches given <paramref name="url"/> in the default web browser.
+            </summary>
+            <remarks>
+            Simply starting process with the <paramref name="url"/> causes problems if executed in a 32-bit application
+            and the default browser is 64-bit only (e.g. Microsoft Edge on 64-bit Windows).
+            </remarks>
+            <param name="url">URL to open</param>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.SetNormalProgressBar">
+            <summary>
+            Sets normal task bar progress bar.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.SetErrorProgressBar">
+            <summary>
+            Sets error task bar progress bar.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.SetPausedProgressBar">
+            <summary>
+            Sets paused task bar progress bar.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.SetNoProgressBar">
+            <summary>
+            Hides task bar progress bar.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.SetProgressBar(System.Int32,System.Int32)">
+            <summary>
+            Updates task bar progress position.
+            </summary>
+            <param name="value">Current value.</param>
+            <param name="maxValue">Max progress value.</param>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.SetProgressBarState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState)">
+            <summary>
+            Sets task bar progress bar state.
+            </summary>
+            <param name="state">Progress bar state.</param>
+        </member>
+        <member name="M:WinAppFoundation.OperatingSystemHelper.GetNTAccountName(System.Security.Principal.WellKnownSidType)">
+            <summary>
+            Returns name of specified well known NT account.
+            </summary>
+            <param name="sidType">System account well known SID.</param>
+        </member>
+        <member name="P:WinAppFoundation.OperatingSystemHelper.Is64bitPlatform">
+            <summary>
+            Indicates if application is running on 64bit system.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.OperatingSystemHelper.ProgramFilesPath32Bit">
+            <summary>
+            Returns path to Program Files or Program Files (x86) folder depending on system architecture.
+            This path is supposed to be used for 32-bit programs. 
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.OperatingSystemHelper.ProgramFilesPath">
+            <summary>
+            Returns path to Program Files folder independently on architecture the current process is running under.
+            Returned path corresponds with highest available architecture.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.OperatingSystemHelper.NetworkServiceAccount">
+            <summary>
+            Network service account name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.OperatingSystemHelper.SystemAccount">
+            <summary>
+            System account name.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IISApplicationNotFoundException">
+            <summary>
+            Thrown when IIS application was not found.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.DotNetHelper">
+            <summary>
+            Provides information about .NET Framework installed on current machine (versions, paths, etc.)
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DotNetHelper.REGISTRY_KEY_INSTALLED_NET">
+            <summary>
+            Path to installed .NET framework in registry.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DotNetHelper.ASPNET_REGIIS_EXE">
+            <summary>
+            .NET framework utility
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DotNetHelper.DOTNET_FRAMEWORK_PATH">
+            <summary>
+            Path to .NET framework on local file system
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DotNetHelper.DOTNET_FRAMEWORK_VERSION_MASK">
+            <summary>
+            Mask for creating .NET version
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DotNetHelper.GetNETVersion(System.Int32,System.Int32)">
+            <summary>
+            Returns .NET version of requested version specification.
+            </summary>
+            <param name="major">.NET major version</param>
+            <param name="minor">.NET minor version</param>
+        </member>
+        <member name="M:WinAppFoundation.DotNetHelper.ContainsCompatibleVersion(System.Version)">
+            <summary>
+            Determines whether compatible .NET version is installed. Compatible version means equal or higher.
+            </summary>
+            <param name="netVersion">Required .NET version</param>
+        </member>
+        <member name="M:WinAppFoundation.DotNetHelper.GetVersionsCultures(WinAppFoundation.NETVersionEnum)">
+            <summary>
+            Gets all culture info for given framework version.
+            </summary>
+            <param name="netVersion">.NET version</param>     
+        </member>
+        <member name="M:WinAppFoundation.DotNetHelper.GetFrameworkUtilityPath(System.Int32,System.Int32,System.String,WinAppFoundation.ArchitectureEnum)">
+            <summary>
+            Returns path to .NET framework utility (or DLL) for .NET version and specific system architecture.
+            </summary>
+            <param name="major">Major version</param>
+            <param name="minor">Minor version</param>
+            <param name="fileName">File name to find (if NULL base path to .NET framework is returned)</param>
+            <param name="architecture">System architecture</param>
+        </member>
+        <member name="M:WinAppFoundation.DotNetHelper.GetNetVersionEnum(System.String)">
+            <summary>
+            Converts given string to NETVersionEnum.
+            </summary>
+            <param name="version">String representation of the version</param>
+        </member>
+        <member name="M:WinAppFoundation.DotNetHelper.GetNetVersionString(WinAppFoundation.NETVersionEnum)">
+            <summary>
+            Converts given NETVersionEnum to string.
+            </summary>
+            <param name="netVersionEnum">.NET version</param>
+            <returns>String representation of .NET version</returns>
+        </member>
+        <member name="P:WinAppFoundation.DotNetHelper.InstalledDotNet32Versions">
+            <summary>
+            List of installed 32 bit .NET versions.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DotNetHelper.InstalledDotNet64Versions">
+            <summary>
+            List of installed 64 bit .NET versions.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DotNetHelper.InstalledDotNetVersions">
+            <summary>
+            List of installed 32/64 bit .NET versions.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IISHelper">
+            <summary>
+            IIS Helper class.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.REGISTRY_KEY_IIS">
+            <summary>
+            Path to IIS in registry.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.REGISTRY_KEY_IISEXPRESS">
+            <summary>
+            Path to IIS Express in registry.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.REGISTRY_VALUE_IIS_FILES_PATH">
+            <summary>
+            Value that contains path to IIS core DLLs.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.IIS_CORE_DLL">
+            <summary>
+            Name of the IIS core library.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.FILE_IIS_COMPONENTS">
+            <summary>
+            Relative path to IIS Components definition.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.MAX_APPPOOL_NAME_LENGTH">
+            <summary>
+            Max application pool name length.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.APP_OFFLINE_FILE">
+            <summary>
+            Name of a file indicating to the IIS that application should be stopped.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.IISHelper.APP_OFFLINE_FILE_RENAMED">
+            <summary>
+            Name of a file indicating to the IIS that application should be stopped. This file has been renamed for future use.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.GetCLRVersion(WinAppFoundation.NETVersionEnum)">
+            <summary>
+            Returns CLR version for specified .NET framework version.
+            </summary>
+            <param name="netVersion">Version of .NET Framework</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.GetCLRVersionString(WinAppFoundation.CLRVersionEnum)">
+            <summary>
+            Converts given CLR version to string.
+            </summary>
+            <param name="clrVersion">CLR version value to convert</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.ValidateApplicationPoolName(System.String)">
+            <summary>
+            Validates application pool name against invalid characters and length.
+            </summary>
+            <param name="name">Application pool to validate</param>
+            <returns>Result of validation</returns>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.ValidateIISComponents(Microsoft.Win32.RegistryView)">
+            <summary>
+            Validates IIS Components registered in Win registries according to XML definition file.
+            </summary>
+            <param name="view">Registry view</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.ValidateIISComponents(System.Collections.Generic.List{WinAppFoundation.IISComponent},Microsoft.Win32.RegistryView)">
+            <summary>
+            Validates IIS Components registered in Win registries according to components list.
+            </summary>
+            <param name="components">Components list</param>
+            <param name="view">Registry view</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.TakeApplicationOffline(System.String,System.String)">
+            <summary>
+            Stops website using "App_Offline.htm".
+            </summary>
+            <param name="webSitePath">Path to website on file system</param>
+            <param name="offlineFile">Full path to off-line file to use (if not specified or file does not exist default offline file is used).</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.BringApplicationOnline(System.String,System.Boolean)">
+            <summary>
+            Starts website deleting "App_Offline.htm".
+            </summary>
+            <param name="webSitePath">Path to website on file system</param>
+            <param name="keepFile">Rename current "App_Offline.htm" for future use.</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.CheckW3ServiceRunning">
+            <summary>
+            Returns true if WWW service is running. Returns null if service status is unknown.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.IsIISLibraryPresent(Microsoft.Win32.RegistryView)">
+            <summary>
+            Check if IIS core library is presented on the system.
+            </summary>
+            <param name="view">Registry view</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.GetIISVersionInstalled(Microsoft.Win32.RegistryView)">
+            <summary>
+            Returns version of installed IIS.
+            </summary>
+            <param name="view">Specifies which registry view to use.</param>
+        </member>
+        <member name="M:WinAppFoundation.IISHelper.LoadRequiredIISComponents">
+            <summary>
+            Loads required IIS components from XML file.
+            </summary>
+            <returns>List of required IIS components. NULL if error occurred.</returns>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.InstalledIIS32Versions">
+            <summary>
+            List of 32 bit IIS versions installed.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.IIS32HasRequiredComponents">
+            <summary>
+            Flag indicating, whether Installed 32 bit IIS has required components installed.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.InstalledIIS64Versions">
+            <summary>
+            List of 64 bit IIS versions installed.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.IIS64HasRequiredComponents">
+            <summary>
+            Flag indicating, whether Installed 64 bit IIS has required components installed.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.InstalledIISVersions">
+            <summary>
+            List of 32/64 bit IIS versions installed.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.IISHasRequiredComponents">
+            <summary>
+            Flag indicating, whether some (32/64 bit) installation of IIS has required components installed.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.MissingIISComponents">
+            <summary>
+            Result of IIS components validation. Represents components, that are not installed with IIS. Refreshes after 
+            IISHelper.ValidateIISComponents method call, or after calling IISHelper.HasRequiredComponents get method.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.InstalledIISExpress32Versions">
+            <summary>
+            List of 32 bit IISExpress versions installed on the machine.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.InstalledIISExpress64Versions">
+            <summary>
+            List of 64 bit IISExpress versions installed on the machine.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISHelper.InstalledIISExpressVersions">
+            <summary>
+            List of 32/65 bit IISExpress versions installed on the machine.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ProcessExtensions">
+            <summary>
+            Provides extension methods for Process object.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ProcessExtensions.Parent(System.Diagnostics.Process)">
+            <summary>
+            Gets process that created this process.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ProcessNativeFunctions">
+            <summary>
+            Native methods for manipulation with processes.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.KERNEL32DLL">
+            <summary>
+            Kernel 32 DLL.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.PSAPIDLL">
+            <summary>
+            PS API DLL.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ProcessNativeFunctions.OpenProcess(WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum,System.Boolean,System.IntPtr)">
+            <summary>
+            Opens an existing local process object.
+            </summary>
+            <param name="dwDesiredAccess">The access to the process object. This access right is checked against the security descriptor for the process.</param>
+            <param name="bInheritHandle">If this value is TRUE, processes created by this process will inherit the handle. Otherwise, the processes do not inherit this handle.</param>
+            <param name="dwProcessId">The identifier of the local process to be opened.</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessNativeFunctions.CloseHandle(System.IntPtr)">
+            <summary>
+            Closes an open object handle.
+            </summary>
+            <param name="hObject">A valid handle to an open object.</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessNativeFunctions.GetProcessImageFileName(System.IntPtr,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Retrieves the name of the executable file for the specified process..
+            </summary>
+            <param name="hProcess">A handle to the process.</param>
+            <param name="lpImageFileName">A pointer to a buffer that receives the full path to the executable file.</param>
+            <param name="nSize">The size of the lpImageFileName buffer, in characters</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessNativeFunctions.QueryDosDevice(System.String,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Retrieves information about MS-DOS device names. 
+            </summary>
+            <param name="lpDeviceName">An MS-DOS device name string specifying the target of the query. The device name cannot have a trailing backslash; for example, use "C:", not "C:\".</param>
+            <param name="lpTargetPath">A pointer to a buffer that will receive the result of the query. The function fills this buffer with one or more null-terminated strings. The final null-terminated string is followed by an additional NULL.</param>
+            <param name="ucchMax">The maximum number of TCHARs that can be stored into the buffer pointed to by lpTargetPath.</param>
+        </member>
+        <member name="T:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum">
+            <summary>
+            Standard access rights for process objects.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.All">
+            <summary>
+            All possible access rights for a process.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.Terminate">
+            <summary>
+            Required to terminate a process using TerminateProcess.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.CreateThread">
+            <summary>
+            Required to create a thread.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.VMOperation">
+            <summary>
+            Required to perform an operation on the address space of a process.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.VMRead">
+            <summary>
+            Required to read memory in a process using ReadProcessMemory.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.VMWrite">
+            <summary>
+            Required to write to memory in a process using WriteProcessMemory.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.DupHandle">
+            <summary>
+            Required to duplicate a handle using DuplicateHandle.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.SetInformation">
+            <summary>
+            Required to set certain information about a process, such as its priority class.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.QueryInformation">
+            <summary>
+            Required to retrieve certain information about a process, such as its token, exit code, and priority class.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessNativeFunctions.ProcessAccessEnum.Synchronize">
+            <summary>
+            Required to wait for the process to terminate using the wait functions.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.RegistryHelper">
+            <summary>
+            Helper class for registry reading.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetSubKeyNames(System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Gets sub keys string representation, according to the parent registry path.
+            </summary>
+            <param name="path">Parent registry path</param>        
+            <param name="view">Represents which types of registry keys (32bit/64bit) are searched</param>
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetSubKeyNamesRecursively(System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Gets sub keys string representation recursively.
+            </summary>
+            <param name="path">Parent registry path</param>        
+            <param name="view">Represents which types of registry keys (32bit/64bit) are searched</param>
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetVersionString(System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Extracts version string from child node of parent node in registry.
+            </summary>
+            <param name="path">Node path, relative from local machine</param>
+            <param name="view">Represents which types of registry keys (32bit/64bit) are searched</param>                        
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetMajorVersionString(System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Extracts major version string from node.
+            </summary>
+            <param name="path">Node path, relative from local machine</param>  
+            <param name="view">Represents which types of registry keys (32bit/64bit) are searched</param>                
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetMinorVersionString(System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Extracts minor version string from node.
+            </summary>
+            <param name="path">Node path, relative from local machine</param>        
+            <param name="view">Represents which types of registry keys (32bit/64bit) are searched</param>        
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetDotNetVersion(Microsoft.Win32.RegistryKey,System.String)">
+            <summary>
+            Checks if the given .NET version is installed and inserts it in the list.
+            </summary>
+            <param name="parentKey">Registry key for one .NET version</param>
+            <param name="subVersionName">Version retrieved from the name of parent key</param>
+            <returns>List of all versions</returns>
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetChild(System.String,System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Retrieves child key of a parent key in registry.
+            </summary>
+            <param name="parentPath">Parent key path</param>
+            <param name="childPath">Child key path</param>     
+            <param name="view">Represents which types of registry keys (32bit/64bit) are searched</param>        
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetStringValue(System.String,System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Returns content of string value from registry specified by its path and name from local machine group.
+            </summary>
+            <param name="path">Path to registry key</param>
+            <param name="valueName">Name of the value to get</param>
+            <param name="registryView">The registry view to use</param>
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.SetStringValue(System.String,System.String,System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Sets content of string value in registry specified by its path and name from local machine group.
+            </summary>
+            <param name="path">Path to registry key</param>
+            <param name="valueName">Name of the value</param>
+            <param name="value">Value to set</param>
+            <param name="registryView">The registry view to use</param>
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.ToRegistryView(WinAppFoundation.ArchitectureEnum)">
+            <summary>
+            Converts CPU architecture to <see cref="T:Microsoft.Win32.RegistryView"/>.
+            </summary>
+            <param name="architecture">CPU architecture</param>
+        </member>
+        <member name="M:WinAppFoundation.RegistryHelper.GetSpecificVersionString(System.String,System.String,Microsoft.Win32.RegistryView)">
+            <summary>
+            Extracts version string of specified type from node.
+            </summary>
+            <param name="path">Registry node path.</param>
+            <param name="versionType">Version type [MinorVersion|MajorVersion]</param>
+            <exception cref="T:System.ArgumentException">When registry with given path does not exist.</exception>
+            <param name="view">Represents which types of registry keys (32bit/64bit) are searched</param>        
+        </member>
+        <member name="T:WinAppFoundation.CLRVersionEnum">
+            <summary>
+            Represents version of Common Language Runtime.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.CLRVersionEnum.CLR2">
+            <summary>
+            Version of CLR 2.0
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.CLRVersionEnum.CLR4">
+            <summary>
+            Version of CLR 4.0
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.LocalDBState">
+            <summary>
+            Represents state of LocalDB instance.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.LocalDBState.Running">
+            <summary>
+            LocalDB instance is running.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.LocalDBState.Stopped">
+            <summary>
+            LocalDB instance is stopped.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.NETVersionEnum">
+            <summary>
+            Describes availability of .NET Framework versions.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.NETVersionEnum.None">
+            <summary>
+            No .NET Framework is available.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.NETVersionEnum.Net20">
+            <summary>
+            .NET 2.0 version is available.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.NETVersionEnum.Net35">
+            <summary>
+            .NET 3.5 version is available.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.NETVersionEnum.Net40">
+            <summary>
+            .NET 4.0 version is available.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.NETVersionEnum.Net45">
+            <summary>
+            .NET 4.5 version is available.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.NETVersionEnum.Net46">
+            <summary>
+            .NET 4.6 version is available.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.W3ServiceStatus">
+            <summary>
+            Status enumeration for W3 service.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.W3ServiceStatus.Unknown">
+            <summary>
+            Status is unknown.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.W3ServiceStatus.Running">
+            <summary>
+            Service is running.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.W3ServiceStatus.NotRunning">
+            <summary>
+            Service is not running.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IISExpressApplicationProvider">
+            <summary>
+            Provides functionality for deploying web application to IISExpress.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.AbstractIISExpressProvider">
+            <summary>
+            Provides basic functionality for implementing providers for IIS Express management.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.AbstractIISExpressProvider.EXECUTABLE_NAME">
+            <summary>
+            Name of executable assembly.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.AbstractIISExpressProvider.DEFAULT_LOG_PATH">
+            <summary>
+            Default path to log directory.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.AbstractIISExpressProvider.DEFAULT_CONFIG_PATH">
+            <summary>
+            Default path to applicationhost.config for IISExpress.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.#ctor(System.String,WinAppFoundation.CLRVersionEnum,System.Boolean,System.String,System.String)">
+            <summary>
+            Constructs IISExpressProvider based on given arguments.
+            </summary>
+            <param name="physicalWebPath">Physical path to web site</param>
+            <param name="clrVersion">CLR version</param>
+            <param name="sysTrayEnabled">Status of system tray</param>
+            <param name="logPath">Path for log file</param>
+            <param name="traceFailedRequestsLoggingPath">Specifies the failed request trace logging directory for a site.</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.GetDefaultIISExpressPath">
+            <summary>
+            Returns default path to IIS Express program files.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.EnsureConfigurationFiles">
+            <summary>
+            Copies config files from templates to local config directory.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.PrepareProcessStartInfo(System.String,System.String)">
+            <summary>
+            Prepares start info for the console application.
+            </summary>
+            <param name="assemblyFilePath">Assembly file path</param>
+            <param name="arguments">Command line arguments</param>
+            <returns>Prepared process start info</returns>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.CreateNodeWithAttributes(System.Xml.XmlDocument,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Creates node with attributes.
+            </summary>
+            <param name="document">XML document</param>
+            <param name="nodeName">Name of node to create</param>
+            <param name="attributes">Dictionary of attributes to create</param>
+            <returns>Node with given name and attributes</returns>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.ExecuteDeployment(System.String,System.String)">
+            <summary>
+            Executes IISExpress command line application.
+            </summary>
+            <param name="assemblyFilePath">Assembly file path</param>
+            <param name="arguments">Command line arguments</param>
+            <returns>Process ID</returns>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.ExecuteAndReadOutput(System.Diagnostics.ProcessStartInfo)">
+            <summary>
+            Executes program defined in start info and reads its output.
+            </summary>
+            <param name="startInfo">Start info</param>
+            <returns>Output of the program.</returns>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.ValidateName(System.String)">
+            <summary>
+            Validates name using regular expressions.
+            Valid name starts with a letter and contains only alphanumerical characters or underscore.
+            </summary>
+            <param name="name">Name to valid</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.SetCommonArguments(System.Text.StringBuilder)">
+            <summary>
+            Sets common arguments.
+            </summary>
+            <param name="arguments">Arguments to merge with</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.LogEvent(System.String)">
+            <summary>
+            Logs message to the log.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.LogError(System.String,System.Exception)">
+            <summary>
+            Logs error message to log.
+            </summary>
+            <param name="message">Message</param>
+            <param name="ex">Exception to get message and stack trace from</param>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.Deploy">
+            <summary>
+            Deploys current web site or application.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.Stop">
+            <summary>
+            Stops IISExpress instance.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.AbstractIISExpressProvider.ToString">
+            <summary>
+            Converts IISExpress provider to readable form.
+            </summary>
+            <returns>String of IIS Express provider</returns>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.DefaultIISExpressPath">
+            <summary>
+            Path to IIS Express in Program files.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.ConfigTemplatesPath">
+            <summary>
+            Path to IIS Express configuration files templates.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.DefaultPathToAssembly">
+            <summary>
+            Default path to ISSExpress.exe.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.IISProcessID">
+            <summary>
+            Process Id of running web site/web application.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.PhysicalWebPath">
+            <summary>
+            Physical path to web application/web site.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.PreferredPort">
+            <summary>
+            Preferred port of web application/web site/.
+            If not free 
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.CLRVersion">
+            <summary>
+            Version of Common Language Runtime.
+            Recommended : "CLRVersionEnum.CLR4".
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.AppPoolMode">
+            <summary>
+            Application pool mode.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.TracingLevel">
+            <summary>
+            Tracing level of the IISExpress application.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.URL">
+            <summary>
+            URL of web application/web site.
+            The URL works only if deployed.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.SysTrayEnabled">
+            <summary>
+            System tray of IIS Express status.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.AssemblyPath">
+            <summary>
+            Path to assembly of iisexpress.exe .
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.LogPath">
+            <summary>
+            Log file path for site.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.TraceFailedRequestLoggingPath">
+            <summary>
+            Specifies the failed request trace logging directory for a site.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.AbstractIISExpressProvider.MessageLog">
+            <summary>
+            Provides message logging.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressApplicationProvider.#ctor(System.String,WinAppFoundation.CLRVersionEnum,System.Boolean)">
+            <summary>
+            Constructs IISExpress instance for web applications. Instance is not deployed automatically.
+            </summary>
+            <param name="physicalWebPath">Path to web application</param>
+            <param name="clrVersion">Version of Common Language Runtime for the web application</param>
+            <param name="sysTrayEnabled">Status of system tray</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressApplicationProvider.Deploy">
+            <summary>
+            Deploys web application.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.IISExpressSiteProvider">
+            <summary>
+            Provides functionality for deploying web site to IISExpress.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.#ctor(System.String,System.String,WinAppFoundation.CLRVersionEnum,System.String,System.String,System.Boolean,System.String,System.String,System.Boolean)">
+            <summary>
+            Constructs IISExpress instance of web site. Instance is not deployed automatically.
+            </summary>
+            <param name="name">Site name</param>
+            <param name="physicalWebPath">Physical path to web site</param>
+            <param name="clrVersion">CLR version</param>
+            <param name="applicationPath">Path to application</param>
+            <param name="virtualDirectoryPath">Path to virtual directory</param>
+            <param name="sysTrayEnabled">Status of system tray</param>
+            <param name="logPath">Path for log file</param>
+            <param name="traceFailedRequestsLoggingPath">Specifies the failed request trace logging directory for a site.</param>
+            <param name="overwriteExisting">Overwrite existing node in applicationhost.config XML. When set to false, unique name is derived from <paramref name="name"/>.</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.#ctor">
+            <summary>
+            Basic constructor.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.LoadFromConfig(System.Int64,System.String,System.Diagnostics.TraceLevel,System.Boolean)">
+            <summary>
+            Constructs Site that is already configured in some applicationhost.config under given id. Parses its XML.
+            </summary>
+            <param name="id">Site ID</param>
+            <param name="assemblyPath">Site assembly path</param>
+            <param name="trace">Status of tracing</param>
+            <param name="sysTrayEnabled">Display tray</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.LoadFromConfig(System.String,System.String,System.Diagnostics.TraceLevel,System.Boolean)">
+            <summary>
+            Constructs Site that is already configured in some applicationhost.config under given name. Parses its XML.
+            </summary>
+            <param name="siteName">Site name</param>
+            <param name="assemblyPath">Site assembly path</param>
+            <param name="trace">Status of tracing</param>
+            <param name="sysTrayEnabled">Display tray</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.LoadFromConfigByPath(System.String,System.String,System.Diagnostics.TraceLevel,System.Boolean)">
+            <summary>
+            Constructs Site that is already configured in some applicationhost.config under given physical path. Parses its XML.
+            </summary>
+            <param name="physicalPath">Physical path of web project.</param>
+            <param name="assemblyPath">Site assembly path</param>
+            <param name="trace">Status of tracing</param>
+            <param name="sysTrayEnabled">Display tray</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.Deploy">
+            <summary>
+            Deploys web site.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.RemoveFromConfig">
+            <summary>
+            Removes site from applicationhost.config file.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.GetSiteByIdentifier(System.Nullable{System.Int64},System.String,System.String)">
+            <summary>
+            Returns node of site with given id.
+            </summary>
+            <param name="id">Numeric site identifier</param>
+            <param name="name">Name of site</param>
+            <param name="configPath">>Path to configuration file</param>
+            <returns>Node with site</returns>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.GetSiteByPhysicalPath(System.String,System.String)">
+            <summary>
+            Finds site node in XML configuration file according to the physical path.
+            </summary>
+            <param name="physicalPath">Physical path to Web Project.</param>
+            <param name="configPath">Path to configuration file.</param>
+            <returns>Site Node.</returns>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.LoadInfoFromNode(System.Xml.XmlNode,System.String,System.Diagnostics.TraceLevel,System.Boolean)">
+             <summary>
+            Loads info of provider from its node in applicationhost.config .
+             </summary>
+             <param name="siteNode">Site node</param>
+             <param name="assemblyPath">Path to assembly</param>
+             <param name="trace">Tracing</param>
+             <param name="sysTrayEnabled">Tray</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.GetNodeByName(System.Xml.XmlNode,System.String)">
+            <summary>
+            Gets sub node of <paramref name="parent"/> with name : <paramref name="name"/>
+            </summary>
+            <param name="parent">Parent node</param>
+            <param name="name">Name to look for</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.ConfigureSite">
+            <summary>
+            Configures site in applicationhost.config. Creates new node 'site'.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.CreateNodeFromProvider(System.Xml.XmlDocument)">
+            <summary>
+            Creates XML node from current provider.
+            </summary>
+            <param name="document">ApplicationHost configuration XML</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.GetIDCollection(System.Xml.XmlNodeList)">
+            <summary>
+            Gets set of ID's from given sites collection.
+            </summary>
+            <param name="sites">List with sites</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.GetUnusedID(System.Xml.XmlNodeList)">
+            <summary>
+            Returns lowest unused site ID.
+            </summary>
+            <param name="sites">Registered sites within the IIS Express configuration.</param>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.FindFirstSiteByName(System.Xml.XmlNodeList,System.String)">
+            <summary>
+            Searches site nodes collection for matching nodes.
+            </summary>
+            <param name="sites">Domain of search</param>
+            <param name="name">Desired site name</param>
+            <returns>First matching node. Null when no such node exists.</returns>
+        </member>
+        <member name="M:WinAppFoundation.IISExpressSiteProvider.EnsureConfigFile">
+            <summary>
+            Ensures default applicationhost.config for the current user.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISExpressSiteProvider.ID">
+            <summary>
+            ID of web application in configuration file.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISExpressSiteProvider.VirtualDirectoryPath">
+            <summary>
+            Virtual directory path of web application.
+            Default value is "/" .
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISExpressSiteProvider.Name">
+            <summary>
+            Name of the web site.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISExpressSiteProvider.ConfigPath">
+            <summary>
+            Path to configuration file.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISExpressSiteProvider.ApplicationPath">
+            <summary>
+            Path to application running web site.
+            Default value is "/" .
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.IISExpressSiteProvider.OverwriteExisting">
+            <summary>
+            Overwrite existing node in applicationhost.config XML or not. 
+            When set to false, unique name is derived from current name. When se to true, replaces XML node containing site with conflicting name with current site.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.LocalDBHandler">
+            <summary>
+            Represents an instance of LocalDB and performs operations (such as delete, share etc.) upon it.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.LocalDBHandler.APPLICATION_POOL_IDENTITY">
+            <summary>
+            Application pool identity.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.LocalDBHandler.LOCALDB_SERVER_NAME">
+            <summary>
+            LocalDB Server name.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.#ctor(System.String,WinAppFoundation.IMessageLog)">
+            <summary>
+            Constructor for local database instance.
+            </summary>
+            <param name="name">Instance name</param>
+            <param name="log">Provides message logging</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="name"/> is of invalid format.</exception>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.Create(System.Nullable{System.Decimal},System.Boolean)">
+            <summary>
+            Public method that creates a new instance in the LocalDB manager.
+            </summary>
+            <param name="version">Version of assembly</param>
+            <param name="start">Start instance on success</param>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.EnsureLogin(System.String)">
+            <summary>
+            Creates User in database with rights for creating databases.
+            </summary>
+            <param name="login">Windows login to ensure in SQL server</param>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.Delete">
+            <summary>
+            Deletes an instance from the LocalDB manager.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.Start">
+            <summary>
+            Method that starts the instance of the local database. If called on already started instance, the instance is not changed.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.Stop">
+            <summary>
+            Method that stops instance of the Local database. If called on already stopped instance, the instance is unchanged.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.Share(System.String,System.String)">
+            <summary>
+            Method that creates shared instance of the database with the name set by <paramref name="sharedInstance"/>. The owner of this instance can be set by <paramref name="SID"/>. 
+            </summary>
+            <param name="SID">Owner of the shared instance (null for original instance owner)</param>
+            <param name="sharedInstance">Name of the shared instance</param>
+            <returns>Shared local database instance</returns>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.UnShare(System.String)">
+            <summary>
+            Method that unshares shared instance.
+            When <paramref name="sharedInstance"/> equals the original instance name, shared instance owned by the owner of the original instances is unshared.
+            This method accepts only explicit shared instances names, so giving the original instance name as <paramref name="sharedInstance"/> will result in no action.
+            </summary>
+            <param name="sharedInstance">Shared instance name to be unshared</param>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.DisableAutomaticShutdown">
+            <summary>
+            Configures localDB instance not to automatically stop after some time period without active connections.
+            </summary>
+            <returns>True if instance restart is required.</returns>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.ToString">
+            <summary>
+            Returns LocalDB configuration.
+            </summary>
+            <returns>LocalDB configuration.</returns>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.Info">
+            <summary>
+            Method for getting info about LocalDB instance
+            </summary>
+            <returns>Info about LocalDB instance</returns>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.PrepareProcessStartInfo(System.String)">
+            <summary>
+            Method that prepares Process start info.
+            </summary>
+            <param name="arguments">Arguments to be appended to assembly</param>
+            <returns>Initialized process object</returns>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.ExecuteAndReadOutput(System.Diagnostics.ProcessStartInfo)">
+            <summary>
+            Executes program defined in start info and reads its output.
+            </summary>
+            <param name="startInfo">Start info</param>
+            <returns>Output of the program.</returns>
+            <exception cref="T:System.SystemException">Thrown when Error occurs during execution.</exception>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.GetLocaDBUtilityPaths(Microsoft.Win32.RegistryView)">
+            <summary>
+            Searches registry for all available LocalDB utilities. Returns list of full paths to existing
+            SqlLocalDB.exe utility for each version.
+            </summary>
+            <param name="view">Specifies which registry view will be used for searching.</param>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.GetDefaultAssemblyPath">
+            <summary>
+            Returns default path to SQLLocalDB.exe utility.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.ValidateName(System.String)">
+            <summary>
+            Validates name using its length and pattern.
+            </summary>
+            <param name="name">Input name</param>
+            <exception cref="T:System.ArgumentException">Thrown when name is invalid.</exception>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.LogEvent(System.String)">
+            <summary>
+            Logs message to the log.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:WinAppFoundation.LocalDBHandler.LogError(System.String,System.Exception)">
+            <summary>
+            Logs error message to log.
+            </summary>
+            <param name="message">Message</param>
+            <param name="ex">Exception to get message and stack trace from</param>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.ServerName">
+            <summary>
+            Name to be used in connection strings.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.SharedServerName">
+            <summary>
+            Name to be used in connection strings.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.Version">
+            <summary>
+            Local database version.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.SharedName">
+            <summary>
+            Local database shared name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.Owner">
+            <summary>
+            Local database owner.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.AutoCreate">
+            <summary>
+            Local database auto create lever.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.State">
+            <summary>
+            Local database state.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.LastStartTime">
+            <summary>
+            Local database last start time.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.PipeName">
+            <summary>
+            Local database pipe name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.Name">
+            <summary>
+            Name of the current LocalDB instance.
+            Must contain only alphanumerical characters (A-z0-9) and underscore (_).
+            Must be of a length lower than 30.
+            Instance names are case-insensitive.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.Instances">
+            <summary>
+            List of all created instances in the LocalDB manager. Instance names are case-insensitive.
+            </summary>
+            <exception cref="T:System.SystemException">Thrown when error occurs during execution in command line.</exception>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.AssemblyPath">
+            <summary>
+            Path to LocalDB utility (SqlLocalDB.exe).
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.LocalDBHandler.MessageLog">
+            <summary>
+            Provides message logging.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ILocalizableItem">
+            <summary>
+            Represents one item containing localizable string. E.g. part of UI like Label or Button.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ILocalizableItem.UpdateTargetValue">
+            <summary>
+            Updates the value of the localized object.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.ILocalizableItem.IsAlive">
+            <summary>
+            Returns whether localization is still being used in the UI.
+            </summary>
+            <remarks>Used for garbage collection.</remarks>
+        </member>
+        <member name="T:WinAppFoundation.SqlServerHelper">
+            <summary>
+            Provides information about SQL servers, LocalDBs and native clients.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.SqlServerHelper.SQL_TIMEOUT">
+            <summary>
+            Timeout in seconds.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.SqlServerHelper.REGISTRY_KEY_LOCALDB">
+            <summary>
+            Path to local DB in registry.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.SqlServerHelper.REGISTRY_KEY_MICROSOFT">
+            <summary>
+            Path to Microsoft software in registry.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.ExecuteScalar(System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Executes given query on an SQL server specified by given connection string.
+            </summary>
+            <param name="connectionString">Connection string.</param>
+            <param name="query">SQL query to be executed.</param>
+            <param name="parameters">Parameters for the given query.</param>
+            <exception cref="T:System.ArgumentException">When connection string is null or empty string.</exception>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.ExecuteQuery(System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Executes given query on an SQL server specified by given connection string and returns DataSet filled with results.
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="query">SQL query to be executed</param>
+            <param name="parameters">Parameters for the given query.</param>
+            <exception cref="T:System.ArgumentException">When connection string is null or empty string.</exception>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.TestConnection(System.String)">
+            <summary>
+            Test connection. Returns error message.
+            </summary>
+            <param name="connectionString">Connection string</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.DatabaseExists(System.String,System.String)">
+            <summary>
+            Checks whether database specified in given connection string exists.
+            </summary>
+            <param name="connectionString">Connection string to database server.</param>
+            <param name="databaseName">Name of the database to be checked.</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.UserExists(System.String,System.String)">
+            <summary>
+            Checks whether user exists in given database.
+            </summary>
+            <param name="connectionString">Connection string to database.</param>
+            <param name="username">Name of the user to be checked.</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.CanCreateDatabase(System.String)">
+            <summary>
+            Checks whether current user has permission to create databases on selected server.
+            </summary>
+            <param name="connectionString">Connection string to database server.</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.ValidateVersion(System.String,System.String)">
+            <summary>
+            Checks whether version of SQL server specified by connection string meets minimum version requirement.
+            </summary>
+            <param name="connectionString">Connection string</param>
+            <param name="minimumSupported">Required version - up to 4 numbers separated by dots, some may be replaced with 'x', e.g. "10.0.2531.x"</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.ValidateVersion(System.String,System.Version)">
+            <summary>
+            Checks whether given full SQL server version meets minimum version requirement.
+            </summary>
+            <param name="fullVersion">Full SQL server version</param>
+            <param name="requiredVersion">Required version</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.GetNeighbouringSQLInstanceNames">
+            <summary>
+            Returns names of all available SQL instances.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.GetDatabaseNames(System.String)">
+            <summary>
+            Gets a sorted list of database names.
+            </summary>
+            <param name="baseConnectionString">Connection string without database name</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.GetCMSConnectionString(System.String,System.String,System.Boolean,System.String,System.String)">
+            <summary>
+            Creates connection string for CMS database.
+            </summary>
+            <param name="serverAddress">SQL server name or address</param>
+            <param name="databaseName">SQL database name - pass null or empty to receive base connection string.</param>
+            <param name="integratedSecurity">Indicates whether connection should use integrated security.</param>
+            <param name="userName">SQL server user name</param>
+            <param name="password">SQL server password</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.GetServerVersionInfo(System.String)">
+            <summary>
+            Returns SQL server version info.
+            </summary>
+            <param name="connectionString">Connection string to SQL server.</param>
+        </member>
+        <member name="M:WinAppFoundation.SqlServerHelper.IsLocalDBServer(System.String)">
+            <summary>
+            Returns TRUE if server is an instance of SQL Server Express LocalDB.
+            </summary>
+            <param name="connectionString">Connection string</param>
+        </member>
+        <member name="P:WinAppFoundation.SqlServerHelper.InstalledNativeClient32Versions">
+            <summary>
+            List of 32 bit SQL Server Native clients versions installed on the machine.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SqlServerHelper.InstalledNativeClient64Versions">
+            <summary>
+            List of 64 bit SQL Server Native clients versions installed on the machine.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SqlServerHelper.InstalledNativeClientVersions">
+            <summary>
+            List of 32/64 bit SQL Server Native clients versions installed on the machine.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SqlServerHelper.InstalledLocalDB32Versions">
+            <summary>
+            List of 32 bit Local DB versions installed on the machine.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SqlServerHelper.InstalledLocalDB64Versions">
+            <summary>
+            List of 64 bit Local DB versions installed on the machine.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.SqlServerHelper.InstalledLocalDBVersions">
+            <summary>
+            List of 32/64 bit Local DB versions installed on the machine.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ExtendedWebClient">
+            <summary>
+            Web client with ability to set timeout.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ExtendedWebClient.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ExtendedWebClient.#ctor(System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="timeout">Timeout</param>
+        </member>
+        <member name="M:WinAppFoundation.ExtendedWebClient.GetWebRequest(System.Uri)">
+            <summary>
+            Override to set specified timeout.
+            </summary>
+            <param name="uri">URI</param>
+        </member>
+        <member name="T:WinAppFoundation.DownloadItem">
+            <summary>
+            Contains information of downloaded item.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DownloadItem.#ctor(System.String,System.String,System.String,System.Int64)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="urlFrom">URL to file to download</param>
+            <param name="targetFile">Name of the file on local file system</param>
+            <param name="checksum">Checksum for this file</param>
+            <param name="fileSize">File size</param>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.URLFrom">
+            <summary>
+            URL to file to download.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.TargetFile">
+            <summary>
+            Name of the file on local file system.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.ExpectedChecksum">
+            <summary>
+            Expected checksum of the file.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.ExpectedFileSize">
+            <summary>
+            Expected size of the file.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.Status">
+            <summary>
+            Current status
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.WebClient">
+            <summary>
+            Gets or sets the web client assigned to this item.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.Progress">
+            <summary>
+            Current progress in percent.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.ErrorMessage">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadItem.DownloadException">
+            <summary>
+            Exception occurred during download.
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.DownloadHelper">
+            <summary>
+            Download manager for downloading multiple items one-by-one or simultaneously.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.CalculateMD5(System.String,System.Int32)">
+            <summary>
+            Calculates MD5 hash for specified file.
+            </summary>
+            <param name="inputFile">Path to file</param>
+            <param name="bufferSize">Size of internal memory buffer used for MD5 calculation.</param>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.Download(System.String,System.String,System.String,System.Int64,WinAppFoundation.DownloadHelper.ItemDownloaded)">
+            <summary>
+            Starts downloading of specified file immediately.
+            </summary>
+            <param name="urlFrom">URL of the file to download</param>
+            <param name="targetFile">Name of the local file</param>
+            <param name="checksum">MD5 checksum (if specified, file will be checked after download)</param>
+            <param name="fileSize">File size (if specified, file size will be checked after download)</param>
+            <param name="onItemDownloaded">Occurs when downloading finished</param>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.Download(System.String,System.String,System.String,System.Int64)">
+            <summary>
+            Adds specified item to download list and starts downloading when ready.
+            </summary>
+            <param name="urlFrom">URL of the file to download</param>
+            <param name="targetFile">Name of the local file</param>
+            <param name="checksum">MD5 checksum (if specified, file will be checked after download)</param>
+            <param name="fileSize">File size (if specified, file size will be checked after download)</param>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.Cancel">
+            <summary>
+            Cancels all scheduled downloads.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.GetItem(System.String)">
+            <summary>
+            Returns info for item specified by target file name.
+            </summary>
+            <param name="targetFile">Target file name</param>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.Clear">
+            <summary>
+            Clears items list.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.FetchNext">
+            <summary>
+            Prepares next item to download and starts downloading.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.DownloadHelper.CheckDownloadedFile(WinAppFoundation.DownloadItem)">
+            <summary>
+            Checks file size and checksum of downloaded file.
+            </summary>
+            <param name="di">File information</param>
+        </member>
+        <member name="P:WinAppFoundation.DownloadHelper.DownloadItems">
+            <summary>
+            List of items to download including current progress and result.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadHelper.AllowSimultaneousDownload">
+            <summary>
+            Enables simultaneous download.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.DownloadHelper.IsBusy">
+            <summary>
+            Says whether some action is in progress.
+            </summary>
+        </member>
+        <member name="E:WinAppFoundation.DownloadHelper.OnItemDownloaded">
+            <summary>
+            Occurs when downloading has finished (or downloading has failed).
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.DownloadHelper.ItemDownloaded">
+            <summary>
+            Item downloaded delegate.
+            </summary>
+            <param name="downloadedItem">Info of downloaded item</param>
+        </member>
+        <member name="T:WinAppFoundation.DownloadStatusEnum">
+            <summary>
+            Download status states
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DownloadStatusEnum.NotDownloaded">
+            <summary>
+            Not downloaded
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DownloadStatusEnum.Downloaded">
+            <summary>
+            File has been downloaded
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DownloadStatusEnum.DownloadingFailed">
+            <summary>
+            Downloading failed
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DownloadStatusEnum.FileSizeCheckFailed">
+            <summary>
+            File size checking failed
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DownloadStatusEnum.ChecksumFailed">
+            <summary>
+            CRC checking failed
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DownloadStatusEnum.Downloading">
+            <summary>
+            File is being downloaded
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.DownloadStatusEnum.Canceled">
+            <summary>
+            Download has been canceled
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ProcessHelper">
+            <summary>
+            Helper class for creating and removing processes and services.
+            </summary>
+        </member>
+        <member name="F:WinAppFoundation.ProcessHelper.MAX_LENGTH">
+            <summary>
+            Maximum length of buffer that receives the result of calling WinAPI function.
+            </summary>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.#ctor(WinAppFoundation.IMessageLog)">
+            <summary>
+            Basic constructor.
+            </summary>
+            <param name="log">Logger</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.GetProcesses(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Returns list of processes running from given folder.
+            </summary>
+            <param name="folder">Folder containing running processes</param>
+            <param name="servicesDic">Installed services in the folder (optional)</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.UninstallService(System.String)">
+            <summary>
+            Uninstalls service.
+            </summary>
+            <param name="serviceName">Service name</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.ConfigServiceBinPath(System.String,System.String)">
+            <summary>
+            Modifies the value of a service's executable path.
+            </summary>
+            <param name="serviceName">Name of the service which should be modified</param>
+            <param name="newBinPath">Path to the service binary file</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.StartProcess(WinAppFoundation.ProcessEntry)">
+            <summary>
+            Starts process.
+            </summary>
+            <param name="process">Process entry to start</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.KillProcess(WinAppFoundation.ProcessEntry,System.Boolean)">
+            <summary>
+            Kills process.
+            </summary>
+            <param name="process">Process</param>
+            <param name="killServiceAsProcess">Indicates whether service will be killed as regular process.</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.KillProcesses(System.Collections.Generic.List{WinAppFoundation.ProcessEntry},System.Boolean)">
+            <summary>
+            Kills given processes.
+            </summary>
+            <param name="processList">List of processes to kill.</param>
+            <param name="killServiceAsProcess">Indicates whether service will be killed as regular process.</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.TranslateDeviceToDosDrive(System.String)">
+            <summary>
+            Translates device name path to drive letter path.
+            </summary>
+            <param name="devicePath">Path to file containing device name (e.g. '\Device\HarddiskVolume1\Windows\System32\svchost.exe')</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.GetPathToProcess(System.Int32)">
+            <summary>
+            Returns full path to process.
+            </summary>
+            <param name="processId">Process ID</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.LogMessage(System.String)">
+            <summary>
+            Logs event.
+            </summary>
+            <param name="msg">Event message.</param>
+        </member>
+        <member name="M:WinAppFoundation.ProcessHelper.LogError(System.String,System.Exception)">
+            <summary>
+            Logs error.
+            </summary>
+            <param name="msg">Error message.</param>
+            <param name="ex">Original exception.</param>
+        </member>
+        <member name="P:WinAppFoundation.ProcessHelper.DevicePaths">
+            <summary>
+            Device paths to drive letters translation table.
+            (key = dos drive letter (e.g. "C:"); value = device path ("\Device\Harddisk1").
+            </summary>
+        </member>
+        <member name="T:WinAppFoundation.ProcessEntry">
+            <summary>
+            Process information
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.ProcessEntry.Id">
+            <summary>
+            Process ID.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.ProcessEntry.ProcessName">
+            <summary>
+            Process name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.ProcessEntry.FileName">
+            <summary>
+            Process file name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.ProcessEntry.IsService">
+            <summary>
+            Flag indicates whether process is CMS service.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.ProcessEntry.ServiceName">
+            <summary>
+            CMS service name.
+            </summary>
+        </member>
+        <member name="P:WinAppFoundation.ProcessEntry.Arguments">
+            <summary>
+            Process command line arguments
+            </summary>
+        </member>
+    </members>
+</doc>

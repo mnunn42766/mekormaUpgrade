@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WinFormsFramework</name>
+    </assembly>
+    <members>
+        <member name="T:WinFormsFramework.ExtendedTreeView">
+            <summary>
+            Control disables tree node uncheck on double-click event.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.ExtendedTreeView.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Processes Windows messages.
+            </summary>
+            <param name="m">The Windows Message to process.</param>
+        </member>
+        <member name="T:WinFormsFramework.HeaderControl">
+            <summary>
+            Class representing header.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.HeaderControl.#ctor">
+            <summary>
+            Base constructor.
+            </summary>
+        </member>
+        <member name="F:WinFormsFramework.HeaderControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.HeaderControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WinFormsFramework.HeaderControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:WinFormsFramework.HeaderControl.lblTitle">
+            <summary>
+            Title label.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.HeaderControl.Text">
+            <summary>
+            Gets or sets text in the title label.
+            </summary>
+        </member>
+        <member name="T:WinFormsFramework.VersionDDList">
+            <summary>
+            .NET version selector.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.VersionDDList.InitSelector(WinAppFoundation.NETVersionEnum,WinAppFoundation.NETVersionEnum)">
+            <summary>
+            Initializes selector.
+            </summary>
+            <param name="preselected">Initial value</param>
+            <param name="minimalNETVersion">Minimal .NET version to display.</param>
+        </member>
+        <member name="M:WinFormsFramework.VersionDDList.GetSelectedItem">
+            <summary>
+            Returns selected .NET version.
+            </summary>
+        </member>
+        <member name="T:WinFormsFramework.VersionDDList.NETVersionItem">
+            <summary>
+            .NET version Item
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.VersionDDList.NETVersionItem.#ctor(WinAppFoundation.NETVersionEnum)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="netVersion">.NET version</param>
+        </member>
+        <member name="M:WinFormsFramework.VersionDDList.NETVersionItem.ToString">
+            <summary>
+            Gets string representation of .NET version item in combo box.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.VersionDDList.NETVersionItem.NETVersion">
+            <summary>
+            Gets .NET version
+            </summary>
+        </member>
+        <member name="T:WinFormsFramework.WizardFooterButtons">
+            <summary>
+            Control wrapping the footer buttons usually used by wizard forms.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.WizardFooterButtons.#ctor">
+            <summary>
+            Initializes the control.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.WizardFooterButtons.AsyncActionStart(System.Boolean)">
+            <summary>
+            Displays cancel button and hides close button.
+            </summary>
+            <param name="allowCancel">Indicates whether cancel button should be enabled</param>
+        </member>
+        <member name="M:WinFormsFramework.WizardFooterButtons.AsyncActionFinish">
+            <summary>
+            Displays close button and hides cancel button.
+            </summary>
+        </member>
+        <member name="F:WinFormsFramework.WizardFooterButtons.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.WizardFooterButtons.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:WinFormsFramework.WizardFooterButtons.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.WizardFooterButtons.ButtonBack">
+            <summary>
+            Button back
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.WizardFooterButtons.ButtonNext">
+            <summary>
+            Button next
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.WizardFooterButtons.ButtonClose">
+            <summary>
+            Button close, mutually exclusive with cancel button.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.WizardFooterButtons.ButtonCancel">
+            <summary>
+            Button cancel, mutually exclusive with close button.
+            </summary>
+        </member>
+        <member name="T:WinFormsFramework.ResHelper">
+            <summary>
+            Class providing resource translations.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.ResHelper.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.ResHelper.GetString(System.String,System.Object[])">
+            <summary>
+            Gets localized string from resource file.
+            </summary>
+            <param name="stringName">Codename of string</param>
+            <param name="args">An Object array containing zero or more objects to format</param>
+            <returns>Localized text</returns>
+        </member>
+        <member name="P:WinFormsFramework.ResHelper.CurrentResHelper">
+            <summary>
+            Current resource helper object.
+            </summary>
+        </member>
+        <member name="T:WinFormsFramework.TextBoxHelper">
+            <summary>
+            Helps working with text box.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.TextBoxHelper.SetTextToTextBox(System.Windows.Forms.TextBox,System.String)">
+            <summary>
+            Sets text to textbox (avoids block selection).
+            </summary>
+            <param name="box">Text box</param>
+            <param name="text">Text to set</param>
+        </member>
+        <member name="T:WinFormsFramework.InvokeHelper">
+            <summary>
+            Provides thread-safe option to invoke code influencing UI.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.InvokeHelper.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="control">Control upon which to invoke method(s)</param>
+        </member>
+        <member name="M:WinFormsFramework.InvokeHelper.InvokeMethod(System.Windows.Forms.MethodInvoker)">
+            <summary>
+            Thread-safe method invoker.
+            </summary>
+            <param name="methodInvoker">Method to invoke</param>
+        </member>
+        <member name="M:WinFormsFramework.InvokeHelper.Dispose">
+            <summary>
+            Disposes object.
+            </summary>
+        </member>
+        <member name="M:WinFormsFramework.InvokeHelper.Dispose(System.Boolean)">
+            <summary>
+            Disposes object.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.InvokeHelper.Control">
+            <summary>
+            Gets control upon which the methods are being invoked.
+            </summary>
+        </member>
+        <member name="T:WinFormsFramework.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.Properties.Resources.header_left">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:WinFormsFramework.Resources.Localization">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.Resources.Localization.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.Resources.Localization.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:WinFormsFramework.Resources.Localization.versiondlllist_pleaseselect">
+            <summary>
+              Looks up a localized string similar to (please select).
+            </summary>
+        </member>
+    </members>
+</doc>

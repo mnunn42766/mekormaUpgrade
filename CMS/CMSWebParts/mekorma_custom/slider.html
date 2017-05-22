@@ -1,0 +1,112 @@
+﻿<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.js"></script>
+<link href="~/CMSStyles/global.css" type="text/css" rel="stylesheet">
+<link href="~/CMSStyles/responsive_mobile.css" type="text/css" rel="stylesheet">
+<link href="~/CMSStyles/responsive_tablet.css" type="text/css" rel="stylesheet">
+<link href="~/CMSStyles/responsive_desktop.css" type="text/css" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div id="logo-section" class="container">
+    <div class="device-spacing">
+        <a class="logo" href="~/"><img src="~/App_Themes/SiteImages/mekorma_logo.png" alt="Mekorma Logo"></a>
+        <div class="hidden-mobile hidden-tablet" id="login-btn">Partner Login</div>
+    </div>
+</div>
+
+<div class="menu-collapse"></div>
+
+<div id="navmenu">
+    <div id="primary-nav" class="container">
+        <div id="quicklinks">
+            <ul>
+                <li class="link visible-desktop"><a href="~/License.aspx">Renew License</a></li>
+                <li class="link visible-desktop">|</li>
+                <li class="link visible-desktop"><a href="~/Demo.aspx">Request Demo</a></li>
+                <li class="link visible-desktop">|</li>
+                <li class="link visible-desktop"><a href="~/Download.aspx">Download Now</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main-nav">
+        <div class="navlinks container">
+            <ul>
+                <cms:cmswebpartzone zoneid="Nav" runat="server" class="nav" />
+                <cms:cmswebpartzone zoneid="search" runat="server" class="search" />
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div id="hero-section">
+    <cms:cmswebpartzone zoneid="hero" runat="server" class="content" />
+</div>
+
+
+<div id="body-section" class="container">
+    <div class="device-spacing">
+        <div id="middle-section">
+            <cms:cmswebpartzone zoneid="middle-section" runat="server" class="content" />
+        </div>
+    </div>
+</div>
+
+<div id="bottom-section">
+    <cms:cmswebpartzone zoneid="bottom-section" runat="server" class="content" />
+</div>
+
+<div id="footer">
+    <div class="container">
+        <div class="device-spacing">
+            <div id="stay-connected" class="right">
+                <p class="highlight-text">Stay Connected!</p>
+                <div id="emailDiv"><input type="text" placeholder="email address" name="email"><div id="emailsubmitbtn"></div></div>
+                <p class="clear">We respect your privacy.</p>
+                <div id="socialDiv">
+                    <div class="socialbtn" id="linkedinbtn"></div>
+                    <div class="socialbtn" id="youtubebtn"></div>
+                    <div class="footerphone">Phone: 888-MEKORMA</div>
+                </div>
+            </div>
+
+            <div id="links" class="left">
+                <div id="div-1">
+                    <div class="link-col" id="col-1">
+                        <p class="parent-link">Products</p>
+                        <p><a href="/MICR/Multi-Batch-Print-and-Post">Mekorma MICR</a></p>
+                        <p>Multi-Batch Print and Post</p>
+                        <p>Check Supplies</p>
+                    </div>
+                    <div class="link-col" id="col-2">
+                        <p class="parent-link">Support</p>
+                        <p>Community Forum</p>
+                        <p>User Guides & Manuals</p>
+                        <p>Contact Support</p>
+                        <p>Mekorma App</p>
+                    </div>
+                </div>
+                <div id="div-2">
+                    <div class="link-col" id="col-3">
+                        <p class="parent-link">About</p>
+                        <p class="parent-link">Contact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="copyright-section">
+    <div class="container">
+        <div class="device-spacing">
+            <ul>
+                <li>Mekorma All Rights Reserved © 2015</li>
+                <li class="link hidden-mobile">|</li>
+                <li><a href="~/terms-of-use.aspx">Terms of Use/Privacy</a></li>
+                <li class="link hidden-mobile">|</li>
+                <li>Site design by <a href="~/Download.aspx">TRAY Creative</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

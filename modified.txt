@@ -1,0 +1,6 @@
+Following files were deleted and previous custom modified files were renamed to files with the '.deleted' extension.
+C:\Users\Mike\Documents\mekormaUpgrade\CMS\favicon.ico
+Following files were copied into the target directory with the '.new' extension. Merge your custom changes into these files and remove the '.new' extensions afterwards.
+C:\Users\Mike\Documents\mekormaUpgrade\CMS\CMSModules\BizForms\FormControls\SelectBizForm.ascx.cs
+C:\Users\Mike\Documents\mekormaUpgrade\CMS\CMSResources\Hotfix.resx
+C:\Users\Mike\Documents\mekormaUpgrade\CMS\CMSWebParts\Viewers\Effects\ContentSlider.ascx.cs

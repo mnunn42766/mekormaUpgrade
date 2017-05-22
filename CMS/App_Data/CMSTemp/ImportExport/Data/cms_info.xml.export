@@ -1,0 +1,24 @@
+﻿<cms_info version="10.0">
+  <NewDataSet>
+    <cms_info>
+      <Key>currentuser</Key>
+      <Value>administrator</Value>
+    </cms_info>
+    <cms_info>
+      <Key>starttime</Key>
+      <Value>25.11.2016 15:17:12</Value>
+    </cms_info>
+    <cms_info>
+      <Key>systemversion</Key>
+      <Value>10.0.6174.20089</Value>
+    </cms_info>
+    <cms_info>
+      <Key>hotfixversion</Key>
+      <Value>0</Value>
+    </cms_info>
+    <cms_info>
+      <Key>webapplication</Key>
+      <Value>False</Value>
+    </cms_info>
+  </NewDataSet>
+</cms_info>
