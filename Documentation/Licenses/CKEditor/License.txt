@@ -1,0 +1,232 @@
+CKSource Closed Distribution License Agreement 
+
+Version 2.0, August 2009 
+
+This document ("Agreement") is a legal agreement between You, either an 
+individual or a Legal Entity, and CKSource – Frederico Knabben 
+("CKSource"), running business activity pursuant to registration by the 
+President of the Capital City of Warsaw under no. 429043, covering Your 
+permissions for use, reproduction and distribution of the Software under 
+the License terms defined hereby. 
+
+1. Definitions 
+
+"Agreement Name" shall mean the name used to reference this Agreement in 
+any context, which is "CKSource Closed Distribution License 2.0" or in 
+short "CKSource CDL 2.0". 
+
+"Software" shall mean the copyrighted material owned by CKSource, 
+subject to the terms of this License. The Software is publicly, uniquely 
+and in its entirety recognizable by a well known name ("Software Name"). 
+
+"Software Release" or "Release" shall mean a set of files distributed by 
+CKSource, or anyone authorized to distribute it, that represents the 
+Software. A Release is uniquely identified by the Software Name and a 
+code. The code is generally referenced as the Software version or 
+revision number, or the combination of both. 
+
+"Release Date" shall mean the day that CKSource started distributing a 
+Release. 
+
+"Legal Entity" shall mean the union of the acting entity and all other 
+entities that control, are controlled by, or are under common control 
+with that entity. For the purposes of this definition, "control" means 
+(i) the power, direct or indirect, to cause the direction or management 
+of such entity, whether by contract or otherwise, or (ii) ownership of 
+fifty percent (50%) or more of the outstanding shares, or (iii) 
+beneficial ownership of such entity. 
+
+"You" (or "Your") shall mean an individual or Legal Entity exercising 
+permissions granted by the License and accepting this Agreement. 
+
+"Product" shall mean a single computer program or one or more web sites 
+(i) owned by You, or (ii) to which the owner grants You the permission 
+to act in behalf of the owner for the purposes of this Agreement. A 
+computer program family or a group of computer programs does not 
+constitute a Product for the scope of this Agreement. A computer program 
+that goes in competition with the Software in the marketplace does not 
+constitute a valid Product for the scope of this Agreement. 
+
+"LGPL" shall mean the document publicly recognized as the GNU Lesser 
+General Public License, Version 2.1. The full text of the LGPL is 
+available in Appendix A. 
+
+"Hostname" shall mean a unique name by which a web site is reachable in 
+a network. This includes a web site IP address, but not limited to. (For 
+example, if a web site is reachable by the Internet address 
+"http://www.example.com/", the Hostname is "www.example.com") 
+
+2. Grant of License 
+
+Subject to the terms and conditions of the LGPL and this Agreement, 
+CKSource hereby grants to You, in one of the License Models described in 
+Section 4 a non-exclusive, perpetual, irrevocable, royalty free, 
+worldwide license to use, reproduce, modify and distribute a Software 
+Release in a collective work assembled with the Product. 
+
+2.1 Additional License Grants 
+
+a) The LGPL text doesn’t have to be distributed alongside with the 
+Product and no reference to it needs to be made; 
+
+b) The source code of the Software doesn’t have to be distributed 
+alongside with the Product; 
+
+c) No references to the Software or to CKSource must be done in any file 
+distributed with the Product; 
+
+d) You can remove any file from the Software when assembling it with the 
+Product; 
+
+e) The Product can be licensed under any license terms; 
+
+f) You’re not required to license modifications you make to the Software 
+under the LGPL license. 
+
+3. Conflict between the LGPL and this Agreement 
+
+Any term or condition expressed in the LGPL, which conflicts with terms 
+of this Agreement, are to be deleted, prevailing the later over the 
+former. 
+
+4. License Models 
+
+The Software may be assembled with the Product and redistributed in 
+respect of one and only one of the following models ("License Models") 
+at Your choice: 
+
+a) ("Web Site") Assembling the Software into a Product distributed as a 
+single web site ("Site"). 
+
+b) ("Corporate Web Sites") Assembling the Software in any number of 
+Sites owned or produced by You. Sites produced by third parties with 
+Software produced by You are not included in this License Model. 
+
+c) ("OEM") Assembling the Software with a single Product. 
+
+5. Agreement Acceptance 
+
+This Agreement is automatically accepted by both parties as long as You 
+are in possession of legal evidence ("Legal Evidence") that the 
+acceptance has taken place. The Legal Evidence can be represented by (i) 
+an agreement signed by You and CKSource stating the acceptance of this 
+Agreement or (ii) a valid purchase invoice, or fully paid order 
+confirmation, provided by CKSource and addressed to You. The Legal 
+Evidence must precisely indicate this Agreement Name, the Software Name, 
+the License Model You have chosen and the following restrictive 
+information, if applicable: 
+
+a) If You have chosen the Web Site License Model, the Site Hostname must 
+be indicated in the Legal Evidence. This Agreement will be valid for the 
+Software assembled with the Site publicized under the Site Hostname 
+only. Other Sites are excluded by this Agreement as long as a Legal 
+Evidence is not produced for each of these Sites. 
+
+b) If You have chosen the OEM License Model, the unique and well 
+recognizable name of Your Product ("Product Name") must be indicated in 
+the Legal Evidence. This Agreement will be valid for the Software 
+assembled with the Product recognizable by the Product Name, at the 
+moment of the purchase, only. This Agreement does not lose its validity 
+in the case the Product is renamed after the Legal Evidence production. 
+
+Legal Evidences may define further rights and limitations terms that are 
+not described in this Agreement. Any term present in the Agreement that 
+goes in conflict with the Legal Evidence terms are to be deleted or 
+amended. 
+
+Legal Evidences for different combinations of License Models, Sites and 
+Products will not restrict each other and will not interfere in the 
+rights granted to You by each of them. 
+
+Legal Evidences for the Web Site or OEM License Models are not 
+transferable to different Sites or Products. 
+
+6. Limitation on Releases 
+
+This agreement is valid for all Releases of the Software that have the 
+Release Date happening before the day calculated by adding 365 days to 
+the date the Legal Evidence has been made effective. 
+
+7. Support 
+
+Unless explicitly indicated in the Legal Evidence, CKSource is not 
+required to provide you any kind of support on any activity following 
+the acceptance of this Agreement, including, but not limited to, the 
+use, integration, description, documentation or training of the 
+Software. 
+
+8. Exclusions from this License Grant 
+
+Nothing in this Agreement shall be interpreted to prohibit CKSource from 
+licensing the Software under terms different from the LGPL or this 
+Agreement. No other promises and rights are conceded by CKSource other 
+than those expressly under this Agreement. 
+
+9. Reservation of Rights and Ownership 
+
+CKSource reserves all rights not expressly granted to You in this 
+Agreement. The Software is protected by copyright and other intellectual 
+property laws and treaties. CKSource owns the title, copyright, and 
+other intellectual property rights in the Software. The Software is 
+licensed, not sold. This Agreement does not grant you any rights to 
+trademarks or service the Software marks. 
+
+10. Termination 
+
+Without prejudice to any other rights, this Agreement automatically 
+terminates if you fail to comply with the terms and conditions of this 
+Agreement. You may terminate this Agreement at any time without cause. 
+In case of termination, in any circumstance, payments issued by You will 
+not be reimbursed. 
+
+11. Warranty 
+
+CKSource warrants that he has full title and ownership to the Software 
+and has the authority to grant the license hereunder. To the best of 
+CKSource's knowledge the Software does not infringe upon the 
+intellectual property rights of any third party and that he did not 
+receive any notice regarding any alleged infringement thereof. 
+
+12. Disclaimer of Warranties 
+
+With the exclusion of warranties explicitly mentioned in Section 11, the 
+Software and its related material are provided "AS IS" and without 
+warranty of any kind and CKSource expressly disclaims all other 
+warranties, expressed or implied, including, but not limited to, the 
+implied warranties of merchantability and fitness for a particular 
+purpose. 
+
+13. Exclusion of Incidental, Consequential and Certain Other Damages 
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL 
+CKSOURCE BE LIABLE FOR ANY SPECIAL, INCIDENTAL, PUNITIVE, INDIRECT, OR 
+CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, BUT NOT LIMITED TO, DAMAGES 
+FOR LOSS OF PROFITS OR CONFIDENTIAL OR OTHER INFORMATION, FOR BUSINESS 
+INTERRUPTION, FOR PERSONAL INJURY, FOR LOSS OF PRIVACY, FOR FAILURE TO 
+MEET ANY DUTY INCLUDING OF GOOD FAITH OR OF REASONABLE CARE, FOR 
+NEGLIGENCE, AND FOR ANY OTHER PECUNIARY OR OTHER LOSS WHATSOEVER) 
+ARISING OUT OF OR IN ANY WAY RELATED TO THE USE OF OR INABILITY TO USE 
+THE SOFTWARE, THE PROVISION OF OR FAILURE TO PROVIDE SUPPORT OR OTHER 
+SERVICES, INFORMATON, SOFTWARE, AND RELATED CONTENT THROUGH THE SOFTWARE 
+OR OTHERWISE ARISING OUT OF THE USE OF THE SOFTWARE, OR OTHERWISE UNDER 
+OR IN CONNECTION WITH ANY PROVISION OF THIS EULA, EVEN IN THE EVENT OF 
+THE FAULT, TORT (INCLUDING NEGLIGENCE), MISREPRESENTATION, STRICT 
+LIABILITY, BREACH OF CONTRACT, AND EVEN IF THE OWNER HAS BEEN ADVISED OF 
+THE POSSIBILITY OF SUCH DAMAGES. 
+
+14. Limitation of Liability 
+
+In no event shall CKSource's liability exceed the license fee paid, if 
+any. 
+
+15. Governing Law and Venue 
+
+This Agreement shall be construed and controlled by the laws of Poland, 
+and You and CKSource further consent to exclusive jurisdiction by the 
+courts of Poland. 
+
+Appendix A 
+
+The complete text of the LGPL license can be found online at the 
+following URL: http://www.opensource.org/licenses/lgpl-2.1.php 
+

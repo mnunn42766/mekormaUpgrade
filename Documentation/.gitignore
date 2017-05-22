@@ -1,0 +1,12 @@
+CRMClient/CRMClient/bin/
+CRMClient/CRMClient/obj/
+UnitTests/bin/
+UnitTests/obj/
+CRMClient/BusinessEntities/bin/
+CRMClient/BusinessEntities/obj/
+BusinessEntities/bin/
+BusinessEntities/obj/
+*.log
+CMS/obj/
+Mekorma.v12.suo
+packages/

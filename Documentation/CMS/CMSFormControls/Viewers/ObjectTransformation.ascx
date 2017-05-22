@@ -1,0 +1,2 @@
+<%@ Control Language="C#" AutoEventWireup="true"  CodeFile="ObjectTransformation.ascx.cs" Inherits="CMSFormControls_Viewers_ObjectTransformation" %>
+<cms:ObjectTransformation ID="objTrans" runat="server"  />

@@ -1,0 +1,412 @@
+﻿@media (min-width: 768px) and (max-width: 1023px) {
+
+    .hidden-desktop {
+        display: block;
+    }
+
+    .hidden-tablet {
+        display: none !important;
+    }
+
+    .hidden-mobile {
+        display: block;
+    }
+
+    .visible-desktop {
+        display: none;
+    }
+
+    .visible-tablet {
+        display: block;
+    }
+
+    .visible-mobile {
+        display: none;
+    }
+    
+    .no-pad {
+        padding-top:0 !important;
+        padding-bottom:0 !important;
+    }
+
+    .no-margin {
+        margin-top:0 !important;
+        margin-bottom:0 !important;
+    }
+
+
+    .no-pad-desktop {
+        padding: initial !important;
+        margin: initial !important;
+    }
+
+    .menu-collapse {
+        top: 40px;
+        display: block;
+        padding-right:2%;
+    }
+
+    .highlight-text {
+        font-size: 37px;
+    }
+
+    .highlight-text2 {
+        font-size: 25px;
+    }
+
+    .highlight-quote-text {
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+
+    h2 {
+        font-size: 27px;
+    }
+
+    h3 {
+        font-size: 30px;
+        line-height: 33px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .device-spacing {
+        overflow: hidden;
+        padding: 0 2%;
+    }
+
+    .logo {
+        padding: 0 0 25px 0;
+        width: 100%;
+    }
+
+    .partner-mobile {
+        margin-left: 0;
+    }
+
+    #navmenu {
+        display: none;
+    }
+
+    #main-nav {
+        border: none;
+    }
+
+    #primary-nav {
+        display: none;
+    }
+
+    .navlinks {
+        width: 102%;
+        margin-left: -1px;
+    }
+
+        .navlinks > ul {
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .navlinks li.parent-link {
+            width: 49%;
+            border-top:solid 1px #000;
+            text-align: left;
+            height: auto;
+            padding: 2px 0 0 0;
+        }
+
+
+       .navlinks li.parent-link ul {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background-color: #fff;
+        border-right: 1px #58585b solid;
+        margin-top: 0;
+    }
+
+            .navlinks li.parent-link:hover {
+                background-color: #329946;
+            }
+
+
+            .navlinks li.parent-link a {
+                padding-left: 3%;
+                font-size: 20px;
+                line-height: 33px;
+            }
+
+            .navlinks li.parent-link:hover a {
+                color: #fff;
+                cursor:pointer;
+            }
+
+
+     ul li.child-link {
+        background-color: #329946;
+    }
+        ul li.child-link:hover {
+            background-color: #fff;
+        }
+
+
+            .navlinks li.parent-link ul li.child-link:hover a {
+                color:#329946;
+                cursor:pointer;
+            }
+
+
+            .navlinks li.parent-link ul li.child-link a {
+                padding:15px 0px 15px 3%;
+                font-family: LatoRegular;
+                font-size: 15px;
+                line-height: normal;
+                color: #fff;
+                height:100%;
+                width:100%;
+            }
+
+ 
+        .navlinks li.haschildren > a::after {
+            margin-top: 14px;
+        }
+            
+  
+    #searchbox-div {
+        width: 97%;
+        max-width: 97%;
+        padding: 5px 0 6px 1%;
+        border-left: 1px #58585b solid;
+    }
+
+    .searchbox {
+        width: 93%;
+        padding-left: 5px;
+        padding-top: 13px;
+    }
+
+    .searchsubmit {
+        width: 30px;
+        height: 30px;
+        margin-top: 6px;
+        margin-left: 0;
+        right: 2%;
+        position: relative;
+        float: right;
+    }
+    
+    .mobileHeroBorder
+    {
+          border-top: 1px solid #000 !important;
+    }
+    
+    li.item {
+        width:50%;
+        font-size:27px;
+        padding:17px 0;
+    }
+    /***********KENTICO CONTENT SLIDER*************/
+    .slider-button {
+        padding: 7px 0px;
+        width: 222px;
+    }
+
+        .slider-button a {
+            font-size: 25px;
+        }
+
+    .Slider .Content, .Slider .ContentPage {
+        height: 310px !important;
+    }
+
+    .Slider .slide {
+        height: 309px;
+        background-size: 1200px 309px;
+    }
+
+        .Slider .slide .html {
+            width: 50%;
+            top: 48px;
+        }
+
+            .Slider .slide .html h3 {
+                font-size: 33px;
+                line-height: 36px;
+            }
+
+        .Slider .slide.left-orientation{
+            background-position: 33% center;
+        }
+            .Slider .slide.left-orientation .html {
+                left: 25%;
+            }
+
+        .Slider .slide.right-orientation {
+            background-position: 70% center;
+        }
+            .Slider .slide.right-orientation .html {
+                right: 20%;
+            }
+
+    /***********END KENTICO CONTENT SLIDER*************/
+    .sponsor-section .left img {
+        width: 273px;
+    }
+
+    .sponsor-section .right img {
+        width: 148px;
+    }
+
+
+    #footer #emailDiv input[type='text'] {
+        width: 84%;
+        margin-right: 2%;
+    }
+
+    #footer #links {
+        width: 50%;
+        float: left;
+    }
+
+        #footer #links #div-1 {
+            width: 100%;
+            overflow: hidden;
+        }
+
+    .link-col {
+        width: 48%;
+        margin-right: 2%;
+        float: left;
+    }
+
+
+
+
+    #footer #links #div-2 {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    #footer #stay-connected {
+        width: 50%;
+        padding-left: 0;
+    }
+
+ 
+
+    .partner-slider .logo-box {
+        height: 148px;
+        width:155px !important;
+    }
+
+    #partner-prev, #partner-next {
+        margin-top: 90px;
+    }
+
+    .rotator-prev, .rotator-next {
+        width: 30px;
+        height: 55px;
+    }
+
+    .rotator-prev {
+        left: 1% !important;
+    }
+
+    .rotator-next {
+        right: 1% !important;
+    }
+
+    #micr-content-img {
+        width: 250px;
+        right: 0;
+        margin-top: 235px;
+    }
+    
+    img.micr-checks,
+    img.micr-signature,
+    img.micr-passwords {
+        width: 80%;
+    }
+
+
+    img.micr-signature {
+        margin-bottom: 43px;
+    }
+
+    img.micr-passwords {
+        margin-bottom: 40px;
+        margin-left: 20px;
+    }
+
+    .link-buttons .button {
+        padding: 8px 0px 0 0;
+        width: 171px;
+        height: 33px;
+        margin-right: 1%;
+    }
+
+        .link-buttons .button:last-child {
+            margin-right: 0 !important;
+        }
+
+        .link-buttons .button a {
+            font-size: 13px;
+            line-height: 13px;
+            letter-spacing: 1px;
+        }
+
+
+    .micr-header {
+    background-image: url('/Images/header_micr_mobile.aspx');
+}
+
+.mpp-header {
+    background-image: url('/Images/header_multi_batch_mobile.aspx');
+}
+
+    .mem-header h2,
+	.winthrop-header h2{
+        margin-left: 45%;
+    }
+    .mem-header p,
+	.winthrop-header p{
+        margin-left: 45%;
+    }
+
+.mem-header ,
+.winthrop-header{    
+    background-position: 33% center;
+}
+
+.check-header {
+    background-image: url('/Images/header_checks_mobile.aspx');
+}
+
+    .micr-header h2,
+    .mpp-header h2,
+    .check-header h2,
+    .download-header h2 {
+        max-width: 450px;
+    }
+
+	
+	.mk-forms .form-field{
+	width:45%;
+	margin-right:10px;
+	}
+
+    .lady-doctor-image {
+        margin-top: -25px;
+        top: 0;
+    }
+
+    .video-container {
+    width:360px;
+    height:240px;
+    margin:0px 15px;
+}
+    
+}
